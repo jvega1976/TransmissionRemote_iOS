@@ -1,0 +1,843 @@
+
+/* Class = "UILabel"; text = "Piece is available"; ObjectID = "09h-DR-gRQ"; */
+"09h-DR-gRQ.text" = "Piece is available";
+
+/* Class = "UIViewController"; title = "Trackers"; ObjectID = "0cq-m4-dtw"; */
+"0cq-m4-dtw.title" = "Trackers";
+
+/* Class = "UILabel"; text = "Total Torrents:"; ObjectID = "0qZ-2g-MHQ"; */
+"0qZ-2g-MHQ.text" = "Total Torrents:";
+
+/* Class = "UILabel"; text = "Start download after add"; ObjectID = "0uj-Qh-YPe"; */
+"0uj-Qh-YPe.text" = "Start download after add";
+
+/* Class = "UILabel"; text = "326 KB/s"; ObjectID = "155-wH-ah2"; */
+"155-wH-ah2.text" = "326 KB/s";
+
+/* Class = "UILabel"; text = "D -"; ObjectID = "19n-PV-bo8"; */
+"19n-PV-bo8.text" = "D -";
+
+/* Class = "UILabel"; text = "Completed"; ObjectID = "1fx-La-5SZ"; */
+"1fx-La-5SZ.text" = "Completed";
+
+/* Class = "UITextView"; text = "-"; ObjectID = "1qU-XE-8Qp"; */
+"1qU-XE-8Qp.text" = "-";
+
+/* Class = "UIBarButtonItem"; title = "Filter"; ObjectID = "1qY-JN-7rx"; */
+"1qY-JN-7rx.title" = "Filter";
+
+/* Class = "UILabel"; text = "Add \".part\" to unfinished files"; ObjectID = "1sF-Fc-vIB"; */
+"1sF-Fc-vIB.text" = "Add \".part\" to unfinished files";
+
+/* Class = "UILabel"; text = "Optimistic unchoke"; ObjectID = "24k-cZ-3Vh"; */
+"24k-cZ-3Vh.text" = "Optimistic unchoke";
+
+/* Class = "UILabel"; text = "Bytes Downloaded:"; ObjectID = "2Cv-f0-ole"; */
+"2Cv-f0-ole.text" = "Bytes Downloaded:";
+
+/* Class = "UILabel"; text = "Speed"; ObjectID = "2Kh-Vl-QtW"; */
+"2Kh-Vl-QtW.text" = "Speed";
+
+/* Class = "UILabel"; text = "2739"; ObjectID = "2xk-N6-59j"; */
+"2xk-N6-59j.text" = "2739";
+
+/* Class = "UILabel"; text = "Upload limit (Kb/s)"; ObjectID = "30y-Qa-peY"; */
+"30y-Qa-peY.text" = "Upload limit (Kb/s)";
+
+/* Class = "UITableViewSection"; headerTitle = "General"; ObjectID = "3Ly-GJ-3QA"; */
+"3Ly-GJ-3QA.headerTitle" = "General";
+
+/* Class = "UILabel"; text = "Country Name"; ObjectID = "3Vx-Ki-RxR"; */
+"3Vx-Ki-RxR.text" = "Country Name";
+
+/* Class = "UIBarButtonItem"; title = "Pause"; ObjectID = "3bh-rv-cxV"; */
+"3bh-rv-cxV.title" = "Pause";
+
+/* Class = "UILabel"; text = "Peers"; ObjectID = "3cO-ea-AEP"; */
+"3cO-ea-AEP.text" = "Peers";
+
+/* Class = "UILabel"; text = "Tracker peers"; ObjectID = "3yV-ht-rD7"; */
+"3yV-ht-rD7.text" = "Tracker peers";
+
+/* Class = "UILabel"; text = "Rows:"; ObjectID = "4ue-0b-scP"; */
+"4ue-0b-scP.text" = "Rows:";
+
+/* Class = "UILabel"; text = "Time to:"; ObjectID = "50W-Cc-As5"; */
+"50W-Cc-As5.text" = "Time to:";
+
+/* Class = "UILabel"; text = "-"; ObjectID = "5GD-jQ-l7L"; */
+"5GD-jQ-l7L.text" = "-";
+
+/* Class = "UILabel"; text = "u -"; ObjectID = "5cj-Oe-9ue"; */
+"5cj-Oe-9ue.text" = "u -";
+
+/* Class = "UITextField"; placeholder = "type your name"; ObjectID = "5vq-Yi-Ka6"; */
+"5vq-Yi-Ka6.placeholder" = "type your name";
+
+/* Class = "UILabel"; text = "Sessions:"; ObjectID = "664-fd-O0r"; */
+"664-fd-O0r.text" = "Sessions:";
+
+/* Class = "UILabel"; text = "Downloaded"; ObjectID = "68e-Tt-U6k"; */
+"68e-Tt-U6k.text" = "Downloaded";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "6NW-18-LXj"; */
+"6NW-18-LXj.text" = "Label";
+
+/* Class = "UIBarButtonItem"; title = "Search"; ObjectID = "6Sp-Nr-x3q"; */
+"6Sp-Nr-x3q.title" = "Search";
+
+/* Class = "UILabel"; text = "Active Time:"; ObjectID = "6pT-BR-sz5"; */
+"6pT-BR-sz5.text" = "Active Time:";
+
+/* Class = "UISegmentedControl"; 70y-Ba-W5Q.segmentTitles[0] = "Low"; ObjectID = "70y-Ba-W5Q"; */
+"70y-Ba-W5Q.segmentTitles[0]" = "Low";
+
+/* Class = "UISegmentedControl"; 70y-Ba-W5Q.segmentTitles[1] = "Normal"; ObjectID = "70y-Ba-W5Q"; */
+"70y-Ba-W5Q.segmentTitles[1]" = "Normal";
+
+/* Class = "UISegmentedControl"; 70y-Ba-W5Q.segmentTitles[2] = "High"; ObjectID = "70y-Ba-W5Q"; */
+"70y-Ba-W5Q.segmentTitles[2]" = "High";
+
+/* Class = "UILabel"; text = "Use random port on start"; ObjectID = "7GT-yG-C46"; */
+"7GT-yG-C46.text" = "Use random port on start";
+
+/* Class = "UILabel"; text = "Progress"; ObjectID = "7ZU-Kg-FFg"; */
+"7ZU-Kg-FFg.text" = "Progress";
+
+/* Class = "UITableViewController"; title = "Server"; ObjectID = "7bK-jq-Zjz"; */
+"7bK-jq-Zjz.title" = "Server";
+
+/* Class = "UILabel"; text = "-"; ObjectID = "8en-lK-L3C"; */
+"8en-lK-L3C.text" = "-";
+
+/* Class = "UILabel"; text = "Refresh (s)"; ObjectID = "8fw-dI-Ocb"; */
+"8fw-dI-Ocb.text" = "Refresh (s)";
+
+/* Class = "UITextField"; placeholder = "50"; ObjectID = "8md-9C-XCk"; */
+"8md-9C-XCk.placeholder" = "50";
+
+/* Class = "UISegmentedControl"; 937-Qz-pcs.segmentTitles[0] = "Low"; ObjectID = "937-Qz-pcs"; */
+"937-Qz-pcs.segmentTitles[0]" = "Low";
+
+/* Class = "UISegmentedControl"; 937-Qz-pcs.segmentTitles[1] = "Normal"; ObjectID = "937-Qz-pcs"; */
+"937-Qz-pcs.segmentTitles[1]" = "Normal";
+
+/* Class = "UISegmentedControl"; 937-Qz-pcs.segmentTitles[2] = "High"; ObjectID = "937-Qz-pcs"; */
+"937-Qz-pcs.segmentTitles[2]" = "High";
+
+/* Class = "UILabel"; text = "-"; ObjectID = "9kq-vI-Avt"; */
+"9kq-vI-Avt.text" = "-";
+
+/* Class = "UILabel"; text = "T -"; ObjectID = "9l3-EF-bgs"; */
+"9l3-EF-bgs.text" = "T -";
+
+/* Class = "UILabel"; text = "586 GB"; ObjectID = "9m8-Fr-dpK"; */
+"9m8-Fr-dpK.text" = "586 GB";
+
+/* Class = "UILabel"; text = "Uploading to peer"; ObjectID = "9wf-Zy-0oQ"; */
+"9wf-Zy-0oQ.text" = "Uploading to peer";
+
+/* Class = "UITableViewSection"; headerTitle = "Seeding limits"; ObjectID = "9zc-6N-Zug"; */
+"9zc-6N-Zug.headerTitle" = "Seeding limits";
+
+/* Class = "UILabel"; text = "ServerURL"; ObjectID = "AN2-v9-3LN"; */
+"AN2-v9-3LN.text" = "ServerURL";
+
+/* Class = "UILabel"; text = "Schedule time/day"; ObjectID = "ARC-kk-AyS"; */
+"ARC-kk-AyS.text" = "Schedule time/day";
+
+/* Class = "UILabel"; text = "Next scrape announce time"; ObjectID = "Acw-Sj-SaJ"; */
+"Acw-Sj-SaJ.text" = "Next scrape announce time";
+
+/* Class = "UITextField"; placeholder = "name your server"; ObjectID = "Ax5-7X-hB3"; */
+"Ax5-7X-hB3.placeholder" = "name your server";
+
+/* Class = "UITextField"; placeholder = "1.5"; ObjectID = "Bir-yH-myC"; */
+"Bir-yH-myC.placeholder" = "1.5";
+
+/* Class = "UITableViewSection"; headerTitle = "Speed"; ObjectID = "Bsc-SC-3lC"; */
+"Bsc-SC-3lC.headerTitle" = "Speed";
+
+/* Class = "UILabel"; text = "305 GB"; ObjectID = "C2s-rx-r1L"; */
+"C2s-rx-r1L.text" = "305 GB";
+
+/* Class = "UIBarButtonItem"; title = "ResumeNow"; ObjectID = "C7k-88-xQi"; */
+"C7k-88-xQi.title" = "ResumeNow";
+
+/* Class = "UILabel"; text = "Pieces Count:"; ObjectID = "CJH-l5-YZ5"; */
+"CJH-l5-YZ5.text" = "Pieces Count:";
+
+/* Class = "UILabel"; text = "Seed ratio limit"; ObjectID = "CUH-Ub-uFa"; */
+"CUH-Ub-uFa.text" = "Seed ratio limit";
+
+/* Class = "UILabel"; text = "DL: 2.3 Mb/s"; ObjectID = "DB6-aF-5D5"; */
+"DB6-aF-5D5.text" = "DL: 2.3 Mb/s";
+
+/* Class = "UILabel"; text = "U -"; ObjectID = "DLN-yG-ulT"; */
+"DLN-yG-ulT.text" = "U -";
+
+/* Class = "UILabel"; text = "Downloading from this peer"; ObjectID = "DLZ-2Y-mGt"; */
+"DLZ-2Y-mGt.text" = "Downloading from this peer";
+
+/* Class = "UILabel"; text = "Stop seeding if torrent idle  is more than (min)"; ObjectID = "DLi-dk-Kyh"; */
+"DLi-dk-Kyh.text" = "Stop seeding if torrent idle  is more than (min)";
+
+/* Class = "UITextField"; placeholder = "Kb/s"; ObjectID = "DUV-mX-8BH"; */
+"DUV-mX-8BH.placeholder" = "Kb/s";
+
+/* Class = "UILabel"; text = "Country"; ObjectID = "Dav-dR-Ihh"; */
+"Dav-dR-Ihh.text" = "Country";
+
+/* Class = "UITableViewSection"; headerTitle = "RPC Settings"; ObjectID = "DjC-VF-byh"; */
+"DjC-VF-byh.headerTitle" = "RPC Settings";
+
+/* Class = "UILabel"; text = "Flags"; ObjectID = "Dry-zr-qL8"; */
+"Dry-zr-qL8.text" = "Flags";
+
+/* Class = "UITableViewSection"; headerTitle = "Global rate limits"; ObjectID = "Dt4-M8-8KJ"; */
+"Dt4-M8-8KJ.headerTitle" = "Global rate limits";
+
+/* Class = "UILabel"; text = "Client"; ObjectID = "DtG-lv-rhA"; */
+"DtG-lv-rhA.text" = "Client";
+
+/* Class = "UILabel"; text = "LPD peers"; ObjectID = "E4L-Fz-avl"; */
+"E4L-Fz-avl.text" = "LPD peers";
+
+/* Class = "UILabel"; text = "Seeders"; ObjectID = "EUG-YR-HOX"; */
+"EUG-YR-HOX.text" = "Seeders";
+
+/* Class = "UILabel"; text = "Encrypted Connection"; ObjectID = "Eaw-8s-xFU"; */
+"Eaw-8s-xFU.text" = "Encrypted Connection";
+
+/* Class = "UILabel"; text = "Bytes Uploaded:"; ObjectID = "Ed6-vM-cqT"; */
+"Ed6-vM-cqT.text" = "Bytes Uploaded:";
+
+/* Class = "UIBarButtonItem"; title = "PauseAll"; ObjectID = "EtG-m4-QQq"; */
+"EtG-m4-QQq.title" = "PauseAll";
+
+/* Class = "UILabel"; text = "We unchoked this peer, but they're not interested"; ObjectID = "FIA-98-jl3"; */
+"FIA-98-jl3.text" = "We unchoked this peer, but they're not interested";
+
+/* Class = "UIBarButtonItem"; title = "Remove"; ObjectID = "FN1-tL-5Qk"; */
+"FN1-tL-5Qk.title" = "Remove";
+
+/* Class = "UITextField"; placeholder = "60"; ObjectID = "Fdo-da-HhN"; */
+"Fdo-da-HhN.placeholder" = "60";
+
+/* Class = "UITableViewSection"; headerTitle = "Security Settings"; ObjectID = "FrD-7N-Scg"; */
+"FrD-7N-Scg.headerTitle" = "Security Settings";
+
+/* Class = "UILabel"; text = "Bandwidth priority"; ObjectID = "GIO-OU-tp9"; */
+"GIO-OU-tp9.text" = "Bandwidth priority";
+
+/* Class = "UISegmentedControl"; Gkl-MP-d22.segmentTitles[0] = "All"; ObjectID = "Gkl-MP-d22"; */
+"Gkl-MP-d22.segmentTitles[0]" = "All";
+
+/* Class = "UISegmentedControl"; Gkl-MP-d22.segmentTitles[1] = "Downloading"; ObjectID = "Gkl-MP-d22"; */
+"Gkl-MP-d22.segmentTitles[1]" = "Downloading";
+
+/* Class = "UISegmentedControl"; Gkl-MP-d22.segmentTitles[2] = "Seeding"; ObjectID = "Gkl-MP-d22"; */
+"Gkl-MP-d22.segmentTitles[2]" = "Seeding";
+
+/* Class = "UISegmentedControl"; Gkl-MP-d22.segmentTitles[3] = "Active"; ObjectID = "Gkl-MP-d22"; */
+"Gkl-MP-d22.segmentTitles[3]" = "Active";
+
+/* Class = "UISegmentedControl"; Gkl-MP-d22.segmentTitles[4] = "Waiting"; ObjectID = "Gkl-MP-d22"; */
+"Gkl-MP-d22.segmentTitles[4]" = "Waiting";
+
+/* Class = "UISegmentedControl"; Gkl-MP-d22.segmentTitles[5] = "Paused"; ObjectID = "Gkl-MP-d22"; */
+"Gkl-MP-d22.segmentTitles[5]" = "Paused";
+
+/* Class = "UISegmentedControl"; Gkl-MP-d22.segmentTitles[6] = "Error"; ObjectID = "Gkl-MP-d22"; */
+"Gkl-MP-d22.segmentTitles[6]" = "Error";
+
+/* Class = "UISegmentedControl"; Gkl-MP-d22.segmentTitles[7] = "Verifying"; ObjectID = "Gkl-MP-d22"; */
+"Gkl-MP-d22.segmentTitles[7]" = "Verifying";
+
+/* Class = "UISegmentedControl"; Gkl-MP-d22.segmentTitles[8] = "Completed"; ObjectID = "Gkl-MP-d22"; */
+"Gkl-MP-d22.segmentTitles[8]" = "Completed";
+
+/* Class = "UILabel"; text = "Have (%)"; ObjectID = "GvC-9j-oa9"; */
+"GvC-9j-oa9.text" = "Have (%)";
+
+/* Class = "UITableViewSection"; headerTitle = "Current"; ObjectID = "HLz-uh-dAs"; */
+"HLz-uh-dAs.headerTitle" = "Current";
+
+/* Class = "UITableViewSection"; headerTitle = "Port settings"; ObjectID = "HSu-sg-8AS"; */
+"HSu-sg-8AS.headerTitle" = "Port settings";
+
+/* Class = "UILabel"; text = "7mo 5h 31m"; ObjectID = "HSv-52-yGP"; */
+"HSv-52-yGP.text" = "7mo 5h 31m";
+
+/* Class = "UILabel"; text = "Peer was discovered through Distributed Hash Table (DHT)"; ObjectID = "I7x-Uz-FCq"; */
+"I7x-Uz-FCq.text" = "Peer was discovered through Distributed Hash Table (DHT)";
+
+/* Class = "UILabel"; text = "Title"; ObjectID = "IM3-II-oSj"; */
+"IM3-II-oSj.text" = "Title";
+
+/* Class = "UILabel"; text = "Chache peers"; ObjectID = "IYm-R6-5Zj"; */
+"IYm-R6-5Zj.text" = "Chache peers";
+
+/* Class = "UILabel"; text = "Time from:"; ObjectID = "Iu8-kv-hxe"; */
+"Iu8-kv-hxe.text" = "Time from:";
+
+/* Class = "UILabel"; text = "Enable DHT (Distibuted Hash Table)"; ObjectID = "IvY-EA-qh9"; */
+"IvY-EA-qh9.text" = "Enable DHT (Distibuted Hash Table)";
+
+/* Class = "UITextField"; placeholder = "Kb/s"; ObjectID = "J0n-LR-J0c"; */
+"J0n-LR-J0c.placeholder" = "Kb/s";
+
+/* Class = "UILabel"; text = "Queue positon"; ObjectID = "JEp-ec-Z7u"; */
+"JEp-ec-Z7u.text" = "Queue positon";
+
+/* Class = "UILabel"; text = "? -"; ObjectID = "JMg-2D-aYO"; */
+"JMg-2D-aYO.text" = "? -";
+
+/* Class = "UILabel"; text = "Tracker Host"; ObjectID = "JdW-YV-RMA"; */
+"JdW-YV-RMA.text" = "Tracker Host";
+
+/* Class = "UILabel"; text = "Next announce time"; ObjectID = "Jla-b4-tuj"; */
+"Jla-b4-tuj.text" = "Next announce time";
+
+/* Class = "UILabel"; text = "24"; ObjectID = "Jz8-1c-Kzx"; */
+"Jz8-1c-Kzx.text" = "24";
+
+/* Class = "UILabel"; text = "Show free space"; ObjectID = "KoY-Nb-Kl0"; */
+"KoY-Nb-Kl0.text" = "Show free space";
+
+/* Class = "UILabel"; text = "Leechers"; ObjectID = "L5L-RG-74X"; */
+"L5L-RG-74X.text" = "Leechers";
+
+/* Class = "UILabel"; text = "100%"; ObjectID = "LHN-hC-sg0"; */
+"LHN-hC-sg0.text" = "100%";
+
+/* Class = "UILabel"; text = "-"; ObjectID = "Ld5-lv-WTB"; */
+"Ld5-lv-WTB.text" = "-";
+
+/* Class = "UILabel"; text = "Password"; ObjectID = "Led-Tt-3vQ"; */
+"Led-Tt-3vQ.text" = "Password";
+
+/* Class = "UIBarButtonItem"; title = "Search"; ObjectID = "LfN-z3-7qn"; */
+"LfN-z3-7qn.title" = "Search";
+
+/* Class = "UIBarButtonItem"; title = "Verify"; ObjectID = "LqB-Oh-ueq"; */
+"LqB-Oh-ueq.title" = "Verify";
+
+/* Class = "UILabel"; text = "We would upload to this peer if they'd ask"; ObjectID = "LtJ-yT-8sP"; */
+"LtJ-yT-8sP.text" = "We would upload to this peer if they'd ask";
+
+/* Class = "UILabel"; text = "Host or IP"; ObjectID = "MHo-kN-6jc"; */
+"MHo-kN-6jc.text" = "Host or IP";
+
+/* Class = "UILabel"; text = "-"; ObjectID = "Mcm-ML-jsI"; */
+"Mcm-ML-jsI.text" = "-";
+
+/* Class = "UILabel"; text = "State"; ObjectID = "Mee-68-RsB"; */
+"Mee-68-RsB.text" = "State";
+
+/* Class = "UILabel"; text = "6378"; ObjectID = "Mgq-3x-fr9"; */
+"Mgq-3x-fr9.text" = "6378";
+
+/* Class = "UILabel"; text = "FLAGS DESCRIPTION:"; ObjectID = "NF1-wf-47J"; */
+"NF1-wf-47J.text" = "FLAGS DESCRIPTION:";
+
+/* Class = "UITableViewSection"; headerTitle = "Cummulative"; ObjectID = "NF5-KF-Qzn"; */
+"NF5-KF-Qzn.headerTitle" = "Cummulative";
+
+/* Class = "UILabel"; text = "Have"; ObjectID = "NHJ-Ns-Iu8"; */
+"NHJ-Ns-Iu8.text" = "Have";
+
+/* Class = "UITextField"; placeholder = "9091"; ObjectID = "NI7-8n-68J"; */
+"NI7-8n-68J.placeholder" = "9091";
+
+/* Class = "UITextField"; text = "9091"; ObjectID = "NI7-8n-68J"; */
+"NI7-8n-68J.text" = "9091";
+
+/* Class = "UILabel"; text = "Peer has unchoked us, but we're not interested"; ObjectID = "Ntg-Jn-NbG"; */
+"Ntg-Jn-NbG.text" = "Peer has unchoked us, but we're not interested";
+
+/* Class = "UILabel"; text = "Hash"; ObjectID = "OEJ-5b-Plh"; */
+"OEJ-5b-Plh.text" = "Hash";
+
+/* Class = "UIBarButtonItem"; title = "Filter"; ObjectID = "ONQ-0g-L85"; */
+"ONQ-0g-L85.title" = "Filter";
+
+/* Class = "UILabel"; text = "2"; ObjectID = "OQR-U0-jPb"; */
+"OQR-U0-jPb.text" = "2";
+
+/* Class = "UILabel"; text = "255.255.255.255"; ObjectID = "Ont-uR-rgp"; */
+"Ont-uR-rgp.text" = "255.255.255.255";
+
+/* Class = "UILabel"; text = "100 bytes of 100 bytes"; ObjectID = "Oqj-g8-gRy"; */
+"Oqj-g8-gRy.text" = "100 bytes of 100 bytes";
+
+/* Class = "UILabel"; text = "-"; ObjectID = "Ozd-ER-4RL"; */
+"Ozd-ER-4RL.text" = "-";
+
+/* Class = "UITableViewSection"; headerTitle = "Queues"; ObjectID = "PIs-8Y-jyY"; */
+"PIs-8Y-jyY.headerTitle" = "Queues";
+
+/* Class = "UITextField"; placeholder = "Kb/s"; ObjectID = "PNN-wC-JUJ"; */
+"PNN-wC-JUJ.placeholder" = "Kb/s";
+
+/* Class = "UILabel"; text = "1.2 MB/s"; ObjectID = "PWb-vZ-xds"; */
+"PWb-vZ-xds.text" = "1.2 MB/s";
+
+/* Class = "UILabel"; text = "Downloading time"; ObjectID = "Phd-24-uwo"; */
+"Phd-24-uwo.text" = "Downloading time";
+
+/* Class = "UIBarButtonItem"; title = "Add"; ObjectID = "Q6k-AQ-Y3m"; */
+"Q6k-AQ-Y3m.title" = "Add";
+
+/* Class = "UILabel"; text = "Last activity"; ObjectID = "QO9-fp-qWg"; */
+"QO9-fp-qWg.text" = "Last activity";
+
+/* Class = "UILabel"; text = "Upload Queue size"; ObjectID = "QXe-nk-6IU"; */
+"QXe-nk-6IU.text" = "Upload Queue size";
+
+/* Class = "UILabel"; text = "File name"; ObjectID = "QdK-cB-hQG"; */
+"QdK-cB-hQG.text" = "File name";
+
+/* Class = "UILabel"; text = "Incoming peers"; ObjectID = "Qfj-Ak-Du7"; */
+"Qfj-Ak-Du7.text" = "Incoming peers";
+
+/* Class = "UILabel"; text = "Peer is connected via μTP"; ObjectID = "RIf-Tf-E5v"; */
+"RIf-Tf-E5v.text" = "Peer is connected via μTP";
+
+/* Class = "UINavigationController"; title = "Master"; ObjectID = "RMx-3f-FxP"; */
+"RMx-3f-FxP.title" = "Master";
+
+/* Class = "UILabel"; text = "999"; ObjectID = "RW5-xf-htQ"; */
+"RW5-xf-htQ.text" = "999";
+
+/* Class = "UILabel"; text = "603 GB"; ObjectID = "SSr-gJ-h1a"; */
+"SSr-gJ-h1a.text" = "603 GB";
+
+/* Class = "UITextField"; text = "200"; ObjectID = "Snq-WT-6fH"; */
+"Snq-WT-6fH.text" = "200";
+
+/* Class = "UILabel"; text = "X -"; ObjectID = "TV2-rj-xrU"; */
+"TV2-rj-xrU.text" = "X -";
+
+/* Class = "UITableViewSection"; headerTitle = "Individual settings"; ObjectID = "TVM-yT-f3t"; */
+"TVM-yT-f3t.headerTitle" = "Individual settings";
+
+/* Class = "UITableViewSection"; headerTitle = "File settings"; ObjectID = "Tbn-hp-JJm"; */
+"Tbn-hp-JJm.headerTitle" = "File settings";
+
+/* Class = "UIViewController"; title = "Files"; ObjectID = "ThB-7P-D8z"; */
+"ThB-7P-D8z.title" = "Files";
+
+/* Class = "UILabel"; text = "999 bytes/s"; ObjectID = "Tu5-30-iT0"; */
+"Tu5-30-iT0.text" = "999 bytes/s";
+
+/* Class = "UILabel"; text = "Torrent name"; ObjectID = "UC0-JP-xYz"; */
+"UC0-JP-xYz.text" = "Torrent name";
+
+/* Class = "UILabel"; text = "-"; ObjectID = "UmM-IE-RP4"; */
+"UmM-IE-RP4.text" = "-";
+
+/* Class = "UITextField"; text = "30"; ObjectID = "VGH-X6-Gl1"; */
+"VGH-X6-Gl1.text" = "30";
+
+/* Class = "UILabel"; text = "User name"; ObjectID = "Vbn-2G-4fl"; */
+"Vbn-2G-4fl.text" = "User name";
+
+/* Class = "UILabel"; text = "999"; ObjectID = "W18-ns-Ukt"; */
+"W18-ns-Ukt.text" = "999";
+
+/* Class = "UILabel"; text = "Last scrape announce time"; ObjectID = "WMJ-lU-dOw"; */
+"WMJ-lU-dOw.text" = "Last scrape announce time";
+
+/* Class = "UILabel"; text = "E -"; ObjectID = "WMe-wd-oxi"; */
+"WMe-wd-oxi.text" = "E -";
+
+/* Class = "UILabel"; text = "↓DL rate"; ObjectID = "WvB-HY-CvS"; */
+"WvB-HY-CvS.text" = "↓DL rate";
+
+/* Class = "UILabel"; text = "10"; ObjectID = "X15-06-EMc"; */
+"X15-06-EMc.text" = "10";
+
+/* Class = "UILabel"; text = "Torrents"; ObjectID = "XK8-k0-fsv"; */
+"XK8-k0-fsv.text" = "Torrents";
+
+/* Class = "UILabel"; text = "3721"; ObjectID = "XPV-8a-Ere"; */
+"XPV-8a-Ere.text" = "3721";
+
+/* Class = "UITextField"; text = "1.5"; ObjectID = "XwU-zO-24g"; */
+"XwU-zO-24g.text" = "1.5";
+
+/* Class = "UITableViewSection"; headerTitle = "Features"; ObjectID = "YBX-qz-yL4"; */
+"YBX-qz-yL4.headerTitle" = "Features";
+
+/* Class = "UILabel"; text = "RPC path"; ObjectID = "Ya7-gY-cIU"; */
+"Ya7-gY-cIU.text" = "RPC path";
+
+/* Class = "UILabel"; text = "999"; ObjectID = "ZbH-tG-XtA"; */
+"ZbH-tG-XtA.text" = "999";
+
+/* Class = "UINavigationItem"; title = "Servers"; ObjectID = "Zdf-7t-Un8"; */
+"Zdf-7t-Un8.title" = "Servers";
+
+/* Class = "UITextField"; placeholder = "200"; ObjectID = "Zgn-EZ-9wt"; */
+"Zgn-EZ-9wt.placeholder" = "200";
+
+/* Class = "UILabel"; text = "Upload rate limit (KB/s)"; ObjectID = "Zhy-DX-pWi"; */
+"Zhy-DX-pWi.text" = "Upload rate limit (KB/s)";
+
+/* Class = "UILabel"; text = "O -"; ObjectID = "aF9-nL-1Kz"; */
+"aF9-nL-1Kz.text" = "O -";
+
+/* Class = "UILabel"; text = "999"; ObjectID = "aSz-er-m7a"; */
+"aSz-er-m7a.text" = "999";
+
+/* Class = "UILabel"; text = "↑UP rate"; ObjectID = "aVa-ZO-xa8"; */
+"aVa-ZO-xa8.text" = "↑UP rate";
+
+/* Class = "UILabel"; text = "Seed idle limit (min)"; ObjectID = "abS-Q0-nhy"; */
+"abS-Q0-nhy.text" = "Seed idle limit (min)";
+
+/* Class = "UITableViewSection"; headerTitle = "Connections"; ObjectID = "alW-LV-yhq"; */
+"alW-LV-yhq.headerTitle" = "Connections";
+
+/* Class = "UILabel"; text = "Upload rate limit (KB/s)"; ObjectID = "amP-bs-0T0"; */
+"amP-bs-0T0.text" = "Upload rate limit (KB/s)";
+
+/* Class = "UITextView"; text = "Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda."; ObjectID = "b2S-nm-EH4"; */
+"b2S-nm-EH4.text" = "Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.";
+
+/* Class = "UILabel"; text = "Columns:"; ObjectID = "b4G-DX-d5G"; */
+"b4G-DX-d5G.text" = "Columns:";
+
+/* Class = "UILabel"; text = "999"; ObjectID = "bj8-do-bcR"; */
+"bj8-do-bcR.text" = "999";
+
+/* Class = "UISegmentedControl"; bsz-Ew-E1d.segmentTitles[0] = "required"; ObjectID = "bsz-Ew-E1d"; */
+"bsz-Ew-E1d.segmentTitles[0]" = "required";
+
+/* Class = "UISegmentedControl"; bsz-Ew-E1d.segmentTitles[1] = "preferred"; ObjectID = "bsz-Ew-E1d"; */
+"bsz-Ew-E1d.segmentTitles[1]" = "preferred";
+
+/* Class = "UISegmentedControl"; bsz-Ew-E1d.segmentTitles[2] = "tolerated"; ObjectID = "bsz-Ew-E1d"; */
+"bsz-Ew-E1d.segmentTitles[2]" = "tolerated";
+
+/* Class = "UITextField"; placeholder = "5136"; ObjectID = "c3Z-HZ-uOT"; */
+"c3Z-HZ-uOT.placeholder" = "5136";
+
+/* Class = "UILabel"; text = "d -"; ObjectID = "cLi-tQ-JfX"; */
+"cLi-tQ-JfX.text" = "d -";
+
+/* Class = "UISegmentedControl"; cOQ-8E-PPY.segmentTitles[0] = "More ..."; ObjectID = "cOQ-8E-PPY"; */
+"cOQ-8E-PPY.segmentTitles[0]" = "More ...";
+
+/* Class = "UISegmentedControl"; cOQ-8E-PPY.segmentTitles[1] = "Second"; ObjectID = "cOQ-8E-PPY"; */
+"cOQ-8E-PPY.segmentTitles[1]" = "Second";
+
+/* Class = "UILabel"; text = "-"; ObjectID = "cS1-fa-dqe"; */
+"cS1-fa-dqe.text" = "-";
+
+/* Class = "UITextField"; placeholder = "type your password"; ObjectID = "cuO-1a-Mek"; */
+"cuO-1a-Mek.placeholder" = "type your password";
+
+/* Class = "UILabel"; text = "Added Files:"; ObjectID = "d9h-IB-dsN"; */
+"d9h-IB-dsN.text" = "Added Files:";
+
+/* Class = "UILabel"; text = "Paused Torrents:"; ObjectID = "dKB-DK-cmu"; */
+"dKB-DK-cmu.text" = "Paused Torrents:";
+
+/* Class = "UILabel"; text = "Download limit (Kb/s)"; ObjectID = "dth-SC-D7i"; */
+"dth-SC-D7i.text" = "Download limit (Kb/s)";
+
+/* Class = "UILabel"; text = "Stop seeding if ratio more than"; ObjectID = "e1G-sf-kKU"; */
+"e1G-sf-kKU.text" = "Stop seeding if ratio more than";
+
+/* Class = "UILabel"; text = "Enable PEX (Peer Exchange)"; ObjectID = "eCj-Bh-gK6"; */
+"eCj-Bh-gK6.text" = "Enable PEX (Peer Exchange)";
+
+/* Class = "UILabel"; text = "Peer was discovered through Peer Exchange (PEX)"; ObjectID = "eDv-NS-WB0"; */
+"eDv-NS-WB0.text" = "Peer was discovered through Peer Exchange (PEX)";
+
+/* Class = "UILabel"; text = "-"; ObjectID = "eKk-eV-3gm"; */
+"eKk-eV-3gm.text" = "-";
+
+/* Class = "UITextField"; placeholder = "Kb/s"; ObjectID = "eUH-jG-l5u"; */
+"eUH-jG-l5u.placeholder" = "Kb/s";
+
+/* Class = "UILabel"; text = "Active Time:"; ObjectID = "eXT-8O-UFg"; */
+"eXT-8O-UFg.text" = "Active Time:";
+
+/* Class = "UILabel"; text = "Ratio"; ObjectID = "enM-t7-020"; */
+"enM-t7-020.text" = "Ratio";
+
+/* Class = "UILabel"; text = "100.00%"; ObjectID = "etr-ZC-EKW"; */
+"etr-ZC-EKW.text" = "100.00%";
+
+/* Class = "UILabel"; text = "Enable LPD (Local Peer Descovery)"; ObjectID = "f4M-u6-JJW"; */
+"f4M-u6-JJW.text" = "Enable LPD (Local Peer Descovery)";
+
+/* Class = "UILabel"; text = "Creator"; ObjectID = "fOX-6D-Jj2"; */
+"fOX-6D-Jj2.text" = "Creator";
+
+/* Class = "UILabel"; text = "Enable μTP (Micro Transport Protocol)"; ObjectID = "fYc-5P-aCH"; */
+"fYc-5P-aCH.text" = "Enable μTP (Micro Transport Protocol)";
+
+/* Class = "UILabel"; text = "Port"; ObjectID = "fmL-1F-z1i"; */
+"fmL-1F-z1i.text" = "Port";
+
+/* Class = "UILabel"; text = "Address"; ObjectID = "g19-f1-k5P"; */
+"g19-f1-k5P.text" = "Address";
+
+/* Class = "UILabel"; text = "1075"; ObjectID = "g6g-s9-i4c"; */
+"g6g-s9-i4c.text" = "1075";
+
+/* Class = "UILabel"; text = "Servers"; ObjectID = "g7J-k7-1Gs"; */
+"g7J-k7-1Gs.text" = "Servers";
+
+/* Class = "UILabel"; text = "261 GB"; ObjectID = "gHr-5T-GDT"; */
+"gHr-5T-GDT.text" = "261 GB";
+
+/* Class = "UILabel"; text = "1mo 2h 3m"; ObjectID = "gO9-xl-c5n"; */
+"gO9-xl-c5n.text" = "1mo 2h 3m";
+
+/* Class = "UILabel"; text = "Bytes Uploaded:"; ObjectID = "gc0-Rh-P0U"; */
+"gc0-Rh-P0U.text" = "Bytes Uploaded:";
+
+/* Class = "UILabel"; text = "Added"; ObjectID = "gd2-Et-PKG"; */
+"gd2-Et-PKG.text" = "Added";
+
+/* Class = "UILabel"; text = "Piece is unavailable"; ObjectID = "ghb-ch-Se8"; */
+"ghb-ch-Se8.text" = "Piece is unavailable";
+
+/* Class = "UILabel"; text = "Download rate limit (KB/s)"; ObjectID = "gtl-Ux-W4C"; */
+"gtl-Ux-W4C.text" = "Download rate limit (KB/s)";
+
+/* Class = "UILabel"; text = "Download Queue size"; ObjectID = "h5B-oA-ppX"; */
+"h5B-oA-ppX.text" = "Download Queue size";
+
+/* Class = "UILabel"; text = "Max peers per one torrent"; ObjectID = "h7R-GF-YDx"; */
+"h7R-GF-YDx.text" = "Max peers per one torrent";
+
+/* Class = "UILabel"; text = "Enable automatic port forwarding"; ObjectID = "hMg-oJ-UWr"; */
+"hMg-oJ-UWr.text" = "Enable automatic port forwarding";
+
+/* Class = "UILabel"; text = "PEX peers"; ObjectID = "hmY-Bi-hJR"; */
+"hmY-Bi-hJR.text" = "PEX peers";
+
+/* Class = "UILabel"; text = "We would download from this peer if they'd let us"; ObjectID = "hmp-q7-TGG"; */
+"hmp-q7-TGG.text" = "We would download from this peer if they'd let us";
+
+/* Class = "UILabel"; text = "Created"; ObjectID = "hmv-Te-ef5"; */
+"hmv-Te-ef5.text" = "Created";
+
+/* Class = "UILabel"; text = "Upload Speed:"; ObjectID = "hxS-Yr-pcY"; */
+"hxS-Yr-pcY.text" = "Upload Speed:";
+
+/* Class = "UILabel"; text = "Peer is an incoming connection"; ObjectID = "iIC-ge-eeZ"; */
+"iIC-ge-eeZ.text" = "Peer is an incoming connection";
+
+/* Class = "UITableViewController"; title = "ServerConfigController"; ObjectID = "iQ6-M2-jRQ"; */
+"iQ6-M2-jRQ.title" = "ServerConfigController";
+
+/* Class = "UITableViewSection"; headerTitle = "Comment"; ObjectID = "iRZ-EI-O0M"; */
+"iRZ-EI-O0M.headerTitle" = "Comment";
+
+/* Class = "UITableViewSection"; headerTitle = "Misc"; ObjectID = "jFm-Ki-rNS"; */
+"jFm-Ki-rNS.headerTitle" = "Misc";
+
+/* Class = "UILabel"; text = "Default Server"; ObjectID = "jPU-t4-Sfh"; */
+"jPU-t4-Sfh.text" = "Default Server";
+
+/* Class = "UILabel"; text = "Server name"; ObjectID = "jw2-OZ-gG2"; */
+"jw2-OZ-gG2.text" = "Server name";
+
+/* Class = "UILabel"; text = "Torrent stalled when idle for"; ObjectID = "k2f-f9-ppe"; */
+"k2f-f9-ppe.text" = "Torrent stalled when idle for";
+
+/* Class = "UILabel"; text = "0Kbs"; ObjectID = "kIL-mG-5KS"; */
+"kIL-mG-5KS.text" = "0Kbs";
+
+/* Class = "UILabel"; text = "Added Files:"; ObjectID = "kdV-FZ-KlN"; */
+"kdV-FZ-KlN.text" = "Added Files:";
+
+/* Class = "UILabel"; text = "23"; ObjectID = "keW-hU-DiM"; */
+"keW-hU-DiM.text" = "23";
+
+/* Class = "UILabel"; text = "DTX?"; ObjectID = "koS-vK-6c2"; */
+"koS-vK-6c2.text" = "DTX?";
+
+/* Class = "UILabel"; text = "H -"; ObjectID = "l1u-04-LFC"; */
+"l1u-04-LFC.text" = "H -";
+
+/* Class = "UILabel"; text = "Seeding time"; ObjectID = "l4A-9h-fzt"; */
+"l4A-9h-fzt.text" = "Seeding time";
+
+/* Class = "UILabel"; text = "Last announce time"; ObjectID = "l75-RT-YF1"; */
+"l75-RT-YF1.text" = "Last announce time";
+
+/* Class = "UILabel"; text = "Encryption"; ObjectID = "lhT-HA-7Ul"; */
+"lhT-HA-7Ul.text" = "Encryption";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "lie-wJ-UlH"; */
+"lie-wJ-UlH.text" = "Label";
+
+/* Class = "UILabel"; text = "-"; ObjectID = "mtF-hh-2hl"; */
+"mtF-hh-2hl.text" = "-";
+
+/* Class = "UILabel"; text = "Start torrent"; ObjectID = "n78-L9-mUz"; */
+"n78-L9-mUz.text" = "Start torrent";
+
+/* Class = "UILabel"; text = "Downloads"; ObjectID = "nII-Uq-BU6"; */
+"nII-Uq-BU6.text" = "Downloads";
+
+/* Class = "UISearchBar"; placeholder = "Enter search Criteria"; ObjectID = "nNg-zm-I5J"; */
+"nNg-zm-I5J.placeholder" = "Enter search Criteria";
+
+/* Class = "UITableViewSection"; headerTitle = "Counts"; ObjectID = "nRb-jv-5oR"; */
+"nRb-jv-5oR.headerTitle" = "Counts";
+
+/* Class = "UITableViewSection"; headerTitle = "General"; ObjectID = "ngR-fs-DGa"; */
+"ngR-fs-DGa.headerTitle" = "General";
+
+/* Class = "UILabel"; text = "Downloading from 5 of 10 peers"; ObjectID = "nkk-cW-kjF"; */
+"nkk-cW-kjF.text" = "Downloading from 5 of 10 peers";
+
+/* Class = "UILabel"; text = "Tracker host"; ObjectID = "o3U-hl-shY"; */
+"o3U-hl-shY.text" = "Tracker host";
+
+/* Class = "UILabel"; text = "I -"; ObjectID = "o7q-8y-1O7"; */
+"o7q-8y-1O7.text" = "I -";
+
+/* Class = "UIViewController"; title = "Peers"; ObjectID = "oHz-kf-h1V"; */
+"oHz-kf-h1V.title" = "Peers";
+
+/* Class = "UILabel"; text = "Select files to download"; ObjectID = "oN6-tU-zon"; */
+"oN6-tU-zon.text" = "Select files to download";
+
+/* Class = "UILabel"; text = "Bytes Downloaded:"; ObjectID = "oV3-9k-W5f"; */
+"oV3-9k-W5f.text" = "Bytes Downloaded:";
+
+/* Class = "UILabel"; text = "6402"; ObjectID = "oXC-zF-7BS"; */
+"oXC-zF-7BS.text" = "6402";
+
+/* Class = "UITabBarController"; title = "Details"; ObjectID = "ouD-H3-WMb"; */
+"ouD-H3-WMb.title" = "Details";
+
+/* Class = "UILabel"; text = "999"; ObjectID = "pA4-9D-tnH"; */
+"pA4-9D-tnH.text" = "999";
+
+/* Class = "UILabel"; text = "Sessions:"; ObjectID = "pwa-c1-cUF"; */
+"pwa-c1-cUF.text" = "Sessions:";
+
+/* Class = "UILabel"; text = "-"; ObjectID = "q9P-S1-up1"; */
+"q9P-S1-up1.text" = "-";
+
+/* Class = "UITextField"; text = "200"; ObjectID = "qKu-ij-Mb7"; */
+"qKu-ij-Mb7.text" = "200";
+
+/* Class = "UILabel"; text = "Uploaded"; ObjectID = "qYX-Ym-0h9"; */
+"qYX-Ym-0h9.text" = "Uploaded";
+
+/* Class = "UITableViewSection"; headerTitle = "Timeout Settings"; ObjectID = "qYZ-1V-4of"; */
+"qYZ-1V-4of.headerTitle" = "Timeout Settings";
+
+/* Class = "UILabel"; text = "5"; ObjectID = "qoT-23-afS"; */
+"qoT-23-afS.text" = "5";
+
+/* Class = "UILabel"; text = "-"; ObjectID = "qpa-XM-bMD"; */
+"qpa-XM-bMD.text" = "-";
+
+/* Class = "UITableViewSection"; headerTitle = "Download directory"; ObjectID = "qss-WD-E2s"; */
+"qss-WD-E2s.headerTitle" = "Download directory";
+
+/* Class = "UILabel"; text = "-"; ObjectID = "rAK-zn-KEw"; */
+"rAK-zn-KEw.text" = "-";
+
+/* Class = "UILabel"; text = "Piece Size:"; ObjectID = "roS-He-NYf"; */
+"roS-He-NYf.text" = "Piece Size:";
+
+/* Class = "UILabel"; text = "K -"; ObjectID = "sGT-qQ-1Oi"; */
+"sGT-qQ-1Oi.text" = "K -";
+
+/* Class = "UILabel"; text = "DHT peers"; ObjectID = "sLj-vK-uNz"; */
+"sLj-vK-uNz.text" = "DHT peers";
+
+/* Class = "UILabel"; text = "-"; ObjectID = "seY-oO-F3t"; */
+"seY-oO-F3t.text" = "-";
+
+/* Class = "UIBarButtonItem"; title = "ResumeAll"; ObjectID = "t5J-Oh-CUS"; */
+"t5J-Oh-CUS.title" = "ResumeAll";
+
+/* Class = "UITableViewSection"; headerTitle = "Details"; ObjectID = "tm2-wJ-hhJ"; */
+"tm2-wJ-hhJ.headerTitle" = "Details";
+
+/* Class = "UIBarButtonItem"; title = "Reannounce"; ObjectID = "uSO-av-BCQ"; */
+"uSO-av-BCQ.title" = "Reannounce";
+
+/* Class = "UILabel"; text = "Client"; ObjectID = "v7U-dl-gMq"; */
+"v7U-dl-gMq.text" = "Client";
+
+/* Class = "UILabel"; text = "Bandwidth priority"; ObjectID = "vBt-r1-eZh"; */
+"vBt-r1-eZh.text" = "Bandwidth priority";
+
+/* Class = "UILabel"; text = "234.0 Kb of 5.6 GB"; ObjectID = "vV6-gF-noJ"; */
+"vV6-gF-noJ.text" = "234.0 Kb of 5.6 GB";
+
+/* Class = "UILabel"; text = "Size"; ObjectID = "vdz-0p-TIL"; */
+"vdz-0p-TIL.text" = "Size";
+
+/* Class = "UITextField"; placeholder = "type hosname"; ObjectID = "w0T-Nh-LmD"; */
+"w0T-Nh-LmD.placeholder" = "type hosname";
+
+/* Class = "UILabel"; text = "0KBs"; ObjectID = "w4V-yW-Kue"; */
+"w4V-yW-Kue.text" = "0KBs";
+
+/* Class = "UILabel"; text = "Request (s)"; ObjectID = "wIC-g5-ILE"; */
+"wIC-g5-ILE.text" = "Request (s)";
+
+/* Class = "UILabel"; text = "Port"; ObjectID = "wKC-8U-YdS"; */
+"wKC-8U-YdS.text" = "Port";
+
+/* Class = "UILabel"; text = "Download Speed:"; ObjectID = "wKD-nt-aVT"; */
+"wKD-nt-aVT.text" = "Download Speed:";
+
+/* Class = "UITextField"; placeholder = "/transmission/rpc"; ObjectID = "wN0-dn-N6e"; */
+"wN0-dn-N6e.placeholder" = "/transmission/rpc";
+
+/* Class = "UITextField"; text = "/transmission/rpc"; ObjectID = "wN0-dn-N6e"; */
+"wN0-dn-N6e.text" = "/transmission/rpc";
+
+/* Class = "UITableViewSection"; footerTitle = "Alternative limits override global rate limits"; ObjectID = "x8b-oz-lFf"; */
+"x8b-oz-lFf.footerTitle" = "Alternative limits override global rate limits";
+
+/* Class = "UITableViewSection"; headerTitle = "Alternative rate limits"; ObjectID = "x8b-oz-lFf"; */
+"x8b-oz-lFf.headerTitle" = "Alternative rate limits";
+
+/* Class = "UITextField"; text = "2183"; ObjectID = "xF8-yN-ZUc"; */
+"xF8-yN-ZUc.text" = "2183";
+
+/* Class = "UILabel"; text = "Title"; ObjectID = "xJR-ez-4Sg"; */
+"xJR-ez-4Sg.text" = "Title";
+
+/* Class = "UILabel"; text = "Use SSL"; ObjectID = "xKv-e5-skr"; */
+"xKv-e5-skr.text" = "Use SSL";
+
+/* Class = "UILabel"; text = "Download rate limit (KB/s)"; ObjectID = "xvP-8C-JEo"; */
+"xvP-8C-JEo.text" = "Download rate limit (KB/s)";
+
+/* Class = "UILabel"; text = "-"; ObjectID = "yG7-6N-vY9"; */
+"yG7-6N-vY9.text" = "-";
+
+/* Class = "UILabel"; text = "Total maximum peers"; ObjectID = "yKL-0b-ZWN"; */
+"yKL-0b-ZWN.text" = "Total maximum peers";
+
+/* Class = "UIBarButtonItem"; title = "Resume"; ObjectID = "yeD-yI-1oC"; */
+"yeD-yI-1oC.title" = "Resume";
+
+/* Class = "UILabel"; text = "999 bytes/s"; ObjectID = "yjX-KS-8Vd"; */
+"yjX-KS-8Vd.text" = "999 bytes/s";
+
+/* Class = "UILabel"; text = "-"; ObjectID = "zBv-y1-Qqy"; */
+"zBv-y1-Qqy.text" = "-";
+
+/* Class = "UILabel"; text = "Active Torrents:"; ObjectID = "zSM-K5-YNt"; */
+"zSM-K5-YNt.text" = "Active Torrents:";

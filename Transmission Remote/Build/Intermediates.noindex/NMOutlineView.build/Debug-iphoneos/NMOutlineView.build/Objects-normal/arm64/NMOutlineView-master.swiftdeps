@@ -1,0 +1,7 @@
+version: "Apple Swift version 5.1.2 (swiftlang-1100.0.278 clang-1100.0.33.9)"
+options: "865425bf2b673303c916186955fa9f7a"
+build_time: [1575812895, 103586000]
+inputs:
+  "/Users/jvega/Library/Developer/Xcode/DerivedData/Transmission_Remote-abjvsztikuyonefpnaoxxeunzchf/SourcePackages/checkouts/nmoutlineview/Sources/NMOutlineView/NMOutlineView.swift": [1575812840, 781021430]
+  "/Users/jvega/Library/Developer/Xcode/DerivedData/Transmission_Remote-abjvsztikuyonefpnaoxxeunzchf/SourcePackages/checkouts/nmoutlineview/Sources/NMOutlineView/NMOutlineViewCell.swift": [1575812840, 781503523]
+  "/Users/jvega/Library/Developer/Xcode/DerivedData/Transmission_Remote-abjvsztikuyonefpnaoxxeunzchf/SourcePackages/checkouts/nmoutlineview/Sources/NMOutlineView/NMOutlineViewController.swift": [1575812840, 782020712]

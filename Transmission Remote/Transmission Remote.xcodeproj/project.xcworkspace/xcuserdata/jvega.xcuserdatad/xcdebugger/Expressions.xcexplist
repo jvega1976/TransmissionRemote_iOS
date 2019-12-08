@@ -1,0 +1,835 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VariablesViewState
+   version = "1.0">
+   <ContextStates>
+      <ContextState
+         contextName = "RPCConnector.resumeTorrents(_:forDelegate:):RPCConnector.swift">
+      </ContextState>
+      <ContextState
+         contextName = "StatusListController.prepare(for:sender:):StatusListController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "splitViewController!.viewControllers">
+            </PersistentString>
+            <PersistentString
+               value = "category?.title">
+            </PersistentString>
+            <PersistentString
+               value = "segue.destination">
+            </PersistentString>
+            <PersistentString
+               value = "segue.destination.children">
+            </PersistentString>
+            <PersistentString
+               value = "(splitViewController!.viewControllers[0] as! UINavigationController).topViewController">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "TRSessionInfo.init(fromJSON:):TRSessionInfo.swift">
+      </ContextState>
+      <ContextState
+         contextName = "TorrentFile.trackerList.getter:TorrentFile.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = " benDict?[kAnnounceKey]">
+            </PersistentString>
+            <PersistentString
+               value = "trList!">
+            </PersistentString>
+            <PersistentString
+               value = "benDict![kAnnounceListKey].values">
+            </PersistentString>
+            <PersistentString
+               value = "benDict?[kAnnounceKey]!">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "UIApplicationEndBackgroundTaskError:(null)">
+         <PersistentStrings>
+            <PersistentString
+               value = "UIApplicationEndBackgroundTaskError">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "StatusListController.viewDidLoad():StatusListController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "tableView!.indexPathForSelectedRow?.row">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "closure #1 in RPCConnector.makeRequest(_:withName:forDelegate:andHandler:):RPCConnector.swift">
+      </ContextState>
+      <ContextState
+         contextName = "TorrentPeersController.update(_:withInfo:):TorrentPeersController.swift">
+      </ContextState>
+      <ContextState
+         contextName = "ServerListController.tableView(_:cellForRowAt:):ServerListController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "indexPath.row">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "AppDelegate.applicationWillResignActive(_:):AppDelegate.swift">
+      </ContextState>
+      <ContextState
+         contextName = "TorrentFilesController.renameFile(_:):TorrentFilesController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "sender.view!.frame.origin">
+            </PersistentString>
+            <PersistentString
+               value = "sender.view!.convert(sender.view!.frame.origin , to: tableView)">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "TorrentListController.viewDidLoad():TorrentListController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "splitViewController!.viewControllers">
+            </PersistentString>
+            <PersistentString
+               value = "tableView.sectionHeaderHeight">
+            </PersistentString>
+            <PersistentString
+               value = "sectionHeaderView.frame.height">
+            </PersistentString>
+            <PersistentString
+               value = "self.view.frame.size.width">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "StatusListController.serverConfig.didset:StatusListController.swift">
+      </ContextState>
+      <ContextState
+         contextName = "TorrentInfoController.gotTorrentDetailedInfo(_:):TorrentInfoController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = " NSCategorization.shared.items[0] as! TRInfo">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "Bencode.init(file:):Bencode.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "url.path">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "UIApplicationMain:(null)">
+         <PersistentStrings>
+            <PersistentString
+               value = "UIApplicationEndBackgroundTaskError">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "TorrentTrackersController.longPress(_:):TorrentTrackersController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "navigationItem">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "AppDelegate.applicationDidBecomeActive(_:):AppDelegate.swift">
+      </ContextState>
+      <ContextState
+         contextName = "TorrentTableController.longPress(_:):TorrentTableController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "navigationItem">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "ServerListController.viewWillAppear(_:):ServerListController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "clearsSelectionOnViewWillAppear">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "StatusListController.viewWillAppear(_:):StatusListController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "controller.category.title">
+            </PersistentString>
+            <PersistentString
+               value = "statusTableView.indexPathForSelectedRow?.row">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "StatusListController.gotRecentlyActiveTorrents(_:):StatusListController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "splitViewController">
+            </PersistentString>
+            <PersistentString
+               value = "NSCategorization.shared().categories.category(withTitle: controller.category.title).items">
+            </PersistentString>
+            <PersistentString
+               value = "splitViewController!.viewControllers[0]">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "PiecesView.count.setter:PiecesView.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "Int(frame.size.width)">
+            </PersistentString>
+            <PersistentString
+               value = "count % Int(frame.size.width)">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "TorrentListController.gotAllTorrents(_:):TorrentListController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "categorization.items">
+            </PersistentString>
+            <PersistentString
+               value = "categorization.categories.categoryList[0].predicate ">
+            </PersistentString>
+            <PersistentString
+               value = "trInfos.items[0]">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "AppDelegate.application(_:open:options:):AppDelegate.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "url.absoluteString">
+            </PersistentString>
+            <PersistentString
+               value = "url.startAccessingSecurityScopedResource()">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "NSCategory.predicate.getter:NSCategory.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "_predicate">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "closure #1 in TorrentListController.resumeTorrents(_:):TorrentListController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "cell.torrentId">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "TorrentFilesController.tableView(_:indentationLevelForRowAt:):TorrentFilesController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "indexPath.row">
+            </PersistentString>
+            <PersistentString
+               value = "item.isFile">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "TorrentTrackersController.doneEdit(_:):TorrentTrackersController.swift">
+      </ContextState>
+      <ContextState
+         contextName = "TorrentTableController.gotAllTorrents(_:):TorrentTableController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "ServerListController.viewDidLoad():ServerListController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "splitViewController!.viewControllers">
+            </PersistentString>
+            <PersistentString
+               value = "split.viewControllers">
+            </PersistentString>
+            <PersistentString
+               value = "splitViewController!.isCollapsed">
+            </PersistentString>
+            <PersistentString
+               value = "serverConfigs">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "TorrentListController.category.didset:TorrentListController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.isBeingPresented">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "RPCConnector.makeRequest(_:withName:forDelegate:andHandler:):RPCConnector.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "url!">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "TorrentListController.tableView(_:itemsForBeginning:at:):TorrentListController.swift">
+      </ContextState>
+      <ContextState
+         contextName = "TorrentFile.init(fileURL:):TorrentFile.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "fileURL.absoluteString">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "AppDelegate.scheduleAppRefresh():AppDelegate.swift">
+      </ContextState>
+      <ContextState
+         contextName = "ServerConfigController.saveConfig(_:):ServerConfigController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "config.defaultServer">
+            </PersistentString>
+            <PersistentString
+               value = "switchDefaultServer.isOn">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "ServerConfigController.validateDefaultServer(_:):ServerConfigController.swift">
+      </ContextState>
+      <ContextState
+         contextName = "Bencoder.decode(file:):Bencoder.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "url.absoluteString">
+            </PersistentString>
+            <PersistentString
+               value = "data.count">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "TorrentFilesController.tableView(_:willDisplay:forRowAt:):TorrentFilesController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "cell.contentView.constraints.first(where: {$0.identifier == &quot;fileTypeTrailing&quot;})!.constant">
+            </PersistentString>
+            <PersistentString
+               value = "cell1.fileTypeIcon.frame.origin.x">
+            </PersistentString>
+            <PersistentString
+               value = "(cell as! FileListFSCell).fileTypeIcon.frame.origin.x">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "NSCategorization.itemsforCategory(atPosition:):NSCategorization.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "items.filtered(using: categoryPredicate)">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "TRInfo.init(fromJSON:):TRInfo.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "dict[TR_ARG_FIELDS_HAVEVALID]">
+            </PersistentString>
+            <PersistentString
+               value = "self.piecesBitmap">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "ServerListController.prepare(for:sender:):ServerListController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "segue.destination">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "RPCConnector.returnAllTorrents():RPCConnector.swift">
+      </ContextState>
+      <ContextState
+         contextName = "AppDelegate.splitViewController(_:collapseSecondary:onto:):AppDelegate.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "secondaryAsNavController.viewControllers">
+            </PersistentString>
+            <PersistentString
+               value = "secondaryAsNavController.topViewController">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "AppDelegate.application(_:didFinishLaunchingWithOptions:):AppDelegate.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "splitViewController.viewControllers">
+            </PersistentString>
+            <PersistentString
+               value = "splitViewController.displayModeButtonItem">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "TorrentListController.tableView(_:viewForHeaderInSection:):TorrentListController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "sectionHeaderView.frame.size">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "TorrentListController.prepare(for:sender:):TorrentListController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "serverConfig">
+            </PersistentString>
+            <PersistentString
+               value = "segue.destination">
+            </PersistentString>
+            <PersistentString
+               value = "indexPath!.row">
+            </PersistentString>
+            <PersistentString
+               value = "torrent!.name">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "closure #1 in TorrentListController.viewWillAppear(_:):TorrentListController.swift">
+      </ContextState>
+      <ContextState
+         contextName = "TRPeerInfo.init(jsonData:):TRPeerInfo.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "dict[TR_ARG_FIELDS_PEER_PROGRESS] as! Float">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "TorrentPeersController.gotAllPeers(_:andStats:forTorrent:):TorrentPeersController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "peers.count">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "closure #3 in TorrentListController.removeTorrents(_:):TorrentListController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "category.numberOfItems">
+            </PersistentString>
+            <PersistentString
+               value = "indexPaths![0].row">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "TorrentDetailsController.viewDidLoad():TorrentDetailsController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "selectedViewController">
+            </PersistentString>
+            <PersistentString
+               value = "serverConfig">
+            </PersistentString>
+            <PersistentString
+               value = "torrent.name">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "StatusListController.tableView(_:numberOfRowsInSection:):StatusListController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "Categorization.shared().countOfVisibleCategories">
+            </PersistentString>
+            <PersistentString
+               value = "Categorization.shared().categories.countOfVisibleCategories">
+            </PersistentString>
+            <PersistentString
+               value = "Categorization.shared()">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "TorrentTableController.viewDidLoad():TorrentTableController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.view.frame.size.width">
+            </PersistentString>
+            <PersistentString
+               value = "sectionHeaderView.frame.size.width">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "closure #2 in TorrentListController.removeTorrents(_:):TorrentListController.swift">
+      </ContextState>
+      <ContextState
+         contextName = "instantiateController(_:):GlobalConsts.swift">
+      </ContextState>
+      <ContextState
+         contextName = "MasterNavigationController.navigationController(_:willShow:animated:):MasterNavigationController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "navigationController.topViewController">
+            </PersistentString>
+            <PersistentString
+               value = "String(describing: viewController)">
+            </PersistentString>
+            <PersistentString
+               value = "String(describing: splitViewController!.viewControllers[1])">
+            </PersistentString>
+            <PersistentString
+               value = "String(describing: (splitViewController!.viewControllers[1] as! UINavigationController).topViewController)">
+            </PersistentString>
+            <PersistentString
+               value = "String(describing: navigationController.topViewController)">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "+[Categorization shared]:Categorization.m">
+      </ContextState>
+      <ContextState
+         contextName = "NSCategorization.categories.setter:NSCategorization.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "_categories.categoryList">
+            </PersistentString>
+            <PersistentString
+               value = "(items as NSArray).count">
+            </PersistentString>
+            <PersistentString
+               value = "self.items">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "StatusListController.gotAllTorrents(_:):StatusListController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "NSCategorization.shared.items">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "RPCConnector.setSettings(_:forTorrent:forDelegate:):RPCConnector.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "info.downloadLimitEnabled">
+            </PersistentString>
+            <PersistentString
+               value = "info.uploadLimitEnabled">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "RPCConnector.urlSession(_:task:didCompleteWithError:):RPCConnector.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "httpResponse?.allHeaderFields">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "TorrentListController.tableView(_:numberOfRowsInSection:):TorrentListController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "category.numberOfItems">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "PiecesView.draw(_:):PiecesView.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "frame.origin.y">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "TorrentListController.startStopTorrent(_:):TorrentListController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "category.items">
+            </PersistentString>
+            <PersistentString
+               value = "index.row">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "IconCloud.init(frame:):IconCloud.swift">
+      </ContextState>
+      <ContextState
+         contextName = "TorrentFilesController.updateFileCell(_:with:updateWanted:):TorrentFilesController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "cell.longPressView.frame.size.width">
+            </PersistentString>
+            <PersistentString
+               value = "cell.fileTypeIcon.frame.origin.x">
+            </PersistentString>
+            <PersistentString
+               value = "cell.longPressView.frame.origin.x">
+            </PersistentString>
+            <PersistentString
+               value = "cell.fileTypeIcon.constraints">
+            </PersistentString>
+            <PersistentString
+               value = "cell.contentView.constraints.first(where: {$0.identifier == &quot;iconPosition&quot;})!.constant">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "TorrentListController.resumeTorrents(_:):TorrentListController.swift">
+      </ContextState>
+      <ContextState
+         contextName = "ServerListController.tableView(_:numberOfRowsInSection:):ServerListController.swift">
+      </ContextState>
+      <ContextState
+         contextName = "TorrentInfoControler.viewDidLoad():TorrentInfoControler.swift">
+      </ContextState>
+      <ContextState
+         contextName = "TorrentListController.filter(_:):TorrentListController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "searchView.frame.origin.y">
+            </PersistentString>
+            <PersistentString
+               value = "tableView.bounds.origin.y">
+            </PersistentString>
+            <PersistentString
+               value = "tableView.constraints!.first(where:{ $0.identifier == &quot;TableViewTop&quot;})">
+            </PersistentString>
+            <PersistentString
+               value = "labelImage.image">
+            </PersistentString>
+            <PersistentString
+               value = "searchLabels.frame">
+            </PersistentString>
+            <PersistentString
+               value = "searchView.constraints.first(where:{ $0.identifier == &quot;SearchViewHeight&quot;})!">
+            </PersistentString>
+            <PersistentString
+               value = "searchLabels!.contentOffsetForSegment(at: 1)">
+            </PersistentString>
+            <PersistentString
+               value = "searchLabels.isHidden">
+            </PersistentString>
+            <PersistentString
+               value = "searchView.bounds.origin.y">
+            </PersistentString>
+            <PersistentString
+               value = "searchView.frame">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "closure #1 in RPCConnector.getAllTorrents(forDelegate:):RPCConnector.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "json[TR_RETURNED_ARGS] as! [String:Any]">
+            </PersistentString>
+            <PersistentString
+               value = "TRInfos.shared!">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "StatusListController.configureView():StatusListController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "RPCConnector.shared">
+            </PersistentString>
+            <PersistentString
+               value = "serverConfig!.configURL">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "closure #1 in RPCConnector.getAllFiles(forTorrent:forDelegate:):RPCConnector.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "files?[0]">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "TorrentListController.selectAllRows(_:):TorrentListController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "tableView.cellForRow(at: indexPath)!">
+            </PersistentString>
+            <PersistentString
+               value = "tableView.cellForRow(at: indexPath)?.selectionStyle">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "NSCategorizationTest.init(invocation:):NSCategorizationTest.swift">
+      </ContextState>
+      <ContextState
+         contextName = "TorrentListController.viewWillDisappear(_:):TorrentListController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "(splitViewController?.viewControllers[0] as! UINavigationController).topViewController">
+            </PersistentString>
+            <PersistentString
+               value = "splitViewController!.viewControllers[1]">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[RPCConnector resumeTorrent:forDelegate:]:RPCConnector.m">
+      </ContextState>
+      <ContextState
+         contextName = "TorrentTrackersController.viewWillAppear(_:):TorrentTrackersController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.serverConfig">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "RPCConnector.stopRequests():RPCConnector.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.sessionURL">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "TorrentListController.tableView(_:canHandle:):TorrentListController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "session.canLoadObjects(ofClass: String.self)">
+            </PersistentString>
+            <PersistentString
+               value = "session.localDragSession?.allowsMoveOperation">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "TorrentInfoController.updateDownloadLimit(_:):TorrentInfoController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "isDownEnabled.isOn">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "GeoIpConnector.getInfoForIp(_:responseHandler:):GeoIpConnector.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "r!">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "TorrentListController.search(_:):TorrentListController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "searchView.frame.origin.y">
+            </PersistentString>
+            <PersistentString
+               value = "searchView.frame.size.height">
+            </PersistentString>
+            <PersistentString
+               value = "tableView.frame.origin.y ">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "SessionConfigController.btnShowScheduler(_:):SessionConfigController.swift">
+      </ContextState>
+      <ContextState
+         contextName = "NSCategorization.items.setter:NSCategorization.swift">
+      </ContextState>
+      <ContextState
+         contextName = "TorrentPeersController.tableView(_:cellForRowAt:):TorrentPeersController.swift">
+      </ContextState>
+      <ContextState
+         contextName = "IconCloud.awakeFromNib():IconCloud.swift">
+      </ContextState>
+      <ContextState
+         contextName = "SessionConfigController.loadConfig():SessionConfigController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "textDownloadQueue.text">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "TorrentInfoController.viewDidLoad():TorrentInfoController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "torrent.name!">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "TorrentListController.tableView(_:cellForRowAt:):TorrentListController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "torrent.piecesBitmap">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "NSCategorization.itemsForCategory(withTitle:):NSCategorization.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "items as NSArray">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "RPCServerConfig.configURL.getter:RPCServerConfig.swift">
+      </ContextState>
+      <ContextState
+         contextName = "TorrentListController.applyFilter(_:):TorrentListController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "categorization.itemsforCategory(atPosition: 1)!">
+            </PersistentString>
+            <PersistentString
+               value = "sender.selectedSegmentIndex">
+            </PersistentString>
+            <PersistentString
+               value = "categorization.categories.categoryList[1].predicate">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+   </ContextStates>
+</VariablesViewState>

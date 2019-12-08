@@ -1,0 +1,9 @@
+[submodule "TransmissionRPC"]
+	path = TransmissionRPC
+	url = /Users/jvega/Dropbox/Transmission Remote/TransmissionRPC
+[submodule "Categorization"]
+	path = Categorization
+	url = /Users/jvega/Dropbox/Transmission Remote/Categorization
+[submodule "NMOutlineView"]
+	path = NMOutlineView
+	url = /Users/jvega/Dropbox/Transmission Remote/NMOutlineView

@@ -1,0 +1,6 @@
+version: "Apple Swift version 5.1.2 (swiftlang-1100.0.278 clang-1100.0.33.9)"
+options: "1fd7933db0e453ad87009eba9a3daaae"
+build_time: [1575812708, 167470000]
+inputs:
+  "/Users/jvega/Library/Developer/Xcode/DerivedData/Transmission_Remote-abjvsztikuyonefpnaoxxeunzchf/SourcePackages/checkouts/Categorization/Sources/Categorization/Categorization.swift": [1575812565, 752647289]
+  "/Users/jvega/Library/Developer/Xcode/DerivedData/Transmission_Remote-abjvsztikuyonefpnaoxxeunzchf/SourcePackages/checkouts/Categorization/Sources/Categorization/Category.swift": [1575812565, 753529172]
