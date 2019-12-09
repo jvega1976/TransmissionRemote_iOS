@@ -82,6 +82,7 @@ extension UILabel {
         }
     }
     
+    @available(iOS 13.0, *)
     @objc public func longPressGestureRecognized(_ gestureRecognizer: UIGestureRecognizer)
     {
         if gestureRecognizer == self.longPressGestureRecognizer {

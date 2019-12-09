@@ -350,6 +350,7 @@
 /* Begin PBXFileReference section */
 		B8018C95239CE49800EDB881 /* UILabel+Copyable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UILabel+Copyable.swift"; path = "UI Classes/UILabel+Copyable.swift"; sourceTree = SOURCE_ROOT; };
 		B8018CAD239CF9D600EDB881 /* TransmissionRPC-Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TransmissionRPC-Extensions.swift"; sourceTree = "<group>"; };
+		B803F030239DF9E000392CE0 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		B8181A9F235A6EFE001637FE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/InfoMessage.xib; sourceTree = "<group>"; };
 		B821D202234C5790007AC12F /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		B8226C1C2357670900169E9B /* ResfreshTimerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResfreshTimerProtocol.swift; sourceTree = "<group>"; };
@@ -682,6 +683,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B803F032239DFA3800392CE0 /* Readme */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Readme;
+			sourceTree = "<group>";
+		};
 		B87464F122E8E3EB00B12E3E /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -773,11 +781,13 @@
 		B886042A22D6E013008D86B0 /* Transmission Remote */ = {
 			isa = PBXGroup;
 			children = (
+				B803F032239DFA3800392CE0 /* Readme */,
 				B87464F222E8E43200B12E3E /* UI Classes */,
 				B87464F322E8E47B00B12E3E /* Classes */,
 				B87464F122E8E3EB00B12E3E /* Controllers */,
 				B8D3DAC222EECB60006AA295 /* Resources */,
 				B886042B22D6E013008D86B0 /* AppDelegate.swift */,
+				B803F030239DF9E000392CE0 /* README.md */,
 			);
 			name = "Transmission Remote";
 			path = "/Users/jvega/Dropbox/Transmission Remote/Transmission Remote";
@@ -1652,7 +1662,7 @@
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = Resources/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1685,7 +1695,7 @@
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = Resources/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

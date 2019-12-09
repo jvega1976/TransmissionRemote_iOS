@@ -173,9 +173,9 @@ class TorrentFilesController: NMOutlineViewController, RefreshTimer {
 
     
     @objc func renameFile(_ sender: UILongPressGestureRecognizer) {
-        let point = sender.location(in: outlineView)
+        let point = outlineView.locationForPress(sender)
         guard let cell = outlineView.cellAtPoint(point) as? FileListFSCell,
-            let indexPath = outlineView.indexPathforCell(at: point),
+            let indexPath = outlineView.indexPath(for: cell),
             let file = cell.value as? FSItem else { return}
             let addAlert = UIAlertController(title: "Rename File", message: "Enter Filename: ", preferredStyle: .alert)
         addAlert.addTextField(configurationHandler: { textField in
@@ -303,9 +303,7 @@ class TorrentFilesController: NMOutlineViewController, RefreshTimer {
         cell.nameLabel.text = item.name
         // remove all old targets
         cell.checkBox.removeTarget(self, action: #selector(toggleDownloading(_:)), for: .valueChanged)
-        cell.checkBox.removeTarget(self, action: #selector(toggleDownloading(_:)), for: .valueChanged)
         cell.fileTypeIcon.image = UIImage(systemName: "doc")
-        
         cell.value = item
         if addingTorrent {
             cell.progressBar.isHidden = true
@@ -317,6 +315,11 @@ class TorrentFilesController: NMOutlineViewController, RefreshTimer {
         cell.prioritySegment.isHidden = false // by default folders don't have priority segment
         cell.nameLabel.textColor = UIColor.label // by default file/folder names are black
         if cell.longPressView.gestureRecognizers == nil {
+            cell.longPressView.addGestureRecognizer(UILongPressGestureRecognizer(target: self, action: #selector(renameFile(_:))))
+        } else {
+            for gesture in cell.longPressView.gestureRecognizers! {
+                cell.longPressView.removeGestureRecognizer(gesture)
+            }
             cell.longPressView.addGestureRecognizer(UILongPressGestureRecognizer(target: self, action: #selector(renameFile(_:))))
         }
         cell.longPressView.isUserInteractionEnabled = true
@@ -344,10 +347,10 @@ class TorrentFilesController: NMOutlineViewController, RefreshTimer {
         cell.checkBox.tintColor = item.isWanted ? cell.tintColor : UIColor.secondaryLabel
     }
     
+    
     func updateFolderCell(_ cell: FileListFSCell, with item: FSItem) {
         // remove all old targets
         cell.nameLabel.text = item.name
-        cell.checkBox.removeTarget(self, action: #selector(toggleDownloading(_:)), for: .valueChanged)
         cell.checkBox.removeTarget(self, action: #selector(toggleDownloading(_:)), for: .valueChanged)
         
         cell.value = item
@@ -367,6 +370,12 @@ class TorrentFilesController: NMOutlineViewController, RefreshTimer {
         cell.nameLabel.textColor = UIColor.label // by default file/folder names are black
         
         if cell.longPressView.gestureRecognizers == nil {
+
+            cell.longPressView.addGestureRecognizer(UILongPressGestureRecognizer(target: self, action: #selector(renameFile(_:))))
+        } else {
+            for gesture in cell.longPressView.gestureRecognizers! {
+                cell.longPressView.removeGestureRecognizer(gesture)
+            }
             cell.longPressView.addGestureRecognizer(UILongPressGestureRecognizer(target: self, action: #selector(renameFile(_:))))
         }
         cell.longPressView.isUserInteractionEnabled = true
@@ -381,8 +390,6 @@ class TorrentFilesController: NMOutlineViewController, RefreshTimer {
         cell.checkBox.dataObject = item
         cell.checkBox.addTarget(self, action: #selector(toggleDownloading(_:)), for: .valueChanged)
         cell.toggleButton.contentHorizontalAlignment = .right
-        // Add tap handeler for folder - open/close
-        //cell.longPressView.layoutIfNeeded()
     }
 }
 

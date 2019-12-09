@@ -183,7 +183,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <label key="tableHeaderView" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="    Torrent Status" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsFontForContentSizeCategory="YES" id="qC5-hR-i9B">
-                            <rect key="frame" x="0.0" y="0.0" width="26" height="40"/>
+                            <rect key="frame" x="0.0" y="0.0" width="220" height="40"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <fontDescription key="fontDescription" style="UICTFontTextStyleTitle3"/>
@@ -251,7 +251,7 @@
             <objects>
                 <tableViewController id="x1U-IK-s15" customClass="TorrentTableController" customModule="Transmission_Remote" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" allowsSelectionDuringEditing="YES" allowsMultipleSelectionDuringEditing="YES" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="100" sectionFooterHeight="28" springLoaded="YES" id="P4E-JZ-h9y">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="594"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="501"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
@@ -744,7 +744,7 @@
             <objects>
                 <tableViewController title="Trackers" id="PXn-Xg-EdW" customClass="TorrentTrackersController" customModule="Transmission_Remote" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" allowsSelectionDuringEditing="YES" rowHeight="182" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="EQf-AV-hWQ">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="545"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="452"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <prototypes>
@@ -900,7 +900,7 @@
             <objects>
                 <viewController title="Peers" id="oHz-kf-h1V" customClass="TorrentPeersController" customModule="Transmission_Remote" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="52" sectionHeaderHeight="28" sectionFooterHeight="28" id="xQY-XT-Odt">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="545"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="452"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <color key="sectionIndexColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1814,11 +1814,11 @@
             <objects>
                 <viewController storyboardIdentifier="fileListController" title="Files" id="ThB-7P-D8z" userLabel="Files" customClass="TorrentFilesController" customModule="Transmission_Remote" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" opaque="NO" contentMode="scaleToFill" id="xjo-Li-vrJ" customClass="NMOutlineView" customModule="NMOutlineView">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="545"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="452"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <tableView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="68" sectionHeaderHeight="1" sectionFooterHeight="1" id="6MK-V3-5rH">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="545"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="452"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
@@ -1826,7 +1826,7 @@
                                         <rect key="frame" x="0.0" y="55.333332061767578" width="414" height="68"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="RrO-83-brX" id="RfH-le-xvm">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="68"/>
+                                            <rect key="frame" x="34" y="0.0" width="380" height="68"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="38Y-0J-i4c" customClass="UICheckBox" customModule="Transmission_Remote" customModuleProvider="target">
@@ -1842,7 +1842,7 @@
                                                     </userDefinedRuntimeAttributes>
                                                 </button>
                                                 <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Ncr-ub-Ula">
-                                                    <rect key="frame" x="338" y="18.666666666666664" width="67" height="31.666666666666664"/>
+                                                    <rect key="frame" x="304" y="18.666666666666664" width="67" height="31.666666666666664"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="67" id="cwA-4B-wny"/>
                                                     </constraints>
@@ -1853,24 +1853,24 @@
                                                     </segments>
                                                 </segmentedControl>
                                                 <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tJU-0c-1i6" userLabel="LongPressView">
-                                                    <rect key="frame" x="38" y="0.0" width="297" height="68"/>
+                                                    <rect key="frame" x="38" y="0.0" width="263" height="68"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" verticalHuggingPriority="251" horizontalCompressionResistancePriority="247" text="File name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.75" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QdK-cB-hQG">
-                                                            <rect key="frame" x="37" y="8.9999999999999982" width="247" height="20.333333333333329"/>
+                                                            <rect key="frame" x="37" y="8.9999999999999982" width="213" height="20.333333333333329"/>
                                                             <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                                             <nil key="highlightedColor"/>
                                                             <userDefinedRuntimeAttributes>
                                                                 <userDefinedRuntimeAttribute type="boolean" keyPath="copyingEnabled" value="YES"/>
                                                             </userDefinedRuntimeAttributes>
                                                         </label>
-                                                        <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" verticalCompressionResistancePriority="749" misplaced="YES" progressViewStyle="bar" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="CqR-6S-b2v">
-                                                            <rect key="frame" x="37" y="34" width="219" height="1"/>
+                                                        <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" verticalCompressionResistancePriority="749" progressViewStyle="bar" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="CqR-6S-b2v">
+                                                            <rect key="frame" x="37" y="34" width="216" height="1"/>
                                                             <color key="backgroundColor" systemColor="quaternaryLabelColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.17999999999999999" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <color key="progressTintColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <color key="trackTintColor" systemColor="quaternaryLabelColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.17999999999999999" colorSpace="custom" customColorSpace="sRGB"/>
                                                         </progressView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" verticalHuggingPriority="249" horizontalCompressionResistancePriority="248" text="100 bytes of 100 bytes" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.75" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Oqj-g8-gRy">
-                                                            <rect key="frame" x="37" y="43" width="250" height="13.333333333333336"/>
+                                                            <rect key="frame" x="37" y="43" width="216" height="13.333333333333336"/>
                                                             <fontDescription key="fontDescription" style="UICTFontTextStyleCaption2"/>
                                                             <color key="textColor" systemColor="secondaryLabelColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
@@ -1971,7 +1971,7 @@
             <objects>
                 <tableViewController title="Pieces" id="Y96-b6-oA1" customClass="TorrentPiecesController" customModule="Transmission_Remote" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="kwh-55-CLF">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="545"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="452"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <sections>
@@ -2131,7 +2131,7 @@
             <objects>
                 <tableViewController title="Info" id="pe3-6h-8Z8" customClass="TorrentInfoController" customModule="Transmission_Remote" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" dataMode="static" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="EMa-nO-N4d">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="545"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="452"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <color key="separatorColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
