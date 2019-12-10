@@ -1826,7 +1826,7 @@
                                         <rect key="frame" x="0.0" y="55.333332061767578" width="414" height="68"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="RrO-83-brX" id="RfH-le-xvm">
-                                            <rect key="frame" x="34" y="0.0" width="380" height="68"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="68"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="38Y-0J-i4c" customClass="UICheckBox" customModule="Transmission_Remote" customModuleProvider="target">
