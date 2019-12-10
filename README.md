@@ -35,6 +35,16 @@ Access and update the Remote Session options:
 
 ![ Options](/Readme/Options.png) 
 
+Transmission Remote is a Universal App, can be executed in iPhones and iPad:
+
+![ iPad](/Readme/iPad.png) 
+
+Slit View and Background App Ready:
+
+![ Background](/Readme/Background.png) 
+
+![ SplitView](/Readme/SplitView.png) 
+
 Ready for macOS Catalyst:
 
 Transmission Remote can be executed in macOS Catalina 10.15:
