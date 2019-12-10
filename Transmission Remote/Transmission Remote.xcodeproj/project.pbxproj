@@ -281,6 +281,18 @@
 		B84D375022EC46750089A097 /* TrackerListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84D374F22EC46750089A097 /* TrackerListCell.swift */; };
 		B84D376422EE0B2B0089A097 /* FileListFSCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84D376122EE0B2B0089A097 /* FileListFSCell.swift */; };
 		B84D376522EE0B2B0089A097 /* IconFS.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84D376222EE0B2B0089A097 /* IconFS.swift */; };
+		B85F552C239F4DA0006F4DB8 /* Dark.png in Resources */ = {isa = PBXBuildFile; fileRef = B85F5520239F4DA0006F4DB8 /* Dark.png */; };
+		B85F552D239F4DA0006F4DB8 /* CatalystDark.png in Resources */ = {isa = PBXBuildFile; fileRef = B85F5521239F4DA0006F4DB8 /* CatalystDark.png */; };
+		B85F552E239F4DA0006F4DB8 /* Files.png in Resources */ = {isa = PBXBuildFile; fileRef = B85F5522239F4DA0006F4DB8 /* Files.png */; };
+		B85F552F239F4DA0006F4DB8 /* SwipeLeft.png in Resources */ = {isa = PBXBuildFile; fileRef = B85F5523239F4DA0006F4DB8 /* SwipeLeft.png */; };
+		B85F5530239F4DA0006F4DB8 /* Peers.png in Resources */ = {isa = PBXBuildFile; fileRef = B85F5524239F4DA0006F4DB8 /* Peers.png */; };
+		B85F5531239F4DA0006F4DB8 /* SwipeRight.png in Resources */ = {isa = PBXBuildFile; fileRef = B85F5525239F4DA0006F4DB8 /* SwipeRight.png */; };
+		B85F5532239F4DA0006F4DB8 /* Light.png in Resources */ = {isa = PBXBuildFile; fileRef = B85F5526239F4DA0006F4DB8 /* Light.png */; };
+		B85F5533239F4DA0006F4DB8 /* Filter.png in Resources */ = {isa = PBXBuildFile; fileRef = B85F5527239F4DA0006F4DB8 /* Filter.png */; };
+		B85F5534239F4DA0006F4DB8 /* Options.png in Resources */ = {isa = PBXBuildFile; fileRef = B85F5528239F4DA0006F4DB8 /* Options.png */; };
+		B85F5535239F4DA0006F4DB8 /* Detail.png in Resources */ = {isa = PBXBuildFile; fileRef = B85F5529239F4DA0006F4DB8 /* Detail.png */; };
+		B85F5536239F4DA0006F4DB8 /* MenuActions.png in Resources */ = {isa = PBXBuildFile; fileRef = B85F552A239F4DA0006F4DB8 /* MenuActions.png */; };
+		B85F5537239F4DA0006F4DB8 /* CatalystLight.png in Resources */ = {isa = PBXBuildFile; fileRef = B85F552B239F4DA0006F4DB8 /* CatalystLight.png */; };
 		B85F86B02378040A001BB957 /* TorrentFilterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85F86AF2378040A001BB957 /* TorrentFilterController.swift */; };
 		B85F86B823780723001BB957 /* FilterViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85F86B723780723001BB957 /* FilterViewCell.swift */; };
 		B86820EA22F7760C004FAA8C /* IconHalfCloud.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86820E922F7760C004FAA8C /* IconHalfCloud.swift */; };
@@ -626,7 +638,7 @@
 /* Begin PBXFileReference section */
 		B8018C95239CE49800EDB881 /* UILabel+Copyable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UILabel+Copyable.swift"; path = "UI Classes/UILabel+Copyable.swift"; sourceTree = SOURCE_ROOT; };
 		B8018CAD239CF9D600EDB881 /* TransmissionRPC-Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TransmissionRPC-Extensions.swift"; sourceTree = "<group>"; };
-		B803F030239DF9E000392CE0 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		B803F030239DF9E000392CE0 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		B803F168239E2ED600392CE0 /* Transmission Remote.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Transmission Remote.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B803F280239E2FC700392CE0 /* Transmission_Remote.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = Transmission_Remote.entitlements; sourceTree = "<group>"; };
 		B803F282239E2FC700392CE0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -643,6 +655,18 @@
 		B84D374F22EC46750089A097 /* TrackerListCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrackerListCell.swift; sourceTree = "<group>"; };
 		B84D376122EE0B2B0089A097 /* FileListFSCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileListFSCell.swift; sourceTree = "<group>"; };
 		B84D376222EE0B2B0089A097 /* IconFS.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IconFS.swift; sourceTree = "<group>"; };
+		B85F5520239F4DA0006F4DB8 /* Dark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Dark.png; sourceTree = "<group>"; };
+		B85F5521239F4DA0006F4DB8 /* CatalystDark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CatalystDark.png; sourceTree = "<group>"; };
+		B85F5522239F4DA0006F4DB8 /* Files.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Files.png; sourceTree = "<group>"; };
+		B85F5523239F4DA0006F4DB8 /* SwipeLeft.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SwipeLeft.png; sourceTree = "<group>"; };
+		B85F5524239F4DA0006F4DB8 /* Peers.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Peers.png; sourceTree = "<group>"; };
+		B85F5525239F4DA0006F4DB8 /* SwipeRight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SwipeRight.png; sourceTree = "<group>"; };
+		B85F5526239F4DA0006F4DB8 /* Light.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Light.png; sourceTree = "<group>"; };
+		B85F5527239F4DA0006F4DB8 /* Filter.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Filter.png; sourceTree = "<group>"; };
+		B85F5528239F4DA0006F4DB8 /* Options.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Options.png; sourceTree = "<group>"; };
+		B85F5529239F4DA0006F4DB8 /* Detail.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Detail.png; sourceTree = "<group>"; };
+		B85F552A239F4DA0006F4DB8 /* MenuActions.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MenuActions.png; sourceTree = "<group>"; };
+		B85F552B239F4DA0006F4DB8 /* CatalystLight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CatalystLight.png; sourceTree = "<group>"; };
 		B85F86AF2378040A001BB957 /* TorrentFilterController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TorrentFilterController.swift; sourceTree = "<group>"; };
 		B85F86B723780723001BB957 /* FilterViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterViewCell.swift; sourceTree = "<group>"; };
 		B8645F7F22E2FDFD00BFACC4 /* TorrentSearchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TorrentSearchController.swift; sourceTree = "<group>"; };
@@ -977,13 +1001,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		B803F032239DFA3800392CE0 /* Readme */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Readme;
-			sourceTree = "<group>";
-		};
 		B803F27D239E2FC700392CE0 /* Transmission Remote macOS */ = {
 			isa = PBXGroup;
 			children = (
@@ -995,6 +1012,26 @@
 			);
 			name = "Transmission Remote macOS";
 			path = "../Transmission Remote macOS";
+			sourceTree = "<group>";
+		};
+		B85F551F239F4DA0006F4DB8 /* Readme */ = {
+			isa = PBXGroup;
+			children = (
+				B85F5520239F4DA0006F4DB8 /* Dark.png */,
+				B85F5521239F4DA0006F4DB8 /* CatalystDark.png */,
+				B85F5522239F4DA0006F4DB8 /* Files.png */,
+				B85F5523239F4DA0006F4DB8 /* SwipeLeft.png */,
+				B85F5524239F4DA0006F4DB8 /* Peers.png */,
+				B85F5525239F4DA0006F4DB8 /* SwipeRight.png */,
+				B85F5526239F4DA0006F4DB8 /* Light.png */,
+				B85F5527239F4DA0006F4DB8 /* Filter.png */,
+				B85F5528239F4DA0006F4DB8 /* Options.png */,
+				B85F5529239F4DA0006F4DB8 /* Detail.png */,
+				B85F552A239F4DA0006F4DB8 /* MenuActions.png */,
+				B85F552B239F4DA0006F4DB8 /* CatalystLight.png */,
+			);
+			name = Readme;
+			path = ../Readme;
 			sourceTree = "<group>";
 		};
 		B87464F122E8E3EB00B12E3E /* Controllers */ = {
@@ -1071,10 +1108,12 @@
 		B886041F22D6E013008D86B0 = {
 			isa = PBXGroup;
 			children = (
+				B85F551F239F4DA0006F4DB8 /* Readme */,
 				B803F27D239E2FC700392CE0 /* Transmission Remote macOS */,
 				B886042A22D6E013008D86B0 /* Transmission Remote */,
 				B886044322D6E0A3008D86B0 /* Frameworks */,
 				B886042922D6E013008D86B0 /* Products */,
+				B803F030239DF9E000392CE0 /* README.md */,
 			);
 			sourceTree = "<group>";
 		};
@@ -1090,13 +1129,11 @@
 		B886042A22D6E013008D86B0 /* Transmission Remote */ = {
 			isa = PBXGroup;
 			children = (
-				B803F032239DFA3800392CE0 /* Readme */,
 				B87464F222E8E43200B12E3E /* UI Classes */,
 				B87464F322E8E47B00B12E3E /* Classes */,
 				B87464F122E8E3EB00B12E3E /* Controllers */,
 				B8D3DAC222EECB60006AA295 /* Resources */,
 				B886042B22D6E013008D86B0 /* AppDelegate.swift */,
-				B803F030239DF9E000392CE0 /* README.md */,
 			);
 			name = "Transmission Remote";
 			path = "/Users/jvega/Dropbox/Transmission Remote/Transmission Remote";
@@ -1431,6 +1468,9 @@
 			buildRules = (
 			);
 			dependencies = (
+				B85F551E239F479E006F4DB8 /* PBXTargetDependency */,
+				B85F551C239F479A006F4DB8 /* PBXTargetDependency */,
+				B85F551A239F4797006F4DB8 /* PBXTargetDependency */,
 			);
 			name = "Transmission Remote iOS";
 			packageProductDependencies = (
@@ -1754,6 +1794,7 @@
 			files = (
 				B8D3DC8822EECB96006AA295 /* CD.png in Resources */,
 				B8D3DCA122EECB96006AA295 /* MK.png in Resources */,
+				B85F5534239F4DA0006F4DB8 /* Options.png in Resources */,
 				B8D3DC3A22EECB95006AA295 /* PE.png in Resources */,
 				B8D3DC1C22EECB95006AA295 /* DK.png in Resources */,
 				B8D3DC5A22EECB96006AA295 /* SX.png in Resources */,
@@ -1769,12 +1810,14 @@
 				B8D3DBF922EECB95006AA295 /* AT.png in Resources */,
 				B8D3DC7C22EECB96006AA295 /* NA.png in Resources */,
 				B8D3DBEC22EECB95006AA295 /* CH.png in Resources */,
+				B85F552E239F4DA0006F4DB8 /* Files.png in Resources */,
 				B8D3DC0822EECB95006AA295 /* GE.png in Resources */,
 				B8D3DBC522EECB95006AA295 /* AF.png in Resources */,
 				B8D3DC0F22EECB95006AA295 /* PM.png in Resources */,
 				B8D3DC1F22EECB95006AA295 /* SB.png in Resources */,
 				B8D3DC2422EECB95006AA295 /* GT.png in Resources */,
 				B8D3DC9022EECB96006AA295 /* BA.png in Resources */,
+				B85F5535239F4DA0006F4DB8 /* Detail.png in Resources */,
 				B8D3DBE122EECB95006AA295 /* LT.png in Resources */,
 				B8D3DC3022EECB95006AA295 /* DZ.png in Resources */,
 				B8D3DC3D22EECB95006AA295 /* HT.png in Resources */,
@@ -1826,9 +1869,11 @@
 				B8D3DBF822EECB95006AA295 /* BO.png in Resources */,
 				B8D3DC2122EECB95006AA295 /* RU.png in Resources */,
 				B8D3DC7722EECB96006AA295 /* AN.png in Resources */,
+				B85F5530239F4DA0006F4DB8 /* Peers.png in Resources */,
 				B8D3DBEB22EECB95006AA295 /* MC.png in Resources */,
 				B8D3DC9522EECB96006AA295 /* TH.png in Resources */,
 				B8D3DC9F22EECB96006AA295 /* BS.png in Resources */,
+				B85F552C239F4DA0006F4DB8 /* Dark.png in Resources */,
 				B8D3DC6322EECB96006AA295 /* SY.png in Resources */,
 				B8D3DC2022EECB95006AA295 /* PY.png in Resources */,
 				B8D3DC0B22EECB95006AA295 /* IO.png in Resources */,
@@ -1876,6 +1921,7 @@
 				B8D3DBC122EECB95006AA295 /* MR.png in Resources */,
 				B8D3DC9D22EECB96006AA295 /* BD.png in Resources */,
 				B8D3DC1822EECB95006AA295 /* GF.png in Resources */,
+				B85F552F239F4DA0006F4DB8 /* SwipeLeft.png in Resources */,
 				B8D3DC2B22EECB95006AA295 /* SR.png in Resources */,
 				B8D3DCB522EECB96006AA295 /* TJ.png in Resources */,
 				B8D3DC0A22EECB95006AA295 /* GD.png in Resources */,
@@ -1912,6 +1958,7 @@
 				B8D3DCA222EECB96006AA295 /* NP.png in Resources */,
 				B8D3DCB322EECB96006AA295 /* WF.png in Resources */,
 				B8D3DC2E22EECB95006AA295 /* GW.png in Resources */,
+				B85F5532239F4DA0006F4DB8 /* Light.png in Resources */,
 				B8D3DC9422EECB96006AA295 /* WS.png in Resources */,
 				B871F4AC22E0A190008E578E /* Localizable.strings in Resources */,
 				B8D3DC5D22EECB96006AA295 /* JM.png in Resources */,
@@ -1929,8 +1976,10 @@
 				B8D3DCAA22EECB96006AA295 /* NE.png in Resources */,
 				B8D3DBF222EECB95006AA295 /* US.png in Resources */,
 				B8D3DC7B22EECB96006AA295 /* LI.png in Resources */,
+				B85F5536239F4DA0006F4DB8 /* MenuActions.png in Resources */,
 				B8D3DBCE22EECB95006AA295 /* MD.png in Resources */,
 				B8D3DBC822EECB95006AA295 /* AQ.png in Resources */,
+				B85F5533239F4DA0006F4DB8 /* Filter.png in Resources */,
 				B8D3DBF622EECB95006AA295 /* NL.png in Resources */,
 				B8D3DBD722EECB95006AA295 /* CZ.png in Resources */,
 				B8D3DC7D22EECB96006AA295 /* MZ.png in Resources */,
@@ -1954,6 +2003,7 @@
 				B8D3DC8C22EECB96006AA295 /* CR.png in Resources */,
 				B8D3DC6822EECB96006AA295 /* GI.png in Resources */,
 				B8D3DCA322EECB96006AA295 /* VA.png in Resources */,
+				B85F552D239F4DA0006F4DB8 /* CatalystDark.png in Resources */,
 				B8D3DBC022EECB95006AA295 /* LA.png in Resources */,
 				B8D3DC5822EECB95006AA295 /* PT.png in Resources */,
 				B8D3DC9322EECB96006AA295 /* MY.png in Resources */,
@@ -1967,6 +2017,7 @@
 				B8D3DCAB22EECB96006AA295 /* CU.png in Resources */,
 				B8D3DC2822EECB95006AA295 /* HM.png in Resources */,
 				B8D3DBF722EECB95006AA295 /* LS.png in Resources */,
+				B85F5537239F4DA0006F4DB8 /* CatalystLight.png in Resources */,
 				B8D3DCAE22EECB96006AA295 /* BG.png in Resources */,
 				B8D3DC5422EECB95006AA295 /* KZ.png in Resources */,
 				B8D3DC3222EECB95006AA295 /* FR.png in Resources */,
@@ -1984,6 +2035,7 @@
 				B8D3DC2222EECB95006AA295 /* KW.png in Resources */,
 				B8D3DCB422EECB96006AA295 /* VU.png in Resources */,
 				B8D3DBDB22EECB95006AA295 /* AR.png in Resources */,
+				B85F5531239F4DA0006F4DB8 /* SwipeRight.png in Resources */,
 				B8D3DCAF22EECB96006AA295 /* CC.png in Resources */,
 				B8D3DBE922EECB95006AA295 /* MT.png in Resources */,
 				B8D3DCA422EECB96006AA295 /* UZ.png in Resources */,
@@ -2081,6 +2133,21 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		B85F551A239F4797006F4DB8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			productRef = B85F5519239F4797006F4DB8 /* Categorization */;
+		};
+		B85F551C239F479A006F4DB8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			productRef = B85F551B239F479A006F4DB8 /* NMOutlineView */;
+		};
+		B85F551E239F479E006F4DB8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			productRef = B85F551D239F479E006F4DB8 /* TransmissionRPC */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		B803F281239E2FC700392CE0 /* Main.storyboard */ = {
@@ -2424,6 +2491,21 @@
 		};
 		B803F27A239E2F3700392CE0 /* TransmissionRPC */ = {
 			isa = XCSwiftPackageProductDependency;
+			productName = TransmissionRPC;
+		};
+		B85F5519239F4797006F4DB8 /* Categorization */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B8018CB4239D09E800EDB881 /* XCRemoteSwiftPackageReference "Categorization" */;
+			productName = Categorization;
+		};
+		B85F551B239F479A006F4DB8 /* NMOutlineView */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B8ECCF50239D262000D02F57 /* XCRemoteSwiftPackageReference "nmoutlineview" */;
+			productName = NMOutlineView;
+		};
+		B85F551D239F479E006F4DB8 /* TransmissionRPC */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B803F02A239D3B1600392CE0 /* XCRemoteSwiftPackageReference "TransmissionRPC" */;
 			productName = TransmissionRPC;
 		};
 		B86BDFDB239E475C00C02D96 /* Categorization */ = {

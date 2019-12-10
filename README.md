@@ -35,6 +35,14 @@ Access and update the Remote Session options:
 
 ![ Options](/Readme/Options.png) 
 
+Ready for macOS Catalyst:
+
+Transmission Remote can be executed in macOS Catalina 10.15:
+![ CatalystLight](/Readme/CatalystLight.png) 
+
+![ CatalystDark](/Readme/CatalystDark.png) 
+
+
 And More:
 
 * iOS Notifications for downloaded Torrents
