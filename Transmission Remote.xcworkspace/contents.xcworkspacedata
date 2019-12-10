@@ -2,15 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:NMOutlineView/OutlineView.xcodeproj">
-   </FileRef>
-   <FileRef
-      location = "group:Categorization/Categorization.xcodeproj">
-   </FileRef>
-   <FileRef
-      location = "group:TransmissionRPC/TransmissionRPC.xcodeproj">
-   </FileRef>
-   <FileRef
       location = "group:NMOutlineView">
    </FileRef>
    <FileRef

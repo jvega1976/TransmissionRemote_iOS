@@ -77,10 +77,6 @@
             torrentTableController.torrents = torrentTableController.categorization.itemsforCategory(atPosition: categoryIndex).sorted(by: >)
             torrentTableController.torrentsCount.text = torrentTableController.torrents.count != 0 ?  String(torrentTableController.torrents.count) : ""
             searchBar.endEditing(true)
-//            searchBar.isHidden = true
-//            containerView.frame.origin.y = containerView.frame.origin.y - 56.0
-//            searchView.isHidden = true
-//            containerView.setNeedsDisplay()
             torrentTableController.tableView.reloadData()
         }
         
