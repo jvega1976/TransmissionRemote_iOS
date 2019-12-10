@@ -173,7 +173,7 @@ class TorrentFilesController: NMOutlineViewController, RefreshTimer {
 
     
     @objc func renameFile(_ sender: UILongPressGestureRecognizer) {
-        let point = outlineView.locationForPress(sender)
+        let point = sender.location(in: outlineView)
         guard let cell = outlineView.cellAtPoint(point) as? FileListFSCell,
             let indexPath = outlineView.indexPath(for: cell),
             let file = cell.value as? FSItem else { return}

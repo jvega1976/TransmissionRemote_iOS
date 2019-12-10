@@ -27,7 +27,7 @@ Use a long press to access additional Actions:
 
 ![ MenuActions](/Readme/MenuActions.png) 
 
-Filter Torrents in the List by Status:
+Filter the List Torrents by Status:
 
 ![ Filter](/Readme/Filter.png) 
 
@@ -39,7 +39,7 @@ Transmission Remote is a Universal App, can be executed in iPhones and iPad:
 
 ![ iPad](/Readme/iPad.png) 
 
-Slit View and Background App Ready:
+Split View and Background App Ready:
 
 ![ Background](/Readme/Background.png) 
 
@@ -58,9 +58,10 @@ And More:
 * iOS Notifications for downloaded Torrents
 * Rename files and change Location Data
 * Add and delete Trackers
-* Review the Remote server statistics
+* Review Remote server statistics
 * Add new torrents using the native iOS file Browser or sharing from other Apps
 * Search Torrents
+* Sort Torrent list by Name, Size, Speeds, Dates, etc.
 * Synchronize Servers connection setup between multiple devices (macOS and iOS) using iCloud.  Setup is synchronized with macOS computers using the App Transmission Remote for macOS https://github.com/jvega1976/TransmissionRemote! (https://github.com/jvega1976/TransmissionRemote)
 
 

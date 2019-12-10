@@ -263,14 +263,15 @@
 		B803F273239E2EF800392CE0 /* WF.png in Resources */ = {isa = PBXBuildFile; fileRef = B8D3DBBA22EECB95006AA295 /* WF.png */; };
 		B803F274239E2EF800392CE0 /* VU.png in Resources */ = {isa = PBXBuildFile; fileRef = B8D3DBBB22EECB95006AA295 /* VU.png */; };
 		B803F275239E2EF800392CE0 /* TJ.png in Resources */ = {isa = PBXBuildFile; fileRef = B8D3DBBC22EECB95006AA295 /* TJ.png */; };
-		B803F277239E2F2000392CE0 /* Categorization in Frameworks */ = {isa = PBXBuildFile; productRef = B803F276239E2F2000392CE0 /* Categorization */; };
-		B803F278239E2F2000392CE0 /* Categorization in Embed Frameworks */ = {isa = PBXBuildFile; productRef = B803F276239E2F2000392CE0 /* Categorization */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
-		B803F27B239E2F3700392CE0 /* TransmissionRPC in Frameworks */ = {isa = PBXBuildFile; productRef = B803F27A239E2F3700392CE0 /* TransmissionRPC */; };
-		B803F27C239E2F3700392CE0 /* TransmissionRPC in Embed Frameworks */ = {isa = PBXBuildFile; productRef = B803F27A239E2F3700392CE0 /* TransmissionRPC */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		B803F287239E2FC700392CE0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B803F281239E2FC700392CE0 /* Main.storyboard */; };
 		B803F288239E2FC700392CE0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B803F283239E2FC700392CE0 /* AppDelegate.swift */; };
 		B803F289239E2FC700392CE0 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B803F284239E2FC700392CE0 /* Info.plist */; };
 		B803F28B239E35BA00392CE0 /* ServerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B803F28A239E35BA00392CE0 /* ServerViewController.swift */; };
+		B816CD68239F639500700E7B /* Categorization in Frameworks */ = {isa = PBXBuildFile; productRef = B816CD67239F639500700E7B /* Categorization */; };
+		B816CD6A239F639900700E7B /* NMOutlineView in Frameworks */ = {isa = PBXBuildFile; productRef = B816CD69239F639900700E7B /* NMOutlineView */; };
+		B816CD72239F63BD00700E7B /* Categorization in Frameworks */ = {isa = PBXBuildFile; productRef = B816CD71239F63BD00700E7B /* Categorization */; };
+		B816CD75239F63CD00700E7B /* NMOutlineView in Frameworks */ = {isa = PBXBuildFile; productRef = B816CD74239F63CD00700E7B /* NMOutlineView */; };
+		B816CD77239F641A00700E7B /* TransmissionRPC in Frameworks */ = {isa = PBXBuildFile; productRef = B816CD76239F641A00700E7B /* TransmissionRPC */; };
 		B8181A9E235A6EFE001637FE /* InfoMessage.xib in Resources */ = {isa = PBXBuildFile; fileRef = B8181AA0235A6EFE001637FE /* InfoMessage.xib */; };
 		B821D203234C5790007AC12F /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = B821D202234C5790007AC12F /* Settings.bundle */; };
 		B8226C1D2357670900169E9B /* ResfreshTimerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8226C1C2357670900169E9B /* ResfreshTimerProtocol.swift */; };
@@ -296,12 +297,6 @@
 		B85F86B02378040A001BB957 /* TorrentFilterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85F86AF2378040A001BB957 /* TorrentFilterController.swift */; };
 		B85F86B823780723001BB957 /* FilterViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85F86B723780723001BB957 /* FilterViewCell.swift */; };
 		B86820EA22F7760C004FAA8C /* IconHalfCloud.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86820E922F7760C004FAA8C /* IconHalfCloud.swift */; };
-		B86BDFDC239E475C00C02D96 /* Categorization in Frameworks */ = {isa = PBXBuildFile; productRef = B86BDFDB239E475C00C02D96 /* Categorization */; };
-		B86BDFDD239E475C00C02D96 /* Categorization in Embed Frameworks */ = {isa = PBXBuildFile; productRef = B86BDFDB239E475C00C02D96 /* Categorization */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
-		B86BDFE0239E476700C02D96 /* NMOutlineView in Frameworks */ = {isa = PBXBuildFile; productRef = B86BDFDF239E476700C02D96 /* NMOutlineView */; };
-		B86BDFE1239E476700C02D96 /* NMOutlineView in Embed Frameworks */ = {isa = PBXBuildFile; productRef = B86BDFDF239E476700C02D96 /* NMOutlineView */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
-		B86BDFE3239E479A00C02D96 /* TransmissionRPC in Frameworks */ = {isa = PBXBuildFile; productRef = B86BDFE2239E479A00C02D96 /* TransmissionRPC */; };
-		B86BDFE4239E479A00C02D96 /* TransmissionRPC in Embed Frameworks */ = {isa = PBXBuildFile; productRef = B86BDFE2239E479A00C02D96 /* TransmissionRPC */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		B871F4AC22E0A190008E578E /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = B871F4A822E0A18F008E578E /* Localizable.strings */; };
 		B879AB0022D9870B00A51D5B /* IconCloud.swift in Sources */ = {isa = PBXBuildFile; fileRef = B879AAFF22D9870B00A51D5B /* IconCloud.swift */; };
 		B884666D22DB1D9400DC29A4 /* TorrentCategorization.swift in Sources */ = {isa = PBXBuildFile; fileRef = B884666C22DB1D9400DC29A4 /* TorrentCategorization.swift */; };
@@ -604,8 +599,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				B803F27C239E2F3700392CE0 /* TransmissionRPC in Embed Frameworks */,
-				B803F278239E2F2000392CE0 /* Categorization in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -616,9 +609,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				B86BDFDD239E475C00C02D96 /* Categorization in Embed Frameworks */,
-				B86BDFE4239E479A00C02D96 /* TransmissionRPC in Embed Frameworks */,
-				B86BDFE1239E476700C02D96 /* NMOutlineView in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -981,8 +971,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B803F27B239E2F3700392CE0 /* TransmissionRPC in Frameworks */,
-				B803F277239E2F2000392CE0 /* Categorization in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -990,11 +978,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B86BDFE3239E479A00C02D96 /* TransmissionRPC in Frameworks */,
-				B86BDFDC239E475C00C02D96 /* Categorization in Frameworks */,
+				B816CD68239F639500700E7B /* Categorization in Frameworks */,
 				B8B15DAD22EBB19200E2F35E /* UserNotifications.framework in Frameworks */,
+				B816CD77239F641A00700E7B /* TransmissionRPC in Frameworks */,
+				B816CD75239F63CD00700E7B /* NMOutlineView in Frameworks */,
+				B816CD72239F63BD00700E7B /* Categorization in Frameworks */,
 				B886047922D6EA0E008D86B0 /* UIKit.framework in Frameworks */,
-				B86BDFE0239E476700C02D96 /* NMOutlineView in Frameworks */,
+				B816CD6A239F639900700E7B /* NMOutlineView in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1448,8 +1438,6 @@
 			);
 			name = "Transmission Remote";
 			packageProductDependencies = (
-				B803F276239E2F2000392CE0 /* Categorization */,
-				B803F27A239E2F3700392CE0 /* TransmissionRPC */,
 			);
 			productName = "Transmission Remote";
 			productReference = B803F168239E2ED600392CE0 /* Transmission Remote.app */;
@@ -1468,15 +1456,17 @@
 			buildRules = (
 			);
 			dependencies = (
-				B85F551E239F479E006F4DB8 /* PBXTargetDependency */,
-				B85F551C239F479A006F4DB8 /* PBXTargetDependency */,
-				B85F551A239F4797006F4DB8 /* PBXTargetDependency */,
+				B816CD7D239F64AB00700E7B /* PBXTargetDependency */,
+				B816CD7B239F64A700700E7B /* PBXTargetDependency */,
+				B816CD79239F64A300700E7B /* PBXTargetDependency */,
 			);
 			name = "Transmission Remote iOS";
 			packageProductDependencies = (
-				B86BDFDB239E475C00C02D96 /* Categorization */,
-				B86BDFDF239E476700C02D96 /* NMOutlineView */,
-				B86BDFE2239E479A00C02D96 /* TransmissionRPC */,
+				B816CD67239F639500700E7B /* Categorization */,
+				B816CD69239F639900700E7B /* NMOutlineView */,
+				B816CD71239F63BD00700E7B /* Categorization */,
+				B816CD74239F63CD00700E7B /* NMOutlineView */,
+				B816CD76239F641A00700E7B /* TransmissionRPC */,
 			);
 			productName = "Transmission Remote";
 			productReference = B886042822D6E013008D86B0 /* Transmission Remote iOS.app */;
@@ -1510,9 +1500,9 @@
 			);
 			mainGroup = B886041F22D6E013008D86B0;
 			packageReferences = (
-				B8018CB4239D09E800EDB881 /* XCRemoteSwiftPackageReference "Categorization" */,
-				B8ECCF50239D262000D02F57 /* XCRemoteSwiftPackageReference "nmoutlineview" */,
-				B803F02A239D3B1600392CE0 /* XCRemoteSwiftPackageReference "TransmissionRPC" */,
+				B816CD6D239F63B300700E7B /* XCRemoteSwiftPackageReference "TransmissionRPC" */,
+				B816CD70239F63BD00700E7B /* XCRemoteSwiftPackageReference "Categorization" */,
+				B816CD73239F63CD00700E7B /* XCRemoteSwiftPackageReference "nmoutlineview" */,
 			);
 			productRefGroup = B886042922D6E013008D86B0 /* Products */;
 			projectDirPath = "";
@@ -2135,17 +2125,17 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		B85F551A239F4797006F4DB8 /* PBXTargetDependency */ = {
+		B816CD79239F64A300700E7B /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			productRef = B85F5519239F4797006F4DB8 /* Categorization */;
+			productRef = B816CD78239F64A300700E7B /* TransmissionRPC */;
 		};
-		B85F551C239F479A006F4DB8 /* PBXTargetDependency */ = {
+		B816CD7B239F64A700700E7B /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			productRef = B85F551B239F479A006F4DB8 /* NMOutlineView */;
+			productRef = B816CD7A239F64A700700E7B /* Categorization */;
 		};
-		B85F551E239F479E006F4DB8 /* PBXTargetDependency */ = {
+		B816CD7D239F64AB00700E7B /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			productRef = B85F551D239F479E006F4DB8 /* TransmissionRPC */;
+			productRef = B816CD7C239F64AB00700E7B /* NMOutlineView */;
 		};
 /* End PBXTargetDependency section */
 
@@ -2458,69 +2448,69 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		B8018CB4239D09E800EDB881 /* XCRemoteSwiftPackageReference "Categorization" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/jvega1976/Categorization";
-			requirement = {
-				kind = exactVersion;
-				version = 2.0.0;
-			};
-		};
-		B803F02A239D3B1600392CE0 /* XCRemoteSwiftPackageReference "TransmissionRPC" */ = {
+		B816CD6D239F63B300700E7B /* XCRemoteSwiftPackageReference "TransmissionRPC" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/jvega1976/TransmissionRPC.git";
 			requirement = {
-				kind = exactVersion;
-				version = 2.0.0;
+				branch = master;
+				kind = branch;
 			};
 		};
-		B8ECCF50239D262000D02F57 /* XCRemoteSwiftPackageReference "nmoutlineview" */ = {
+		B816CD70239F63BD00700E7B /* XCRemoteSwiftPackageReference "Categorization" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/jvega1976/nmoutlineview";
+			repositoryURL = "https://github.com/jvega1976/Categorization.git";
 			requirement = {
-				kind = exactVersion;
-				version = 1.0.0;
+				branch = master;
+				kind = branch;
+			};
+		};
+		B816CD73239F63CD00700E7B /* XCRemoteSwiftPackageReference "nmoutlineview" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/jvega1976/nmoutlineview.git";
+			requirement = {
+				branch = master;
+				kind = branch;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		B803F276239E2F2000392CE0 /* Categorization */ = {
+		B816CD67239F639500700E7B /* Categorization */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = Categorization;
 		};
-		B803F27A239E2F3700392CE0 /* TransmissionRPC */ = {
+		B816CD69239F639900700E7B /* NMOutlineView */ = {
 			isa = XCSwiftPackageProductDependency;
-			productName = TransmissionRPC;
-		};
-		B85F5519239F4797006F4DB8 /* Categorization */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = B8018CB4239D09E800EDB881 /* XCRemoteSwiftPackageReference "Categorization" */;
-			productName = Categorization;
-		};
-		B85F551B239F479A006F4DB8 /* NMOutlineView */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = B8ECCF50239D262000D02F57 /* XCRemoteSwiftPackageReference "nmoutlineview" */;
 			productName = NMOutlineView;
 		};
-		B85F551D239F479E006F4DB8 /* TransmissionRPC */ = {
+		B816CD71239F63BD00700E7B /* Categorization */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = B803F02A239D3B1600392CE0 /* XCRemoteSwiftPackageReference "TransmissionRPC" */;
-			productName = TransmissionRPC;
-		};
-		B86BDFDB239E475C00C02D96 /* Categorization */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = B8018CB4239D09E800EDB881 /* XCRemoteSwiftPackageReference "Categorization" */;
+			package = B816CD70239F63BD00700E7B /* XCRemoteSwiftPackageReference "Categorization" */;
 			productName = Categorization;
 		};
-		B86BDFDF239E476700C02D96 /* NMOutlineView */ = {
+		B816CD74239F63CD00700E7B /* NMOutlineView */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = B8ECCF50239D262000D02F57 /* XCRemoteSwiftPackageReference "nmoutlineview" */;
+			package = B816CD73239F63CD00700E7B /* XCRemoteSwiftPackageReference "nmoutlineview" */;
 			productName = NMOutlineView;
 		};
-		B86BDFE2239E479A00C02D96 /* TransmissionRPC */ = {
+		B816CD76239F641A00700E7B /* TransmissionRPC */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = TransmissionRPC;
+		};
+		B816CD78239F64A300700E7B /* TransmissionRPC */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B816CD6D239F63B300700E7B /* XCRemoteSwiftPackageReference "TransmissionRPC" */;
+			productName = TransmissionRPC;
+		};
+		B816CD7A239F64A700700E7B /* Categorization */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B816CD70239F63BD00700E7B /* XCRemoteSwiftPackageReference "Categorization" */;
+			productName = Categorization;
+		};
+		B816CD7C239F64AB00700E7B /* NMOutlineView */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B816CD73239F63CD00700E7B /* XCRemoteSwiftPackageReference "nmoutlineview" */;
+			productName = NMOutlineView;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

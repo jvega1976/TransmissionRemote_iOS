@@ -3,29 +3,29 @@
     "pins": [
       {
         "package": "Categorization",
-        "repositoryURL": "https://github.com/jvega1976/Categorization",
+        "repositoryURL": "https://github.com/jvega1976/Categorization.git",
         "state": {
-          "branch": null,
-          "revision": "a97e6b09c93c1949b828c3989dbb8849f42afe17",
-          "version": "2.0.0"
+          "branch": "master",
+          "revision": "22f6022bf5e7a914c745d932ade422cacecb0506",
+          "version": null
         }
       },
       {
         "package": "NMOutlineView",
-        "repositoryURL": "https://github.com/jvega1976/nmoutlineview",
+        "repositoryURL": "https://github.com/jvega1976/nmoutlineview.git",
         "state": {
-          "branch": null,
-          "revision": "de703d27827ba180280b6f6e6a954ffbbce5b3d3",
-          "version": "1.0.0"
+          "branch": "master",
+          "revision": "5806ad24324ab0dc112f1dddbab5b1ef5730f941",
+          "version": null
         }
       },
       {
         "package": "TransmissionRPC",
         "repositoryURL": "https://github.com/jvega1976/TransmissionRPC.git",
         "state": {
-          "branch": null,
-          "revision": "ea76b96313b2876761f0c100a381e94ddfc7497a",
-          "version": "2.0.0"
+          "branch": "master",
+          "revision": "155368ca3d8b2f3e43f0de54d1da314a2466a4a5",
+          "version": null
         }
       }
     ]
