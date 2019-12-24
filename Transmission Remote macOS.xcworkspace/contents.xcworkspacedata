@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workspace
+   version = "1.0">
+   <FileRef
+      location = "group:Categorization">
+   </FileRef>
+   <FileRef
+      location = "group:TransmissionRPC">
+   </FileRef>
+   <FileRef
+      location = "group:Transmission Remote macOS/Transmission Remote macOS.xcodeproj">
+   </FileRef>
+</Workspace>

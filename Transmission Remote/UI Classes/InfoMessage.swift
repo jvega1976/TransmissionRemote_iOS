@@ -5,7 +5,8 @@
 //  Created by  on 7/31/19.
 //
 
-import UIKit
+
+
 
 let INFO_MESSAGE_TOPMARGIN = 0
 let INFO_MESSAGE_CORNERRADIUS = 3
@@ -16,14 +17,15 @@ let INFO_MESSAGE_ICONCHECK = "iconCheck20x20"
 let INFO_MESSAGE_ICONEXCLAMATION = "iconExclamation20x20"
 let INFO_MESSAGE_BUNDLENAME = "InfoMessage"
 
+import UIKit
+
 @IBDesignable class InfoMessage: UIView {
     
     private var showTimeDelay:Double = 0
     
 
-    @IBOutlet weak var label: UILabel!
-    @IBOutlet weak var icon: UIImageView!
-    
+    @IBOutlet weak public var label: UILabel!
+    @IBOutlet weak public var icon: UIImageView!
     
     var iconInfo: UIImage!
     var iconError: UIImage!
@@ -86,7 +88,7 @@ let INFO_MESSAGE_BUNDLENAME = "InfoMessage"
         // animiate
         parentView?.addSubview(self)
 
-        UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0, options: [], animations: {
+        UIView.animate(withDuration: 0.1, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0, options: [], animations: {
             var pEnd = p
             pEnd.y = self.bounds.size.height / 2 + CGFloat(INFO_MESSAGE_TOPMARGIN)
             self.center = pEnd
@@ -96,7 +98,7 @@ let INFO_MESSAGE_BUNDLENAME = "InfoMessage"
             
             DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + Double(self.showTimeDelay * Double(NSEC_PER_SEC)) / Double(NSEC_PER_SEC), execute: {
 
-                UIView.animate(withDuration: 0.7, animations: {
+                UIView.animate(withDuration: 0.1, animations: {
                     self.center = p
                 }) { finished in
                     self.removeFromSuperview()
@@ -132,6 +134,15 @@ let INFO_MESSAGE_BUNDLENAME = "InfoMessage"
 
         show(from: parentView)
     }
+    
+    func showMessage(_ errStr: String?, from parentView: UIView?) {
+        showTimeDelay = Double(INFO_MESSAGE_DEFAULTHIDETIMEOUT) * 1.3
+        setText(errStr)
+        self.frame.size.width = parentView?.bounds.width ?? 0.0
+        self.frame.origin.y = parentView?.bounds.origin.y ?? 0.0
+        show(from: parentView)
+    }
+
 
     func setText(_ text: String?) {
         label.text = text

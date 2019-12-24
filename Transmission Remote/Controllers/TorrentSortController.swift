@@ -103,9 +103,9 @@ class TorrentSortController: UITableViewController {
                 case (.size,.desc):
                     torrentTableController.categorization.sortPredicate = { $0.totalSize > $1.totalSize }
                 case (.percentage,.asc):
-                    torrentTableController.categorization.sortPredicate = { $0.percentDone < $1.percentDone }
+                    torrentTableController.categorization.sortPredicate = { $0.percentsDone < $1.percentsDone }
                 case (.percentage,.desc):
-                    torrentTableController.categorization.sortPredicate = { $0.percentDone > $1.percentDone }
+                    torrentTableController.categorization.sortPredicate = { $0.percentsDone > $1.percentsDone }
                 case (.downSpeed,.asc):
                     torrentTableController.categorization.sortPredicate = { $0.downloadRate < $1.downloadRate }
                 case (.downSpeed,.desc):
@@ -129,7 +129,7 @@ class TorrentSortController: UITableViewController {
                 default:
                     break
             }
-            torrentTableController.torrents! = torrentTableController.categorization.itemsforCategory(atPosition: torrentTableController.categoryIndex)
+
             torrentTableController.tableView.reloadData()
             torrentTableController.torrentsCount.text = torrentTableController.torrents.count != 0 ?  String(torrentTableController.torrents.count) : ""
             torrentTableController.removeBlurEffect()

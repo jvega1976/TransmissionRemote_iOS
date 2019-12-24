@@ -10,7 +10,8 @@ import TransmissionRPC
 import Categorization
 
 class TorrentInfoController: CommonTableController {
-   
+    
+    @IBOutlet weak var torrentId: UILabel!
     @IBOutlet weak var torrentNameLabel: UILabel!
     @IBOutlet weak var stateLabel: UILabel!
     @IBOutlet weak var progressLabel: UILabel!
@@ -19,7 +20,7 @@ class TorrentInfoController: CommonTableController {
     @IBOutlet weak var downloadFolder: UILabel!
     @IBOutlet weak var uploadedLabel: UILabel!
     @IBOutlet weak var ratioLabel: UILabel!
- //   @IBOutlet weak var commentLabel: UILabel!
+    //   @IBOutlet weak var commentLabel: UILabel!
     @IBOutlet weak var commentLabel: UITextView!
     
     @IBOutlet weak var dateAddedLabel: UILabel!
@@ -43,20 +44,32 @@ class TorrentInfoController: CommonTableController {
     @IBOutlet weak var textSeedIdleLimit: UITextField!
     @IBOutlet weak var sizeLabel: UILabel!
     @IBOutlet weak var upDownSpeedLabel: UILabel!
-
-
+    
+    
     var enableControls = false
     var completionHandler: ((Error?)->Void)!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         completionHandler = { error in
-            DispatchQueue.main.async {
-                if error != nil {
-                    self.errorMessage = error!.localizedDescription
+            
+            if error != nil {
+                DispatchQueue.main.async {
+                    displayErrorMessage(error!.localizedDescription, using: self.parent)
+                }
+            } else {
+                self.session.getInfo(forTorrents: [self.torrent!.trId], withPriority: .veryHigh) { (torrents, _, error) in
+                    DispatchQueue.main.async {
+                        if error != nil {
+                            displayErrorMessage(error!.localizedDescription, using: self.parent)
+                        } else {
+                            TorrentCategorization.shared.updateItems(with: torrents!)
+                        }
+                    }
                 }
             }
         }
+        torrentId.text = String(torrent.trId)
         torrentNameLabel.text = torrent.name
         stateLabel.text = torrent.statusString
         downloadFolder.text = torrent.downloadDir
@@ -64,7 +77,7 @@ class TorrentInfoController: CommonTableController {
         haveLabel.text = torrent.haveValidString
         downloadedLabel.text = torrent.downloadedEverString
         uploadedLabel.text = torrent.uploadedEverString
-        ratioLabel.text = String(format: "%02.2f", torrent!.uploadRatio)
+        ratioLabel.text = String(format: "%02.2f", torrent.uploadRatio < 0.0 ? 0.0 : torrent.uploadRatio)
         commentLabel.text = torrent.comment
         dateAddedLabel.text = torrent.dateAddedString
         dateCompletedLabel.text = torrent.dateDoneString
@@ -77,23 +90,16 @@ class TorrentInfoController: CommonTableController {
         stepperQueuePosition.value = Double(torrent.queuePosition)
         textQueuePosition.text = String(format: "%ld", torrent.queuePosition)
         segmentBandwidthPriority.selectedSegmentIndex = torrent.bandwidthPriority + 1
-        switchUploadLimit.isOn = torrent.uploadLimitEnabled
+        switchUploadLimit.isOn = torrent.uploadLimited
         textUploadLimit.text = String(format: "%ld", torrent.uploadLimit)
-        switchDownloadLimit.isOn = torrent.downloadLimitEnabled
+        switchDownloadLimit.isOn = torrent.downloadLimited
         textDownloadLimit.text = String(format: "%ld", torrent.downloadLimit)
         switchRatioLimit.isOn = torrent.seedRatioMode > 0
         textSeedRatioLimit.text = String(torrent.seedRatioLimit)
         switchSeedIdleLimit.isOn = torrent.seedIdleMode > 0
         textSeedIdleLimit.text =  String(torrent.seedIdleLimit)
         sizeLabel.text = formatByteCount(torrent!.totalSize)
-        if torrent.isSeeding {
-            upDownSpeedLabel.text = torrent.uploadRateString
-        }
-        else if torrent.isFinished || torrent.isStopped {
-            upDownSpeedLabel.text = torrent.downloadRateString
-        } else {
-            upDownSpeedLabel.text = String(format: "%@ / %@", torrent.uploadRateString , torrent.downloadRateString )
-        }
+        
         // Do any additional setup after loading the view.
     }
     
@@ -103,12 +109,12 @@ class TorrentInfoController: CommonTableController {
         refreshControl = UIRefreshControl()
         refreshControl!.addTarget(self, action: #selector(updateData), for: .valueChanged)
         (parent as! TorrentDetailsController).navigationItem.title = nil
-        let pauseButton = UIBarButtonItem(image: UIImage(systemName: "pause.circle"), style: UIBarButtonItem.Style.plain, target: self, action: #selector(pauseTorrent(_:)))
-        let resumeButton = UIBarButtonItem(image: UIImage(systemName: "play.circle"), style: UIBarButtonItem.Style.plain, target: self, action: #selector(resumeTorrent(_:)))
-         let resumeNowButton = UIBarButtonItem(image: UIImage(systemName: "livephoto.play"), style: UIBarButtonItem.Style.plain, target: self, action: #selector(resumeNowTorrent(_:)))
-        let removeButton = UIBarButtonItem(image: UIImage(systemName: "trash.circle"), style: UIBarButtonItem.Style.plain, target: self, action: #selector(removeTorrent(_:)))
-        let updateButton = UIBarButtonItem(image: UIImage(systemName: "arrow.clockwise.circle"), style: UIBarButtonItem.Style.plain, target: self, action: #selector(reannounceTorrent(_:)))
-        let verifyButton = UIBarButtonItem(image: UIImage(systemName: "checkmark.circle"), style: UIBarButtonItem.Style.plain, target: self, action: #selector(verifyTorrent(_:)))
+        let pauseButton = UIBarButtonItem(image: UIImage(named: "Stop"), style: UIBarButtonItem.Style.plain, target: self, action: #selector(pauseTorrent(_:)))
+        let resumeButton = UIBarButtonItem(image: UIImage(named: "Play"), style: UIBarButtonItem.Style.plain, target: self, action: #selector(resumeTorrent(_:)))
+        let resumeNowButton = UIBarButtonItem(image: UIImage(named: "iconPlayNow"), style: UIBarButtonItem.Style.plain, target: self, action: #selector(resumeNowTorrent(_:)))
+        let removeButton = UIBarButtonItem(image: UIImage(systemName: "trash"), style: UIBarButtonItem.Style.plain, target: self, action: #selector(removeTorrent(_:)))
+        let updateButton = UIBarButtonItem(image: UIImage(named: "refresh"), style: UIBarButtonItem.Style.plain, target: self, action: #selector(reannounceTorrent(_:)))
+        let verifyButton = UIBarButtonItem(image: UIImage(systemName: "checkmark", withConfiguration: UIImage.SymbolConfiguration(weight: .bold)), style: UIBarButtonItem.Style.plain, target: self, action: #selector(verifyTorrent(_:)))
         parent!.navigationItem.rightBarButtonItems = [resumeButton, resumeNowButton, pauseButton, removeButton,updateButton,verifyButton]
     }
     
@@ -119,7 +125,9 @@ class TorrentInfoController: CommonTableController {
                     self.errorMessage = error!.localizedDescription
                     return
                 }
-                self.updateTorrent(withInfo: torrents!.first!)
+                if !torrents!.isEmpty {
+                    self.updateTorrent(withInfo: torrents!.first!)
+                }
             }
         }
         
@@ -148,7 +156,7 @@ class TorrentInfoController: CommonTableController {
     
     @IBAction @objc func updateDownloadLimit(_ sender: UIControl) {
         if let isDownloadEnabled = sender as? UISwitch {
-            torrent.downloadLimitEnabled = isDownloadEnabled.isOn
+            torrent.downloadLimited = isDownloadEnabled.isOn
         } else if let downloadLimit = sender as? UITextField {
             torrent.downloadLimit = Int(downloadLimit.text!)!
         }
@@ -158,7 +166,7 @@ class TorrentInfoController: CommonTableController {
     
     @IBAction @objc func updateUploadLimit(_ sender: UIControl) {
         if sender is UISwitch {
-            torrent.uploadLimitEnabled = switchUploadLimit.isOn
+            torrent.uploadLimited = switchUploadLimit.isOn
         } else if let uploadLimit = sender as? UITextField {
             torrent.uploadLimit = Int(uploadLimit.text!)!
         }
@@ -194,13 +202,13 @@ class TorrentInfoController: CommonTableController {
     
     
     @objc func resumeTorrent(_ sender: UIBarButtonItem) {
-         infoMessage = "Resuming Torrent..."
+        infoMessage = "Resuming Torrent..."
         session.start(torrents: [torrent.trId], withPriority: .veryHigh, completionHandler: completionHandler)
     }
     
     
     @objc func resumeNowTorrent(_ sender: UIBarButtonItem) {
-         infoMessage = "Resuming Torrent..."
+        infoMessage = "Resuming Torrent..."
         session.startNow(torrents: [torrent.trId], withPriority: .veryHigh, completionHandler: completionHandler)
     }
     
@@ -245,54 +253,55 @@ class TorrentInfoController: CommonTableController {
     // MARK: - RPCConnector Protocol
     
     func updateTorrent(withInfo torrent: Torrent) {
-            self.torrent = torrent
-            self.torrentNameLabel.text = self.torrent.name
+        self.torrent = torrent
+        self.torrentId.text = String(self.torrent.trId)
+        self.torrentNameLabel.text = self.torrent.name
         self.downloadFolder.text = self.torrent.downloadDir
-            self.stateLabel.text = self.torrent.statusString
-            self.progressLabel.text = self.torrent.isChecking ? self.torrent.recheckProgressString : self.torrent.percentsDoneString
-            self.progressLabel.setNeedsDisplay()
-            self.haveLabel.text = self.torrent.haveValidString
-            self.downloadedLabel.text = self.torrent.downloadedEverString
-            self.uploadedLabel.text = self.torrent.uploadedEverString
-            self.ratioLabel.text = String(format: "%02.2f", self.torrent!.uploadRatio)
-            self.commentLabel.text = self.torrent.comment
-            self.dateAddedLabel.text = self.torrent.dateAddedString
-            self.dateCompletedLabel.text = self.torrent.dateDoneString
-            self.dateLastActivityLabel.text = self.torrent.dateLastActivityString
-            self.dateCreatedLabel.text = self.torrent.dateCreatedString
-            self.creatorLabel.text = self.torrent.creator
-            self.uploadingTimeLabel.text = self.torrent.seedingTimeString
-            self.downloadingTimeLabel.text = self.torrent.downloadingTimeString
-            self.hashTextView.text = self.torrent.hashString
-            self.stepperQueuePosition.value = Double(self.torrent.queuePosition)
-            self.textQueuePosition.text = String(format: "%ld", self.torrent.queuePosition)
-            self.segmentBandwidthPriority.selectedSegmentIndex = self.torrent.bandwidthPriority + 1
-            self.switchUploadLimit.isOn = self.torrent.uploadLimitEnabled
-            if !self.textUploadLimit.isEditing {
-                self.textUploadLimit.text = String(format: "%ld", self.torrent.uploadLimit)
-            }
-            self.switchDownloadLimit.isOn = self.torrent.downloadLimitEnabled
-            if !self.textDownloadLimit.isEditing {
-                self.textDownloadLimit.text = String(format: "%ld", self.torrent.downloadLimit)
-            }
-            self.switchRatioLimit.isOn = self.torrent.seedRatioMode > 0
-            if !self.textSeedRatioLimit.isEditing {
-                self.textSeedRatioLimit.text = String(self.torrent.seedRatioLimit)
-            }
-            self.switchSeedIdleLimit.isOn = self.torrent.seedIdleMode > 0
-            if !self.textSeedIdleLimit.isEditing {
-                self.textSeedIdleLimit.text = String(self.torrent.seedIdleLimit)
-            }
-            self.sizeLabel.text = formatByteCount(self.torrent!.totalSize)
-            if self.torrent.isSeeding {
-                self.upDownSpeedLabel.text = self.torrent.uploadRateString
-            }
-            else if self.torrent.isFinished || self.torrent.isStopped {
-                self.upDownSpeedLabel.text = self.torrent.downloadRateString
-            } else {
-                self.upDownSpeedLabel.text = String(format: "%@ / %@", self.torrent.uploadRateString, self.torrent.downloadRateString)
-            }
-            TorrentCategorization.shared.updateItem(withInfo: self.torrent)
+        self.stateLabel.text = self.torrent.statusString
+        self.progressLabel.text = self.torrent.isChecking ? self.torrent.recheckProgressString : self.torrent.percentsDoneString
+        self.progressLabel.setNeedsDisplay()
+        self.haveLabel.text = self.torrent.haveValidString
+        self.downloadedLabel.text = self.torrent.downloadedEverString
+        self.uploadedLabel.text = self.torrent.uploadedEverString
+        self.ratioLabel.text = String(format: "%02.2f", self.torrent.uploadRatio < 0.0 ? 0.0 : self.torrent.uploadRatio)
+        self.commentLabel.text = self.torrent.comment
+        self.dateAddedLabel.text = self.torrent.dateAddedString
+        self.dateCompletedLabel.text = self.torrent.dateDoneString
+        self.dateLastActivityLabel.text = self.torrent.dateLastActivityString
+        self.dateCreatedLabel.text = self.torrent.dateCreatedString
+        self.creatorLabel.text = self.torrent.creator
+        self.uploadingTimeLabel.text = self.torrent.seedingTimeString
+        self.downloadingTimeLabel.text = self.torrent.downloadingTimeString
+        self.hashTextView.text = self.torrent.hashString
+        self.stepperQueuePosition.value = Double(self.torrent.queuePosition)
+        self.textQueuePosition.text = String(format: "%ld", self.torrent.queuePosition)
+        self.segmentBandwidthPriority.selectedSegmentIndex = self.torrent.bandwidthPriority + 1
+        self.switchUploadLimit.isOn = self.torrent.uploadLimited
+        if !self.textUploadLimit.isEditing {
+            self.textUploadLimit.text = String(format: "%ld", self.torrent.uploadLimit)
+        }
+        self.switchDownloadLimit.isOn = self.torrent.downloadLimited
+        if !self.textDownloadLimit.isEditing {
+            self.textDownloadLimit.text = String(format: "%ld", self.torrent.downloadLimit)
+        }
+        self.switchRatioLimit.isOn = self.torrent.seedRatioMode > 0
+        if !self.textSeedRatioLimit.isEditing {
+            self.textSeedRatioLimit.text = String(self.torrent.seedRatioLimit)
+        }
+        self.switchSeedIdleLimit.isOn = self.torrent.seedIdleMode > 0
+        if !self.textSeedIdleLimit.isEditing {
+            self.textSeedIdleLimit.text = String(self.torrent.seedIdleLimit)
+        }
+        self.sizeLabel.text = formatByteCount(self.torrent!.totalSize)
+        if self.torrent.isSeeding {
+            self.upDownSpeedLabel.text = self.torrent.uploadRateString
+        }
+        else if self.torrent.isFinished || self.torrent.isStopped {
+            self.upDownSpeedLabel.text = self.torrent.downloadRateString
+        } else {
+            self.upDownSpeedLabel.text = String(format: "%@ / %@", self.torrent.uploadRateString, self.torrent.downloadRateString)
+        }
+        TorrentCategorization.shared.updateItem(self.torrent)
     }
     
 }

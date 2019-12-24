@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="15702" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="15702"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="InfoMessageController" customModule="Transmission_Remote" customModuleProvider="target">
+            <connections>
+                <outlet property="contentView" destination="Rgu-s4-QMj" id="gzS-tY-em5"/>
+                <outlet property="message" destination="vM2-u0-i6l" id="a56-3W-dF4"/>
+                <outlet property="messageImage" destination="acg-Pw-Qcv" id="zVZ-vm-ZXR"/>
+                <outlet property="view" destination="p8i-YU-s4p" id="JXl-Ht-P2f"/>
+            </connections>
+        </customObject>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <customView alphaValue="0.69999999999999996" translatesAutoresizingMaskIntoConstraints="NO" id="p8i-YU-s4p">
+            <rect key="frame" x="0.0" y="0.0" width="732" height="26"/>
+            <subviews>
+                <box fixedFrame="YES" boxType="custom" borderType="none" cornerRadius="1" titlePosition="noTitle" translatesAutoresizingMaskIntoConstraints="NO" id="Rgu-s4-QMj">
+                    <rect key="frame" x="0.0" y="0.0" width="732" height="26"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                    <view key="contentView" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aNq-nB-0PU">
+                        <rect key="frame" x="0.0" y="0.0" width="732" height="26"/>
+                        <subviews>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" textCompletion="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vM2-u0-i6l">
+                                <rect key="frame" x="258" y="4" width="43" height="19"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" allowsUndo="NO" alignment="left" title="Label" usesSingleLineMode="YES" id="yIw-uk-P12">
+                                    <font key="font" metaFont="systemSemibold" size="15"/>
+                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="acg-Pw-Qcv">
+                                <rect key="frame" x="233" y="2" width="22" height="22"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="22" id="PpD-lK-klE"/>
+                                    <constraint firstAttribute="width" constant="22" id="ehQ-AC-Dvk"/>
+                                </constraints>
+                                <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="IconInfo25x25" id="AHV-oh-lHU"/>
+                                <color key="contentTintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </imageView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="vM2-u0-i6l" firstAttribute="centerY" secondItem="acg-Pw-Qcv" secondAttribute="centerY" id="41A-tD-cq9"/>
+                            <constraint firstItem="acg-Pw-Qcv" firstAttribute="leading" secondItem="aNq-nB-0PU" secondAttribute="leading" constant="233" id="5HC-EM-tEa"/>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="vM2-u0-i6l" secondAttribute="trailing" priority="900" constant="10" id="9gb-Sg-ix4"/>
+                            <constraint firstAttribute="bottom" secondItem="acg-Pw-Qcv" secondAttribute="bottom" constant="2" id="M2Y-VB-Jr8"/>
+                            <constraint firstItem="acg-Pw-Qcv" firstAttribute="centerY" secondItem="aNq-nB-0PU" secondAttribute="centerY" id="O3P-V7-88c"/>
+                            <constraint firstItem="vM2-u0-i6l" firstAttribute="centerX" secondItem="aNq-nB-0PU" secondAttribute="centerX" id="T7n-SD-mJe"/>
+                            <constraint firstItem="vM2-u0-i6l" firstAttribute="leading" secondItem="acg-Pw-Qcv" secondAttribute="trailing" constant="5" id="TyH-Nz-t0e"/>
+                            <constraint firstItem="vM2-u0-i6l" firstAttribute="centerY" secondItem="aNq-nB-0PU" secondAttribute="centerY" id="rii-iG-VZ7"/>
+                        </constraints>
+                    </view>
+                    <color key="fillColor" red="0.20000000000000001" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                </box>
+            </subviews>
+            <point key="canvasLocation" x="95" y="-13"/>
+        </customView>
+    </objects>
+    <resources>
+        <image name="IconInfo25x25" width="25" height="25"/>
+    </resources>
+</document>

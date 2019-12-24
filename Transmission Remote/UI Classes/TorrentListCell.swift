@@ -7,8 +7,9 @@
 
 import UIKit
 import TransmissionRPC
+import Categorization
 
-class TorrentListCell: UITableViewCell {
+@objcMembers public class TorrentListCell: UITableViewCell, TableViewDataCell {
 
     @IBOutlet weak var statusIcon: IconCloud!
 //    @IBOutlet weak var progressBar: UIProgressView!
@@ -23,93 +24,104 @@ class TorrentListCell: UITableViewCell {
     @IBOutlet weak var progressBar: ProgressBar!
     
     var torrentId = 0
-    @IBOutlet weak var iconRateLimit: UIImageView!
+    @IBOutlet weak var iconUploadRateLimit: UIImageView!
     @IBOutlet weak var iconRatioLimit: UIImageView!
-    @IBOutlet weak var iconIdleLimit: UIImageView!
+    @IBOutlet weak var iconDownloadRateLimit: UIImageView!
     @IBOutlet weak var iconPriority: UIImageView!
+    @IBOutlet weak var iconError: UIImageView!
     
     
-    
-    override func awakeFromNib() {
+    override public func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
+    override public func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
     }
     
-    func update(withTRInfo torrent:Torrent) {
-        torrentId = torrent.trId
-        name.text = torrent.name
+    @objc public func update(withItem item: Any) {
+        guard let item = item as? Torrent else { return }
+        torrentId = item.trId
+        name.text = item.name
         
-        if(torrent.isChecking) {
-            progressBar.progress = Float(torrent.recheckProgress)
+        if(item.isChecking) {
+            progressBar.progress = Float(item.recheckProgress)
         }
         else {
-            progressBar.progress = Float(torrent.percentsDone)
+            progressBar.progress = Float(item.percentsDone)
         }
-        progressBar.progressColor = torrent.statusColor
-        statusIcon.tintColor(torrent.statusColor)
-        statusIcon.iconType(torrent.iconType)
-        //        progressBar.tintColor = torrent.statusColor
-        size.text = torrent.totalSizeString
-        peersInfo.text = torrent.peersDetail
-        detailStatus.text = torrent.detailStatus
-        progressPercents.text = torrent.percentsDoneString
+        progressBar.progressColor = item.statusColor
+        statusIcon.tintColor = item.statusColor
+        statusIcon.iconType = item.iconType
+
+        //        progressBar.tintColor = item.statusColor
+        size.text = item.totalSizeString
+        peersInfo.text = item.peersDetail
+        detailStatus.text = item.detailStatus
+        if item.isError {
+            detailStatus.textColor = .systemRed
+        } else {
+            detailStatus.textColor = .label
+        }
+        progressPercents.text = item.percentsDoneString
         
-        if statusIcon.iconType == IconCloudType.Download && torrent.downloadRate > 0 {
-            statusIcon.playDownloadAnimation()
-        }
-        else {
-            statusIcon.stopDownloadAnimation()
-        }
-        if statusIcon.iconType == IconCloudType.Upload && torrent.uploadRate > 0 {
-            statusIcon.playUploadAnimation()
-        }
-        else {
-            statusIcon.stopUploadAnimation()
-        }
-        if statusIcon.iconType == IconCloudType.Wait {
-            statusIcon.playWaitAnimation()
-        }
-        else {
-            statusIcon.stopWaitAnimation()
-        }
-        if statusIcon.iconType == IconCloudType.Verify {
-            statusIcon.playCheckAnimation()
-        }
-        else {
-            statusIcon.stopCheckAnimation()
-        }
-        
-        if torrent.isDownloading || torrent.isWaiting || torrent.isSeeding {
-            iconPlayPause.setImage(UIImage(named: "iconStop36x36"), for: UIControl.State.normal)
-        }
-        else if torrent.isFinished || torrent.isStopped {
-            iconPlayPause.setImage(UIImage(named: "iconPlay36x36"), for: UIControl.State.normal)
-        }
-        
-        iconRateLimit.isHidden = !(torrent.downloadLimitEnabled || torrent.uploadLimitEnabled)
-        iconRatioLimit.isHidden = !(torrent.seedRatioMode != 0)
-        iconIdleLimit.isHidden = !(torrent.seedIdleMode != 0)
-        iconPriority.isHidden = torrent.bandwidthPriority == 0
-        
-        switch torrent.bandwidthPriority {
-            case 1:
-                iconPriority.tintColor = .systemPink
-            case -1:
-                iconPriority.tintColor = .systemYellow
+        switch statusIcon.iconType {
+            case .Download:
+                if item.downloadRate > 0 && !statusIcon.isDownloadAnimationInProgress {
+                    statusIcon.playDownloadAnimation()
+                } else if item.downloadRate < 0 && statusIcon.isDownloadAnimationInProgress{
+                    statusIcon.stopDownloadAnimation()
+                }
+            case .Upload:
+                if item.uploadRate > 0  && !statusIcon.isUploadAnimationInProgress {
+                    statusIcon.playUploadAnimation()
+                } else if item.uploadRate <= 0  && statusIcon.isUploadAnimationInProgress {
+                    statusIcon.stopUploadAnimation()
+                }
+            case .Verify:
+                if !statusIcon.isCheckAnimationInProgress {
+                    statusIcon.playCheckAnimation()
+                }
+            case .Wait:
+                if !statusIcon.isWaitAnimationInProgres {
+                    statusIcon.playWaitAnimation()
+                }
             default:
                 break
         }
         
-        iconRateLimit.image = iconRateLimit.image!.withRenderingMode(.alwaysTemplate)
-        iconIdleLimit.image = iconIdleLimit.image!.withRenderingMode(.alwaysTemplate)
-        iconRatioLimit.image = iconRatioLimit.image!.withRenderingMode(.alwaysTemplate)
-        
+        iconPlayPause.dataObject = item
+        iconPlayPause.removeTarget(nil, action: #selector(TorrentTableController.pauseTorrents(_:)), for: .touchDown)
+        iconPlayPause.removeTarget(nil, action: #selector(TorrentTableController.resumeTorrents(_:)), for: .touchDown)
+        if item.isDownloading || item.isWaiting || item.isSeeding {
+            iconPlayPause.setImage(UIImage(named: "Stop"), for: UIControl.State.normal)
+            iconPlayPause.addTarget(nil, action: #selector(TorrentTableController.pauseTorrents(_:)), for: .touchDown)
+        }
+        else if item.isFinished || item.isStopped {
+            iconPlayPause.setImage(UIImage(named: "Play"), for: UIControl.State.normal)
+            iconPlayPause.addTarget(nil, action: #selector(TorrentTableController.resumeTorrents(_:)), for: .touchDown)
+        }
+        iconUploadRateLimit.isHidden = !(item.uploadLimited)
+        iconDownloadRateLimit.isHidden = !(item.downloadLimited)
+        iconRatioLimit.isHidden = !((item.seedRatioMode == 1) || (item.uploadRatio > 1.0))
+        if item.uploadRatio > 1.0 {
+            iconRatioLimit.tintColor = .systemGreen
+        } else {
+            iconRatioLimit.tintColor = .label
+        }
+        iconPriority.isHidden = item.bandwidthPriority == 0
+        switch item.bandwidthPriority {
+            case -1: iconPriority.tintColor = .systemYellow
+            case 1: iconPriority.tintColor = .systemRed
+            default: break
+        }
+        iconError.isHidden = !(item.isError)
+        iconPlayPause.isEnabled = true
+        setNeedsDisplay()
     }
+
 
 }

@@ -5,7 +5,7 @@
 //  Created by  on 7/28/19.
 //
 
-import UIKit
+
 
 enum IconFSType : Int {
     case file
@@ -15,6 +15,8 @@ enum IconFSType : Int {
     case none
 }
 
+#if os(iOS)
+import UIKit
 @objcMembers
 class IconFS: UIView {
     
@@ -50,8 +52,6 @@ class IconFS: UIView {
     func setupValues() {
         createLayers()
         setStrokeColors()
-        
-        iconType = IconFSType.none
     }
     
     
@@ -459,3 +459,4 @@ class IconFS: UIView {
         CATransaction.commit()
     }
 }
+#endif

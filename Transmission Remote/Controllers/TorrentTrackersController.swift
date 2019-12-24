@@ -29,23 +29,11 @@ class TorrentTrackersController: CommonTableController {
         refreshControl?.addTarget(self, action: #selector(updateData), for: .valueChanged)
     }
 
-    /*
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        self.tableView.backgroundColor = .clear
-        let blurEffect = UIBlurEffect(style: .systemMaterial)
-        let viewVisualEffect = UIVisualEffectView(effect: blurEffect)
-        viewVisualEffect.frame = tableView.bounds
-        viewVisualEffect.layer.masksToBounds = true
-        self.tableView.backgroundView = viewVisualEffect
-        self.tableView.setNeedsDisplay()
-        
-    }
-*/
+  
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         parent!.navigationItem.title = "Trackers"
-        let addButton = UIBarButtonItem(image: UIImage(systemName: "plus.circle"),style: .plain, target: self, action:#selector(addTracker(_:)))
+        let addButton = UIBarButtonItem(image: UIImage(systemName: "plus"),style: .plain, target: self, action:#selector(addTracker(_:)))
         let editButton = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(startEdit(_:)))
         parent!.navigationItem.rightBarButtonItems = [editButton,addButton]
     }
@@ -60,7 +48,7 @@ class TorrentTrackersController: CommonTableController {
     
     
     @objc func doneEdit(_ sender: UIBarButtonItem?) {
-        let addButton = UIBarButtonItem(image: UIImage(systemName: "plus.circle"),style: .plain, target: self, action:#selector(addTracker(_:)))
+        let addButton = UIBarButtonItem(image: UIImage(systemName: "plus"),style: .plain, target: self, action:#selector(addTracker(_:)))
         let editButton = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(startEdit(_:)))
         parent!.navigationItem.rightBarButtonItems = [addButton,editButton]
         tableView.setEditing(false, animated: true)
@@ -81,7 +69,7 @@ class TorrentTrackersController: CommonTableController {
     }
     
     @objc func startEdit(_ sender: UIBarButtonItem) {
-         let addButton = UIBarButtonItem(image: UIImage(systemName: "plus.circle"),style: .plain, target: self, action:#selector(addTracker(_:)))
+         let addButton = UIBarButtonItem(image: UIImage(systemName: "plus"),style: .plain, target: self, action:#selector(addTracker(_:)))
          let doneButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.done, target: self, action:#selector(doneEdit(_:)))
         parent!.navigationItem.rightBarButtonItems = [addButton,doneButton]
         self.tableView.setEditing(true, animated: true)
@@ -105,14 +93,7 @@ class TorrentTrackersController: CommonTableController {
     
 
     // MARK: - UITableView Protocol
-/*    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return NSLocalizedString("Tracker list", comment: "")
-    }*/
-    
-/*    override func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    } */
-    
+ 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return trackers.count
     }

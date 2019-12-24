@@ -1,0 +1,25 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "Categorization",
+        "repositoryURL": "https://github.com/jvega1976/Categorization.git",
+        "state": {
+          "branch": "master",
+          "revision": "314bb9b9d4d06b3e99e8dfa45145ca3051d48424",
+          "version": null
+        }
+      },
+      {
+        "package": "TransmissionRPC",
+        "repositoryURL": "https://github.com/jvega1976/TransmissionRPC.git",
+        "state": {
+          "branch": "master",
+          "revision": "48162afb4f6e1255efce278332dc7adcc0e382d2",
+          "version": null
+        }
+      }
+    ]
+  },
+  "version": 1
+}

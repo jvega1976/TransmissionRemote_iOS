@@ -67,23 +67,45 @@
         // MARK: - UISearchBarDelegate
         
         public func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-            var predicate: TorrentPredicate
-            if searchBar.text?.count ?? 0 > 0 {
-                predicate = {element in element.name.localizedCaseInsensitiveContains(self.searchBar.text!)}
+            var predicate: TorrentCategory.Predicate
+            if  let searchText = searchBar.text,
+                searchText.count > 0 {
+                let andWords = searchText.split(whereSeparator: { $0 == "&" })
+                let orWords = searchText.split(whereSeparator: { $0 == "|" })
+                predicate = {element in
+                    var result = true
+                    if !andWords.isEmpty {
+                        for word in andWords {
+                            result = result && element.name.localizedCaseInsensitiveContains(word.trimmingCharacters(in: .whitespaces))
+                        }
+                    }
+                    if !orWords.isEmpty {
+                        for word in orWords {
+                            result = result || element.name.localizedCaseInsensitiveContains(word.trimmingCharacters(in: .whitespaces))
+                        }
+                    }
+                    if orWords.isEmpty && andWords.isEmpty {
+                        result = result && element.name.localizedCaseInsensitiveContains(searchText)
+                    }
+                    return result
+                }
             } else {
                 predicate = {element in return true }
             }
             torrentTableController.categorization.filterPredicate = predicate
-            torrentTableController.torrents = torrentTableController.categorization.itemsforCategory(atPosition: categoryIndex).sorted(by: >)
             torrentTableController.torrentsCount.text = torrentTableController.torrents.count != 0 ?  String(torrentTableController.torrents.count) : ""
             searchBar.endEditing(true)
-            torrentTableController.tableView.reloadData()
+            self.search(nil)
         }
         
+        public func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+            searchBar.endEditing(true)
+            self.search(nil)
+        }
         
         // MARK: - Interface Actions
                 
-        @objc @IBAction func search(_ sender: UIBarButtonItem) {
+        @objc @IBAction func search(_ sender: UIBarButtonItem?) {
             searchBar.isHidden = !searchBar.isHidden
             searchView.frame.size.height = 56.0
             if searchBar.isHidden {
@@ -108,6 +130,8 @@
             navigationItem.leftBarButtonItem = cancelButton
             
             toolbar.isHidden = true
+            toolbarEdit.items!.first(where: {$0.tag == 1})?.image = toolbarEdit.items!.first(where: {$0.tag == 1})?.image?.applyingSymbolConfiguration(UIImage.SymbolConfiguration(weight: .bold))
+            toolbarEdit.items!.first(where: {$0.tag == 2})?.image = toolbarEdit.items!.first(where: {$0.tag == 2})?.image?.applyingSymbolConfiguration(UIImage.SymbolConfiguration(weight: .semibold))
             toolbarEdit.isHidden = false
         }
         
@@ -221,7 +245,7 @@
             }
             
             if torrentFile != nil {
-                session.addTorrent(usingFile: torrentFile, addPaused: false, withPriority: .veryHigh) { error in
+                session.addTorrent(usingFile: torrentFile, addPaused: false, withPriority: .veryHigh) { trId, error in
                     DispatchQueue.main.async {
                         if error != nil {
                             displayErrorMessage(error!.localizedDescription, using: self.torrentTableController)

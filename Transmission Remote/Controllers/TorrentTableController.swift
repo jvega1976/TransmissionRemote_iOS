@@ -63,10 +63,14 @@ class TorrentTableController: CommonTableController,
     var categoryIndex: Int! = -1
     var sortedBy: SortField! = .queuePos
     var sortDirection: SortDirection! = .desc
-    var torrents: Array<Torrent>! = []
+    
+    var torrents: Array<Torrent> {
+        return self.categorization.itemsForSelectedCategory as! Array<Torrent>
+    }
+    
     var sessionConfig: SessionConfig!
     
-    private var lastTimeChecked: TimeInterval!
+    private var lastTimeChecked: TimeInterval = 0
     
     private var firstTime: Bool = true
     
@@ -87,6 +91,7 @@ class TorrentTableController: CommonTableController,
         if categoryIndex == -1 {
             categoryIndex = TR_CAT_IDX_ALL
         }
+        
         fillNavigationBar()
         tableView.refreshControl = UIRefreshControl()
         tableView.refreshControl!.addTarget(self, action: #selector(updateData(_:)), for: .valueChanged)
@@ -100,17 +105,24 @@ class TorrentTableController: CommonTableController,
         self.view.isUserInteractionEnabled = true
         self.tableView.isUserInteractionEnabled = true
         self.tableView.dragInteractionEnabled = true
-        
-        freeSpaceIcon.isHidden = !RPCServerConfig.config.showFreeSpace
-        freeSpaceLabel.isHidden = !RPCServerConfig.config.showFreeSpace
-        tableView.setNeedsLayout()
+        self.tableView.remembersLastFocusedIndexPath = true
+
+        freeSpaceIcon.isHidden = !RPCServerConfig.sharedConfig!.showFreeSpace
+        freeSpaceLabel.isHidden = !RPCServerConfig.sharedConfig!.showFreeSpace
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(changeIconSpeedColor(_:)),
                                                name: .ChangeIconSpeedColor, object: nil)
-    
+        let decoder = JSONDecoder()
+        guard let data = defaults.data(forKey: TORRENT_LIST),
+            let torrents = try? decoder.decode([Torrent].self, from: data) else { return }
+        self.categorization.setItems(torrents)
     }
-    
-    
+
+    override public func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        categorization.registerTableView(self.tableView, forSection: 0)
+    }
+
     override public func viewDidAppear(_ animated: Bool) {
         firstTime = true
         super.viewDidAppear(animated)
@@ -118,6 +130,16 @@ class TorrentTableController: CommonTableController,
         if lastTimeChecked == 0 {
             lastTimeChecked = Date().timeIntervalSince1970 - 180
         }
+    }
+    
+    override public func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        categorization.deregisterTableView(tableView, forSection: 0)
+        let encoder = JSONEncoder()
+        let highRange = torrents.count < 1000 ? torrents.count : 1000
+        let data = try? encoder.encode(Array(torrents[0..<highRange]))
+        defaults.set(data, forKey: TORRENT_LIST)
+        defaults.synchronize()
     }
     
     @objc override func startTimer(_ notification: Notification? = nil) {
@@ -132,12 +154,15 @@ class TorrentTableController: CommonTableController,
     
     @objc override func updateData(_ sender: Any? = nil) {
         if sender is UIRefreshControl {
+            self.tableView.refreshControl!.beginRefreshing()
             firstTime = true
             if !globalRefreshTimer.isValid {
                 try? RPCSession.shared?.restart()
                 startRefresh()
+                self.tableView.refreshControl!.endRefreshing()
                 return
             }
+            self.tableView.refreshControl!.endRefreshing()
         }
         
         if firstTime {
@@ -150,15 +175,9 @@ class TorrentTableController: CommonTableController,
                         return
                     }
                     guard let torrents = torrents else {return}
-                    
-                    self.tableView.refreshControl!.endRefreshing()
                     // if All Torrents are received, just assign the array as categorization items
-                    self.categorization.items = torrents
-                    self.torrents = self.categorization.itemsforCategory(atPosition: self.categoryIndex)
-                    if !self.tableView.isEditing {
-                        self.tableView.reloadData()
-                        self.torrentsCount.text = String(self.torrents.count)
-                    }
+                    self.categorization.setItems(torrents)
+                    self.torrentsCount.text = String(self.torrents.count)
                 }
             }
             session.getSessionConfig(withPriority: .veryHigh) { (sessionConfig, error) in
@@ -169,15 +188,15 @@ class TorrentTableController: CommonTableController,
                     }
                     guard let sessionConfig = sessionConfig else {return}
                     self.sessionConfig = sessionConfig
-                    if sessionConfig.downLimitEnabled {
+                    if sessionConfig.speedLimitDownEnabled {
                         self.downloadSpeedIcon.tintColor = .red
                         self.downloadSpeed.textColor = .red
                     }
-                    else if sessionConfig.upLimitEnabled {
+                    else if sessionConfig.speedLimitUpEnabled {
                         self.uploadSpeedIcon.tintColor = .red
                         self.uploadSpeed.textColor = .red
                     }
-                    if RPCServerConfig.config.showFreeSpace {
+                    if RPCServerConfig.sharedConfig!.showFreeSpace {
                         self.session.getFreeSpace(availableIn: sessionConfig.downloadDir) { (freeSpace, error) in
                             DispatchQueue.main.async {
                                 if error != nil {
@@ -193,38 +212,21 @@ class TorrentTableController: CommonTableController,
             }
             firstTime = false
         } else {
-            session.getInfo(forTorrents: RecentlyActive) { (torrents, removed, error) in
+            let priority :Operation.QueuePriority  = sender == nil ? .veryHigh : .normal
+            session.getInfo(forTorrents: RecentlyActive, withPriority: priority) { (torrents, removed, error) in
                 DispatchQueue.main.async {
                     if error != nil {
                         displayErrorMessage(error!.localizedDescription, using: self.parent)
                         return
                     }
-                    self.tableView.refreshControl!.beginRefreshing()
                     guard let torrents = torrents else {return}
-                    
-                    
+                    if let removed = removed {
+                        self.categorization.removeItems(where: { removed.contains($0.trId) })
+                    }
                     // if All Torrents are received, just assign the array as categorization items
-                    for torrent in torrents {
-                        if let index = self.categorization.items.firstIndex(of: torrent) {
-                            self.categorization.items[index] = torrent
-                        } else {
-                            self.categorization.items.insert(torrent, at: 0)
-                        }
-                    }
-                    
-                    if removed != nil {
-                        for trId in removed! {
-                            self.categorization.items.removeAll(where: {$0.trId == trId})
-                        }
-                    }
-                    
-                    self.torrents = self.categorization.itemsforCategory(atPosition: self.categoryIndex)
-                    if !self.tableView.isEditing {
-                        self.tableView.reloadData()
-                        self.torrentsCount.text = String(self.torrents.count)
-                    }
+                    self.categorization.updateItems(with: torrents)
+                    self.torrentsCount.text = String(self.torrents.count)
                     self.errorMessage = nil
-                    self.tableView.refreshControl!.endRefreshing()
                 }
             }
         }
@@ -278,17 +280,8 @@ class TorrentTableController: CommonTableController,
     
     // MARK: - Interface Actions
     
-    func saveLastTimeChecked() {
-        
-        self.lastTimeChecked = Date().timeIntervalSince1970
-        defaults.set(lastTimeChecked, forKey: USERDEFAULTS_BGFETCH_KEY_LAST_TIME)
-        defaults.synchronize()
-    }
-    
-    
-    
     @IBAction @objc func startAllTorrents(_ sender: UIBarButtonItem) {
-        infoMessage = "Starting All Torrents..."
+        displayInfoMessage("Starting All Torrents...", using: self.parent)
         session.start(torrents: nil, withPriority: .high) { error in
             DispatchQueue.main.async {
                 if error != nil {
@@ -304,7 +297,7 @@ class TorrentTableController: CommonTableController,
     
     
     @IBAction @objc func stopAllTorrentsAction(_ sender: UIBarButtonItem) {
-        infoMessage = "Stopping All Torrents..."
+        displayInfoMessage("Stopping All Torrents...", using: self.parent)
         session.stop(torrents: nil, withPriority: .high) { error in
             DispatchQueue.main.async {
                 if error != nil {
@@ -319,52 +312,7 @@ class TorrentTableController: CommonTableController,
     }
     
     
-    @IBAction func startStopTorrentAction(_ sender: UIButton) {
-        let point = sender.convert(sender.bounds.origin, to: tableView)
-        guard let indexPath = tableView.indexPathForRow(at: point) else {return}
-        let torrent = torrents[indexPath.row]
-        if torrent.isDownloading || torrent.isSeeding || torrent.isWaiting {
-            session.stop(torrents: [torrent.trId], withPriority: .veryHigh) { error in
-                DispatchQueue.main.async {
-                    if error != nil {
-                        displayErrorMessage(error!.localizedDescription, using: self.parent)
-                    }
-                    else {
-                        self.torrents[indexPath.row].status = .stopped
-                        self.tableView.reloadRows(at: [indexPath], with: .automatic)
-                        displayInfoMessage("Torrent successfully stopped", using: self.parent)
-                    }
-                }
-            }
-        }
-        else {
-            session.start(torrents: [torrent.trId], withPriority: .veryHigh) { error in
-                DispatchQueue.main.async {
-                    if error != nil {
-                        displayErrorMessage(error!.localizedDescription, using: self.parent)
-                    }
-                    else {
-                        displayInfoMessage("Torrent successfully started", using: self.parent)
-                        self.session.getInfo(forTorrents: [torrent.trId], withPriority: .veryHigh) { (torrents, remove, error) in
-                            DispatchQueue.main.async {
-                                if error != nil {
-                                    displayErrorMessage(error!.localizedDescription, using: self.parent)
-                                }
-                                else  {
-                                    self.torrents[indexPath.row] = torrents!.first!
-                                    self.tableView.reloadRows(at: [indexPath], with: .automatic)
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        }
-    }
-    
-    
-    @IBAction func longPress(_ sender: UIGestureRecognizer) {
-        //        refreshTimer?.invalidate()
+    @IBAction public func longPress(_ sender: UIGestureRecognizer) {
         let point = sender.location(in: tableView)
         guard let indexPath = tableView.indexPathForRow(at: point),
             let cell = tableView.cellForRow(at: indexPath) as? TorrentListCell else { return }
@@ -379,17 +327,7 @@ class TorrentTableController: CommonTableController,
                     }
                     else {
                         displayInfoMessage("Torrent started successfully", using: self.parent)
-                        self.session.getInfo(forTorrents: [trId], withPriority: .veryHigh) { (torrents, remove, error) in
-                             DispatchQueue.main.async {
-                                if error != nil {
-                                    displayErrorMessage(error!.localizedDescription, using: self.parent)
-                                }
-                                else {
-                                    self.torrents[indexPath.row] = torrents!.first!
-                                    self.tableView.reloadRows(at: [indexPath], with: .automatic)
-                                }
-                            }
-                        }
+                        self.updateData()
                     }
                 }
             }
@@ -420,9 +358,8 @@ class TorrentTableController: CommonTableController,
                                 if error != nil {
                                     displayErrorMessage(error!.localizedDescription, using: self.parent)
                                 }
-                                else  {
-                                    self.torrents[indexPath.row] = torrents!.first!
-                                    self.tableView.reloadRows(at: [indexPath], with: .automatic)
+                                else {
+                                    self.updateData()
                                 }
                             }
                         }
@@ -441,8 +378,7 @@ class TorrentTableController: CommonTableController,
                             
                         }
                         else {
-                            self.torrents.remove(at: indexPath.row)
-                            self.tableView.deleteRows(at: [indexPath], with: .automatic)
+                            self.categorization.removeItems(where: { $0.trId == trId })
                             displayInfoMessage("Torrents sucessfully deleted", using: self.parent)
                         }
                     }
@@ -455,8 +391,7 @@ class TorrentTableController: CommonTableController,
                             displayErrorMessage(error!.localizedDescription, using: self.parent)
                         }
                         else {
-                            self.torrents.remove(at: indexPath.row)
-                            self.tableView.deleteRows(at: [indexPath], with: .automatic)
+                            self.categorization.removeItems(where: { $0.trId == trId })
                             displayInfoMessage("Torrents sucessfully deleted", using: self.parent)
                         }
                     }
@@ -597,72 +532,69 @@ class TorrentTableController: CommonTableController,
     }
     
     
-    @IBAction @objc func pauseTorrents(_ sender:UIBarButtonItem) {
-        infoMessage = "Pausing Torrents..."
-        guard let indexPaths = tableView.indexPathsForSelectedRows else { return }
+    @IBAction @objc func pauseTorrents(_ sender: Any) {
         var trIds: [trId] = []
-       
-        indexPaths.forEach({indexPath in
-            let trInfo = torrents[indexPath.row]
-            trIds.append(trInfo.trId)
-        })
-        session.stop(torrents: trIds, withPriority: .high) { error in
+        if let sender = sender as? UIButton {
+            guard let torrent = sender.dataObject as? Torrent else { return }
+            trIds = [torrent.trId]
+            sender.isEnabled = false
+        } else if sender is UIBarButtonItem {
+            displayInfoMessage("Pausing Torrent(s)", using: self.parent)
+            guard let indexPaths = tableView.indexPathsForSelectedRows else { return }
+            indexPaths.forEach({indexPath in
+                let trInfo = torrents[indexPath.row]
+                trIds.append(trInfo.trId)
+            })
+        }
+        session.stop(torrents: trIds, withPriority: .veryHigh) { error in
             DispatchQueue.main.async {
                 if error != nil {
                     displayErrorMessage(error!.localizedDescription, using: self.parent)
-                }
-                else {
-                    indexPaths.forEach({indexPath in
-                        self.torrents[indexPath.row].status = .stopped
-                        self.tableView.reloadRows(at: indexPaths, with: .automatic)
-                    })
-                    displayInfoMessage("Torrents sucessfully stopped", using: self.parent)
+                } else {
+                    displayInfoMessage("Torrent(s) sucessfully stopped", using: self.parent)
                 }
             }
         }
-        cancelEditing()
+        if tableView.isEditing {
+            cancelEditing()
+        }
     }
     
     
-    @IBAction @objc func resumeTorrents(_ sender: UIBarButtonItem) {
-        infoMessage = "Resuming Torrents..."
-        guard let indexPaths = tableView.indexPathsForSelectedRows else {return}
-        var trIds: [Int] = []
-        indexPaths.forEach({indexPath in
-            let trInfo = torrents[indexPath.row]
-            trIds.append(trInfo.trId)
-        })
-        session.start(torrents: trIds, withPriority: .high) { error in
+    @IBAction @objc public func resumeTorrents(_ sender: Any) {
+        var trIds: [trId] = []
+        if let sender = sender as? UIButton {
+            guard let torrent = sender.dataObject as? Torrent else { return }
+            trIds = [torrent.trId]
+            DispatchQueue.main.async {
+                sender.isEnabled = false
+            }
+        } else if sender is UIBarButtonItem {
+            displayInfoMessage("Resuming Torrent(s)", using: self.parent)
+            guard let indexPaths = tableView.indexPathsForSelectedRows else { return }
+            indexPaths.forEach({indexPath in
+                let trInfo = torrents[indexPath.row]
+                trIds.append(trInfo.trId)
+            })
+        }
+        session.start(torrents: trIds, withPriority: .veryHigh) { error in
             DispatchQueue.main.async {
                 if error != nil {
                     displayErrorMessage(error!.localizedDescription, using: self.parent)
                 }
                 else {
-                    displayInfoMessage("Torrents sucessfully started", using: self.parent)
-                    self.session.getInfo(forTorrents: trIds, withPriority: .veryHigh) { (torrents, remove, error) in
-                        DispatchQueue.main.async {
-                            if error != nil {
-                                displayErrorMessage(error!.localizedDescription, using: self.parent)
-                            }
-                            else {
-                                for torrent in torrents! {
-                                    guard let index = self.torrents.firstIndex(where: {$0.trId == torrent.trId}) else { continue}
-                                    self.torrents[index] = torrent
-                                }
-                                self.tableView.reloadRows(at: indexPaths, with: .automatic)
-                            }
-                        }
-                    }
+                    displayInfoMessage("Torrent(s) sucessfully started", using: self.parent)
                 }
             }
         }
-
-        cancelEditing()
+        if tableView.isEditing {
+            cancelEditing()
+        }
     }
     
     
     @IBAction @objc func resumeNowTorrents(_ sender: UIBarButtonItem) {
-        infoMessage = "Resuming Torrents Immediately..."
+        displayInfoMessage("Resuming Torrents Immediately...", using: self.parent)
         guard let indexPaths = tableView.indexPathsForSelectedRows else { return }
         var trIds: [Int] = []
         indexPaths.forEach({indexPath in
@@ -682,18 +614,14 @@ class TorrentTableController: CommonTableController,
                                 displayErrorMessage(error!.localizedDescription, using: self.parent)
                             }
                             else {
-                                for torrent in torrents! {
-                                    guard let index = self.torrents.firstIndex(where: {$0.trId == torrent.trId}) else { continue}
-                                    self.torrents[index] = torrent
-                                }
-                                self.tableView.reloadRows(at: indexPaths, with: .automatic)
+                                self.categorization.updateItems(with: torrents!)
                             }
                         }
                     }
                 }
             }
         }
-        
+
         cancelEditing()
     }
     
@@ -723,10 +651,7 @@ class TorrentTableController: CommonTableController,
                             displayErrorMessage(error!.localizedDescription, using: self.parent)
                         }
                         else {
-                            for trId in trIds {
-                                self.torrents.removeAll(where: {$0.trId == trId})
-                            }
-                            self.tableView.deleteRows(at: indexPaths, with: .automatic)
+                            self.categorization.removeItems(where: { trIds.contains($0.trId) })
                             displayInfoMessage("Torrents sucessfully deleted", using: self.parent)
                         }
                     }
@@ -758,11 +683,7 @@ class TorrentTableController: CommonTableController,
                                 displayErrorMessage(error!.localizedDescription, using: self.parent)
                             }
                             else {
-                                for torrent in torrents! {
-                                    guard let index = self.torrents.firstIndex(where: {$0.trId == torrent.trId}) else { continue}
-                                    self.torrents[index] = torrent
-                                }
-                                self.tableView.reloadRows(at: indexPaths, with: .automatic)
+                                self.categorization.updateItems(with: torrents!)
                             }
                         }
                     }
@@ -799,14 +720,13 @@ class TorrentTableController: CommonTableController,
     
     func showFinishedTorrents() {
             
-        self.lastTimeChecked = defaults.double(forKey: USERDEFAULTS_BGFETCH_KEY_LAST_TIME)
-        if self.lastTimeChecked == 0 {
-            self.lastTimeChecked = Date().timeIntervalSince1970
+        if self.lastTimeChecked == 0  {
+            lastTimeChecked = TorrentTableController.getLastTimeChecked()
         }
-        
-        
-        let downloadedTorrents = torrents.filter({($0 ).dateDone?.timeIntervalSince1970 ?? 0 >= lastTimeChecked })
+        let lastTime = Date().timeIntervalSince1970
+        let downloadedTorrents = torrents.filter({$0.dateDone?.timeIntervalSince1970 ?? 0 >= (lastTimeChecked - 7) })
         downloadedTorrents.forEach({ trInfo in
+            
             let content = UNMutableNotificationContent()
             content.title = String.localizedStringWithFormat("Torrent Finisheh")
             content.body = String.localizedStringWithFormat("\"%@\" have been downloaded.", trInfo.name)
@@ -816,7 +736,7 @@ class TorrentTableController: CommonTableController,
             let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 1, repeats: false)
             let request = UNNotificationRequest(identifier: "Now", content: content, trigger: trigger)
             let center = UNUserNotificationCenter.current()
-            DispatchQueue.global(qos: .default).async(execute: {
+            DispatchQueue.main.async(execute: {
                 center.add(request, withCompletionHandler: { error in
                     if error != nil {
                         os_log("Notification for torrent: %@ failed with Error: %@",trInfo.name!,error!.localizedDescription)
@@ -824,8 +744,34 @@ class TorrentTableController: CommonTableController,
                 })
             })
         })
+        self.lastTimeChecked = lastTime
+        TorrentTableController.saveLastTimeChecked(lastTime)
         
-        self.saveLastTimeChecked()
+    }
+    
+    
+    public class func getLastTimeChecked() -> TimeInterval {
+        let store = NSUbiquitousKeyValueStore.default
+        let defaults = UserDefaults(suiteName: TR_URL_DEFAULTS)
+        var lastTimeChecked: TimeInterval
+        lastTimeChecked = store.double(forKey: USERDEFAULTS_BGFETCH_KEY_LAST_TIME)
+        if lastTimeChecked == 0 {
+            lastTimeChecked = defaults?.double(forKey: USERDEFAULTS_BGFETCH_KEY_LAST_TIME) ?? Date().timeIntervalSince1970
+            if lastTimeChecked == 0 {
+                lastTimeChecked = Date().timeIntervalSince1970
+            }
+        }
+        return lastTimeChecked
+    }
+    
+    
+    public class func saveLastTimeChecked(_ lastTimeChecked: TimeInterval = Date().timeIntervalSince1970) {
+        let store = NSUbiquitousKeyValueStore.default
+        let defaults = UserDefaults(suiteName: TR_URL_DEFAULTS)
+        store.set(lastTimeChecked, forKey: USERDEFAULTS_BGFETCH_KEY_LAST_TIME)
+        store.synchronize()
+        defaults?.set(lastTimeChecked, forKey: USERDEFAULTS_BGFETCH_KEY_LAST_TIME)
+        defaults?.synchronize()
     }
     
     
@@ -875,6 +821,7 @@ class TorrentTableController: CommonTableController,
     
     
     override public func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
+        
         if tableView.isEditing && identifier == "showTorrentDetails" {
             return false
         }
@@ -885,18 +832,20 @@ class TorrentTableController: CommonTableController,
     // MARK: - UITableViewDataSource
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return torrents.count
+        return self.torrents.count
     }
     
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "TorrentListCell", for: indexPath) as! TorrentListCell
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "TorrentListCell", for: indexPath) as? TorrentListCell else { return UITableViewCell() }
         
         let torrent = torrents[indexPath.row]
         torrents[indexPath.row].dataObject = indexPath
-        cell.update(withTRInfo: torrent)
+        cell.update(withItem: torrent)
         let longPressRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(longPress(_:)))
-        longPressRecognizer.minimumPressDuration = 1.0
+        longPressRecognizer.dataObject = torrent
+        longPressRecognizer.minimumPressDuration = 0.8
+        longPressRecognizer.cancelsTouchesInView = false
         cell.contentView.addGestureRecognizer(longPressRecognizer)
         return cell
     }
@@ -927,12 +876,9 @@ class TorrentTableController: CommonTableController,
     // Override to support rearranging the table view.
     override func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
         let trInfo = torrents[sourceIndexPath.row]
-        let indexSource = categorization.items.firstIndex(of: trInfo)
         let toTrInfo = torrents[destinationIndexPath.row]
         let toPos = toTrInfo.queuePosition
-//        let indexDest = categorization.items.firstIndex(of: toTrInfo)
-        categorization.items[indexSource!].queuePosition = toPos
-//        categorization.items.move(fromOffsets: IndexSet(integer: indexSource!), toOffset: indexDest!)
+        trInfo.queuePosition = toPos
         let rpcArgument = [JSONKeys.queuePosition: toPos]
         session.setFields(rpcArgument, forTorrents: [trInfo.trId], withPriority: .veryHigh) { error in
             DispatchQueue.main.async {
@@ -941,7 +887,7 @@ class TorrentTableController: CommonTableController,
                 }
             }
         }
-        tableView.moveRow(at: sourceIndexPath, to: destinationIndexPath)
+        self.categorization.moveItem(from: sourceIndexPath.row, to: destinationIndexPath.row)
     }
     
     
@@ -958,6 +904,7 @@ class TorrentTableController: CommonTableController,
                         completion(false)
                     }
                     else {
+                        self.categorization.removeItems(where: { $0.trId == trInfo.trId })
                         displayInfoMessage("Torrent successfully deleted", using: self.parent)
                         completion(true)
                     }
@@ -974,6 +921,7 @@ class TorrentTableController: CommonTableController,
                         completion(false)
                     }
                     else {
+                        self.categorization.removeItems(where: { $0.trId == trInfo.trId })
                         displayInfoMessage("Torrents successfully deleted", using: self.parent)
                         completion(true)
                     }
@@ -994,33 +942,38 @@ class TorrentTableController: CommonTableController,
                         completion(false)
                     }
                     else {
-                        self.updateData()
+                        self.session.getInfo(forTorrents: [trInfo.trId], withPriority: .veryHigh, andCompletionHandler: {torrents, removed, error in
+                            DispatchQueue.main.async {
+                                guard let torrents = torrents else { return }
+                                self.categorization.updateItems(with: torrents)
+                            }
+                        })
                         displayInfoMessage("Torrents sucessfully started", using: self.parent)
                         completion(true)
                     }
                 }
             }
         })
-        startNowAction.image = UIImage(systemName: "livephoto.play")
+        startNowAction.image = UIImage(named: "iconPlayNow")
         startNowAction.backgroundColor = .systemGreen
-        let reannounceAction = UIContextualAction(style: .normal, title: "Reannounce", handler: {action,view,completion in
+        
+        let verifyAction = UIContextualAction(style: .normal, title: "Verify", handler: {action,view,completion in
             let trInfo = self.torrents[indexPath.row]
-            self.session.reannounce(torrents: [trInfo.trId], withPriority: .veryHigh) { error in
+            self.session.verify(torrents: [trInfo.trId], withPriority: .veryHigh) { error in
                 DispatchQueue.main.async {
                     if error != nil {
                         displayErrorMessage(error!.localizedDescription, using: self.parent)
                         completion(false)
                     }
                     else {
-                        self.updateData()
                         completion(true)
                     }
                 }
             }
         })
-        reannounceAction.image = UIImage(systemName: "arrow.clockwise.circle")
-        reannounceAction.backgroundColor = .systemBlue
-        return UISwipeActionsConfiguration(actions: [startNowAction, reannounceAction])
+        verifyAction.image = UIImage(systemName: "checkmark")
+        verifyAction.backgroundColor = .systemBlue
+        return UISwipeActionsConfiguration(actions: [startNowAction, verifyAction])
     }
 
 // MARK: - UITableViewDragDelegate
@@ -1038,7 +991,6 @@ class TorrentTableController: CommonTableController,
 // MARK: - UITableViewDropDelegate
     
     func tableView(_ tableView: UITableView, canHandle session: UIDropSession) -> Bool {
-        //return session.canLoadObjects(ofClass: TRInfo.self)
         return true
     }
     
@@ -1058,49 +1010,11 @@ class TorrentTableController: CommonTableController,
     
     
     func tableView(_ tableView: UITableView, performDropWith coordinator: UITableViewDropCoordinator) {
-        var destinationIndexPath: IndexPath
-        if let indexPath = coordinator.destinationIndexPath {
-            destinationIndexPath = indexPath
-        } else {
-            let section = tableView.numberOfSections - 1
-            let row = tableView.numberOfRows(inSection: section)
-            destinationIndexPath = IndexPath(row: row, section: section)
-        }
-        var trIds = [TrId]()
-        var indexSet = IndexSet()
-        tableView.beginUpdates()
-        let destPos = torrents[destinationIndexPath.row].queuePosition
-        var i: Int = 0
-        for item in coordinator.items {
-            i += 1
-            guard let sourceIndexPath = item.sourceIndexPath else {continue}
-            let trInfo = item.dragItem.localObject as! Torrent
-            tableView.moveRow(at: sourceIndexPath, to: destinationIndexPath)
-            if let index = torrents.firstIndex(of: trInfo) {
-                torrents[index].queuePosition = destPos + i
-                indexSet.insert(index)
-            }
-            trIds.append(trInfo.trId)
-        }
-//        torrents.move(fromOffsets: indexSet, toOffset: destinationIndexPath.row)
-        tableView.endUpdates()
-        let rpcArgument = [JSONKeys.queuePosition: destPos]
-        if trIds.count > 0 {
-            session.setFields(rpcArgument, forTorrents: trIds, withPriority: .high) { error in
-                DispatchQueue.main.async {
-                    if error != nil {
-                        displayErrorMessage(error!.localizedDescription, using: self.parent)
-                    }
-                    else {
-                        displayInfoMessage("Torrents successfully moved", using: self.parent)
-                    }
-                }
-            }
-        }
+    
     }
 }
 
 extension Notification.Name {
-    /// Notification for when download progress has changed.
+    /// Notification to notify that download/upload speed limits has been changed.
     static let ChangeIconSpeedColor = Notification.Name(rawValue: "ChangeIconSpeedColor")
 }

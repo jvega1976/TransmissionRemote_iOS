@@ -38,8 +38,7 @@ class TorrentFilterController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         torrentTableController.category = torrentTableController.categorization.categories[indexPath.row]
-        torrentTableController.categoryIndex = indexPath.row
-        torrentTableController.torrents! = torrentTableController.categorization.itemsforCategory(atPosition: indexPath.row)
+        torrentTableController.categorization.selectedCategoryIndex = indexPath.row
         torrentTableController.tableView.reloadData()
         torrentTableController.torrentsCount.text = torrentTableController.torrents.count != 0 ?  String(torrentTableController.torrents.count) : ""
         torrentTableController.removeBlurEffect()

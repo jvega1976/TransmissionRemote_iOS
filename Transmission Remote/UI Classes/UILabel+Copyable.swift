@@ -21,6 +21,7 @@ extension UILabel {
         }
         set(newValue) {
             objc_setAssociatedObject(self, &UILabel.copyingEnabledKey, newValue, objc_AssociationPolicy.OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+            setupGestureRecognizers()
         }
     }
     
@@ -33,6 +34,7 @@ extension UILabel {
         }
         set(newValue) {
             objc_setAssociatedObject(self, &UILabel.shouldUseLongPressGestureRecognizerKey, newValue, objc_AssociationPolicy.OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+            setupGestureRecognizers()
         }
     }
     
@@ -57,7 +59,7 @@ extension UILabel {
         if self.shouldUseLongPressGestureRecognizer && self.copyingEnabled  {
             self.isUserInteractionEnabled = true
             // Enable gesture recognizer
-            self.longPressGestureRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(getter: longPressGestureRecognizer))
+            self.longPressGestureRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(longPressGestureRecognized))
             self.addGestureRecognizer(self.longPressGestureRecognizer!)
         }
     }
@@ -82,7 +84,7 @@ extension UILabel {
         }
     }
     
-    @available(iOS 13.0, *)
+//    @available(iOS 13.0, *)
     @objc public func longPressGestureRecognized(_ gestureRecognizer: UIGestureRecognizer)
     {
         if gestureRecognizer == self.longPressGestureRecognizer {

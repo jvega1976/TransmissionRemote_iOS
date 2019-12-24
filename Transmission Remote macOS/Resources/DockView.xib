@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="15702" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="15702"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="DockView" customModule="Transmission_Remote" customModuleProvider="target">
+            <connections>
+                <outlet property="contentView" destination="c22-O7-iKe" id="Atl-Yl-ZtQ"/>
+                <outlet property="downloadLabel" destination="HVY-fq-QCj" id="lgj-mx-N41"/>
+                <outlet property="uploadLabel" destination="dY8-SS-qjO" id="a2b-dD-F5q"/>
+            </connections>
+        </customObject>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <customView id="c22-O7-iKe">
+            <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="T82-GF-3Zu">
+                    <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                    <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyUpOrDown" image="TransmissionRound" id="bQd-pZ-VyZ"/>
+                </imageView>
+                <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="qM3-U5-cez" userLabel="DownloadBackground">
+                    <rect key="frame" x="12" y="68" width="104" height="40"/>
+                    <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyUpOrDown" image="Download Badget" id="aNJ-kw-HVH"/>
+                </imageView>
+                <textField horizontalHuggingPriority="900" verticalHuggingPriority="900" horizontalCompressionResistancePriority="900" verticalCompressionResistancePriority="900" textCompletion="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HVY-fq-QCj">
+                    <rect key="frame" x="22" y="74" width="84" height="28"/>
+                    <textFieldCell key="cell" lineBreakMode="clipping" allowsUndo="NO" alignment="center" title="0 KB/s" usesSingleLineMode="YES" id="oWW-tz-EGh">
+                        <font key="font" metaFont="systemBold" size="24"/>
+                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" name="systemBlueColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dAn-p2-RGl" userLabel="UploadBackground">
+                    <rect key="frame" x="12" y="13" width="104" height="39"/>
+                    <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyUpOrDown" image="Upload Badget" id="yaM-0m-o7r"/>
+                </imageView>
+                <textField horizontalHuggingPriority="900" verticalHuggingPriority="900" horizontalCompressionResistancePriority="900" verticalCompressionResistancePriority="900" textCompletion="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dY8-SS-qjO">
+                    <rect key="frame" x="22" y="18" width="84" height="28"/>
+                    <textFieldCell key="cell" lineBreakMode="clipping" allowsUndo="NO" alignment="center" title="0 KB/s" usesSingleLineMode="YES" id="SXq-gY-D5h">
+                        <font key="font" metaFont="systemBold" size="24"/>
+                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" name="systemRedColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+            </subviews>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="dY8-SS-qjO" secondAttribute="bottom" constant="18" id="9RC-8K-sAn"/>
+                <constraint firstItem="dAn-p2-RGl" firstAttribute="trailing" secondItem="dY8-SS-qjO" secondAttribute="trailing" constant="12" id="LJr-NO-I1s"/>
+                <constraint firstItem="HVY-fq-QCj" firstAttribute="top" secondItem="c22-O7-iKe" secondAttribute="top" constant="26" id="LNv-dQ-6hR"/>
+                <constraint firstItem="dY8-SS-qjO" firstAttribute="centerX" secondItem="c22-O7-iKe" secondAttribute="centerX" id="NYp-vc-Kvb"/>
+                <constraint firstItem="HVY-fq-QCj" firstAttribute="centerX" secondItem="c22-O7-iKe" secondAttribute="centerX" id="Tva-5B-wP2"/>
+                <constraint firstItem="HVY-fq-QCj" firstAttribute="centerY" secondItem="qM3-U5-cez" secondAttribute="centerY" id="XVa-0S-1ze"/>
+                <constraint firstItem="qM3-U5-cez" firstAttribute="trailing" secondItem="HVY-fq-QCj" secondAttribute="trailing" constant="12" id="YmM-hm-eq7"/>
+                <constraint firstItem="qM3-U5-cez" firstAttribute="leading" secondItem="HVY-fq-QCj" secondAttribute="leading" constant="-12" id="e4C-0Q-7US"/>
+                <constraint firstItem="dAn-p2-RGl" firstAttribute="leading" secondItem="dY8-SS-qjO" secondAttribute="leading" constant="-12" id="w2v-WD-v6v"/>
+                <constraint firstItem="dY8-SS-qjO" firstAttribute="centerY" secondItem="dAn-p2-RGl" secondAttribute="centerY" id="wmV-kb-g7k"/>
+            </constraints>
+            <point key="canvasLocation" x="140" y="154"/>
+        </customView>
+    </objects>
+    <resources>
+        <image name="Download Badget" width="128" height="40"/>
+        <image name="TransmissionRound" width="128" height="128"/>
+        <image name="Upload Badget" width="128" height="40"/>
+    </resources>
+</document>

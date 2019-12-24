@@ -169,16 +169,16 @@ class SessionConfigController: CommonTableController {
         segmentShowScheduler.selectedSegmentIndex = -1
 
         if scheduleController != nil {
-            sessionConfig.altLimitDay = scheduleController!.daysMask
-            sessionConfig.altLimitTimeBegin = scheduleController!.timeBegin
-            sessionConfig.altLimitTimeEnd = scheduleController!.timeEnd
+            sessionConfig.altSpeedTimeDay = scheduleController!.daysMask
+            sessionConfig.altSpeedTimeBegin = scheduleController!.timeBegin
+            sessionConfig.altSpeedTimeEnd = scheduleController!.timeEnd
         }
     }
 
     // returns YES if config values is ok
     func saveConfig() -> Bool {
-        sessionConfig.downLimitEnabled = switchDownloadRateEnabled.isOn
-        sessionConfig.upLimitEnabled = switchUploadRateEnabled.isOn
+        sessionConfig.speedLimitDownEnabled = switchDownloadRateEnabled.isOn
+        sessionConfig.speedLimitUpEnabled = switchUploadRateEnabled.isOn
 
         let downloadDir = textDownloadDir.text?.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
 
@@ -189,8 +189,8 @@ class SessionConfigController: CommonTableController {
 
         sessionConfig.downloadDir = downloadDir ?? ""
 
-            sessionConfig.downLimitRate = Int(textDownloadRateNumber.text ?? "") ?? 0
-        if sessionConfig.downLimitRate <= 0 || sessionConfig.downLimitRate >= 1000000 {
+            sessionConfig.speedLimitDown = Int(textDownloadRateNumber.text ?? "") ?? 0
+        if sessionConfig.speedLimitDown <= 0 || sessionConfig.speedLimitDown >= 1000000 {
             errorMessage = NSLocalizedString("Wrong download rate limit", comment: "")
             return false
         }
@@ -203,31 +203,31 @@ class SessionConfigController: CommonTableController {
         }
         sessionConfig.incompletedDir = incompletedDir ?? ""
 
-        sessionConfig.upLimitRate = Int(textUploadRateNumber.text ?? "") ?? 0
-        if sessionConfig.upLimitRate <= 0 || sessionConfig.upLimitRate >= 1000000 {
+        sessionConfig.speedLimitUp = Int(textUploadRateNumber.text ?? "") ?? 0
+        if sessionConfig.speedLimitUp <= 0 || sessionConfig.speedLimitDown >= 1000000 {
                 errorMessage = NSLocalizedString("Wrong upload rate limit", comment: "")
                 return false
             }
         
-        sessionConfig.altLimitEnabled = switchAltDownloadRateEnabled.isOn || switchAltUploadRateEnabled.isOn
-            sessionConfig.altDownloadRateLimit = Int(textAltDownloadRateNumber.text ?? "") ?? 0
-        if sessionConfig.altDownloadRateLimit <= 0 || sessionConfig.altDownloadRateLimit >= 1000000 {
+        sessionConfig.altSpeedEnabled = switchAltDownloadRateEnabled.isOn || switchAltUploadRateEnabled.isOn
+            sessionConfig.altSpeedDown = Int(textAltDownloadRateNumber.text ?? "") ?? 0
+        if sessionConfig.altSpeedDown <= 0 || sessionConfig.altSpeedDown >= 1000000 {
                 errorMessage = NSLocalizedString("Wrong alternative download rate limit", comment: "")
                 return false
             }
 
-            sessionConfig.altUploadRateLimit = Int(textAltUploadRateNumber.text ?? "") ?? 0
-        if sessionConfig.altUploadRateLimit <= 0 || sessionConfig.altUploadRateLimit >= 1000000 {
+            sessionConfig.altSpeedUp = Int(textAltUploadRateNumber.text ?? "") ?? 0
+        if sessionConfig.altSpeedUp <= 0 || sessionConfig.altSpeedUp >= 1000000 {
                 errorMessage = NSLocalizedString("Wrong alternative upload rate limit", comment: "")
                 return false
             }
         
 
-        sessionConfig.addPartToUnfinishedFilesEnabled = switchAddPartToUnfinishedFiles.isOn
-        sessionConfig.startDownloadingOnAdd = switchStartDownloadImmidiately.isOn
-        sessionConfig.trashOriginalTorrentFile = switchTrashTorrentFile.isOn
+        sessionConfig.renamePartialFiles = switchAddPartToUnfinishedFiles.isOn
+        sessionConfig.startAddedTorrents = switchStartDownloadImmidiately.isOn
+        sessionConfig.trashOriginalTorrentFiles = switchTrashTorrentFile.isOn
         
-        sessionConfig.seedRatioLimitEnabled = switchSeedRatioLimitEnabled.isOn
+        sessionConfig.seedRatioLimited = switchSeedRatioLimitEnabled.isOn
         sessionConfig.seedRatioLimit = Double(Float(textSeedRatioLimitNumber.text ?? "") ?? 0.0)
         if sessionConfig.seedRatioLimit <= 0 {
                 errorMessage = NSLocalizedString("Wrong seed ratio limit factor", comment: "")
@@ -235,22 +235,22 @@ class SessionConfigController: CommonTableController {
             }
         
 
-        sessionConfig.seedIdleLimitEnabled = switchIdleSeedEnabled.isOn
-            sessionConfig.seedIdleLimit = Int(textIdleSeedNumber.text ?? "") ?? 0
-        if sessionConfig.seedIdleLimit <= 0 {
+        sessionConfig.idleSeedingLimitEnabled = switchIdleSeedEnabled.isOn
+            sessionConfig.idleSeedingLimit = Int(textIdleSeedNumber.text ?? "") ?? 0
+        if sessionConfig.idleSeedingLimit <= 0 {
                 errorMessage = NSLocalizedString("Wrong seed idle timeout number", comment: "")
                 return false
             }
 
-        sessionConfig.globalPeerLimit = Int(textTotalPeersCountNumber.text ?? "") ?? 0
+        sessionConfig.peerLimitGlobal = Int(textTotalPeersCountNumber.text ?? "") ?? 0
 
-        if sessionConfig.globalPeerLimit <= 0 {
+        if sessionConfig.peerLimitGlobal <= 0 {
             errorMessage = NSLocalizedString("Wrong total peers count", comment: "")
             return false
         }
 
-        sessionConfig.torrentPeerLimit = Int(textPeersPerTorrentNumber.text ?? "") ?? 0
-        if sessionConfig.torrentPeerLimit > sessionConfig.globalPeerLimit {
+        sessionConfig.peerLimitPerTorrent = Int(textPeersPerTorrentNumber.text ?? "") ?? 0
+        if sessionConfig.peerLimitPerTorrent > sessionConfig.peerLimitGlobal {
             errorMessage = NSLocalizedString("Wrong peers per torrent count", comment: "")
             return false
         }
@@ -263,16 +263,16 @@ class SessionConfigController: CommonTableController {
         sessionConfig.utpEnabled = switchUTPEnabled.isOn
 
         sessionConfig.portForfardingEnabled = switchPortForwardingEnabled.isOn
-        sessionConfig.portRandomAtStartEnabled = switchRandomPortEnabled.isOn
+        sessionConfig.peerPortRandomOnStart = switchRandomPortEnabled.isOn
 
-            sessionConfig.port = Int(textPortNumber.text ?? "") ?? 0
-        if sessionConfig.port <= 0 || sessionConfig.port > 65535 {
+            sessionConfig.peerPort = Int(textPortNumber.text ?? "") ?? 0
+        if sessionConfig.peerPort <= 0 || sessionConfig.peerPort > 65535 {
                 errorMessage = NSLocalizedString("Wrong port number", comment: "")
                 return false
             }
         
 
-        sessionConfig.altLimitTimeEnabled = switchScheduleAltLimits.isOn
+        sessionConfig.altSpeedEnabled = switchScheduleAltLimits.isOn
 
         if switchScheduleAltLimits.isOn {
             saveAltLimitsSchedulerSettings()
@@ -283,7 +283,7 @@ class SessionConfigController: CommonTableController {
         sessionConfig.queueStalledMinutes = Int(textQueueStalledMinutes.text ?? "0") ?? 0
 
         sessionConfig.scriptTorrentDoneEnabled = switchScriptDone.isOn
-        sessionConfig.scriptTorrentDoneFile = textScriptDone.text ?? ""
+        sessionConfig.scriptTorrentDoneFilename = textScriptDone.text ?? ""
         
         errorMessage = nil
         return true
@@ -293,9 +293,9 @@ class SessionConfigController: CommonTableController {
         if sessionConfig != nil {
             enableControls = true
             // load config values
-            switchDownloadRateEnabled.isOn = sessionConfig.downLimitEnabled
-            textDownloadRateNumber.isEnabled = sessionConfig.downLimitEnabled
-            let downLimitRate = sessionConfig.downLimitRate
+            switchDownloadRateEnabled.isOn = sessionConfig.speedLimitDownEnabled
+            textDownloadRateNumber.isEnabled = sessionConfig.speedLimitDownEnabled
+            let downLimitRate = sessionConfig.speedLimitDown
             textDownloadRateNumber.text = String(format: "%i", downLimitRate)
             
             switchIncompletedDir.isOn = sessionConfig.incompletedDirEnabled
@@ -305,40 +305,40 @@ class SessionConfigController: CommonTableController {
                 textIncompletedDir.text = sessionConfig.incompletedDir
             }
             
-            switchUploadRateEnabled.isOn = sessionConfig.upLimitEnabled
-            textUploadRateNumber.isEnabled = sessionConfig.upLimitEnabled
-            let upLimitRate = sessionConfig.upLimitRate
+            switchUploadRateEnabled.isOn = sessionConfig.speedLimitUpEnabled
+            textUploadRateNumber.isEnabled = sessionConfig.speedLimitUpEnabled
+            let upLimitRate = sessionConfig.speedLimitUp
             textUploadRateNumber.text = String(format: "%i", upLimitRate)
 
-            switchAltDownloadRateEnabled.isOn = sessionConfig.altLimitEnabled
-            switchAltUploadRateEnabled.isOn = sessionConfig.altLimitEnabled
+            switchAltDownloadRateEnabled.isOn = sessionConfig.altSpeedEnabled
+            switchAltUploadRateEnabled.isOn = sessionConfig.altSpeedEnabled
 
-            textAltDownloadRateNumber.isEnabled = sessionConfig.altLimitEnabled
-            textAltUploadRateNumber.isEnabled = sessionConfig.altLimitEnabled
-            let altDownloadRateLimit = sessionConfig.altDownloadRateLimit
+            textAltDownloadRateNumber.isEnabled = sessionConfig.altSpeedEnabled
+            textAltUploadRateNumber.isEnabled = sessionConfig.altSpeedEnabled
+            let altDownloadRateLimit = sessionConfig.altSpeedDown
             textAltDownloadRateNumber.text = String(format: "%i", altDownloadRateLimit)
-            let altUploadRateLimit = sessionConfig.altUploadRateLimit
+            let altUploadRateLimit = sessionConfig.altSpeedUp
             textAltUploadRateNumber.text = String(format: "%i", altUploadRateLimit)
 
-            switchAddPartToUnfinishedFiles.isOn = sessionConfig.addPartToUnfinishedFilesEnabled
-            switchStartDownloadImmidiately.isOn = sessionConfig.startDownloadingOnAdd
-            switchTrashTorrentFile.isOn = sessionConfig.trashOriginalTorrentFile
+            switchAddPartToUnfinishedFiles.isOn = sessionConfig.renamePartialFiles
+            switchStartDownloadImmidiately.isOn = sessionConfig.startAddedTorrents
+            switchTrashTorrentFile.isOn = sessionConfig.trashOriginalTorrentFiles
 
-            switchSeedRatioLimitEnabled.isOn = sessionConfig.seedRatioLimitEnabled
-            textSeedRatioLimitNumber.isEnabled = sessionConfig.seedRatioLimitEnabled
+            switchSeedRatioLimitEnabled.isOn = sessionConfig.seedRatioLimited
+            textSeedRatioLimitNumber.isEnabled = sessionConfig.seedRatioLimited
             let seedRatioLimit = sessionConfig.seedRatioLimit
             textSeedRatioLimitNumber.text = String(format: "%0.1f", seedRatioLimit)
             
 
-            switchIdleSeedEnabled.isOn = sessionConfig.seedIdleLimitEnabled
-            textIdleSeedNumber.isEnabled = sessionConfig.seedIdleLimitEnabled
-            let seedIdleLimit = sessionConfig.seedIdleLimit
+            switchIdleSeedEnabled.isOn = sessionConfig.idleSeedingLimitEnabled
+            textIdleSeedNumber.isEnabled = sessionConfig.idleSeedingLimitEnabled
+            let seedIdleLimit = sessionConfig.idleSeedingLimit
             textIdleSeedNumber.text = String(format: "%i", seedIdleLimit)
 
-            let globalPeerLimit = sessionConfig.globalPeerLimit
+            let globalPeerLimit = sessionConfig.peerLimitGlobal
             textTotalPeersCountNumber.text = String(format: "%i", globalPeerLimit)
 
-            let torrentPeerLimit = sessionConfig.torrentPeerLimit
+            let torrentPeerLimit = sessionConfig.peerLimitPerTorrent
             textPeersPerTorrentNumber.text = String(format: "%i", torrentPeerLimit)
 
             segmentEncryption.selectedSegmentIndex = sessionConfig.encryptionId
@@ -347,9 +347,9 @@ class SessionConfigController: CommonTableController {
             switchLPDEnabled.isOn = sessionConfig.lpdEnabled
             switchUTPEnabled.isOn = sessionConfig.utpEnabled
 
-            switchRandomPortEnabled.isOn = sessionConfig.portRandomAtStartEnabled
-            textPortNumber.isEnabled = !(sessionConfig.portRandomAtStartEnabled)
-            let port = sessionConfig.port
+            switchRandomPortEnabled.isOn = sessionConfig.peerPortRandomOnStart
+            textPortNumber.isEnabled = !(sessionConfig.peerPortRandomOnStart)
+            let port = sessionConfig.peerPort
             textPortNumber.text = String(format: "%i", port)
             switchPortForwardingEnabled.isOn = sessionConfig.portForfardingEnabled
 
@@ -368,16 +368,16 @@ class SessionConfigController: CommonTableController {
             textDownloadDir.text = sessionConfig.downloadDir
 
             switchScheduleAltLimits.isEnabled = true
-            switchScheduleAltLimits.isOn = sessionConfig.altLimitTimeEnabled
+            switchScheduleAltLimits.isOn = sessionConfig.altSpeedEnabled
             //_buttonShowScheduler.enabled = _switchScheduleAltLimits.on;
             segmentShowScheduler.isEnabled = switchScheduleAltLimits.isOn
             segmentShowScheduler.selectedSegmentIndex = -1
 
             switchScriptDone.isOn = sessionConfig.scriptTorrentDoneEnabled
             textScriptDone.isEnabled = sessionConfig.scriptTorrentDoneEnabled
-            textScriptDone.text = sessionConfig.scriptTorrentDoneFile
+            textScriptDone.text = sessionConfig.scriptTorrentDoneFilename
             
-            let transmissionVersion = sessionConfig.transmissionVersion
+            let transmissionVersion = sessionConfig.version
             headerInfoMessage = "Transmission \(transmissionVersion)"
             let rpcVersion = sessionConfig.rpcVersion
             footerInfoMessage = NSLocalizedString("RPC Version: \(rpcVersion)", comment: "")
@@ -450,9 +450,9 @@ class SessionConfigController: CommonTableController {
             scheduleController.title = NSLocalizedString("Schedule time", comment: "")
 
             //NSLog(@"Setting values ...");
-            scheduleController.daysMask = sessionConfig.altLimitDay
-            scheduleController.timeBegin = sessionConfig.altLimitTimeBegin
-            scheduleController.timeEnd = sessionConfig.altLimitTimeEnd
+            scheduleController.daysMask = sessionConfig.altSpeedTimeDay
+            scheduleController.timeBegin = sessionConfig.altSpeedTimeBegin
+            scheduleController.timeEnd = sessionConfig.altSpeedTimeEnd
 
             navigationController!.pushViewController(scheduleController, animated: true)
         }

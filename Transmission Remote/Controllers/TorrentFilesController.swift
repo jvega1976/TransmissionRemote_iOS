@@ -39,8 +39,6 @@ class TorrentFilesController: NMOutlineViewController, RefreshTimer {
                 if outlineView == nil {
                     self.loadView()
                 }
-                //                outlineView.tableView = self.tableView
-                outlineView.datasource = self
             } else {
                 _fsDir = newFsDir
             }
@@ -53,8 +51,8 @@ class TorrentFilesController: NMOutlineViewController, RefreshTimer {
     
     
     override func viewDidLoad() {
-        super.viewDidLoad()
         session = RPCSession.shared!
+        super.viewDidLoad()
     }
 
     
@@ -67,7 +65,9 @@ class TorrentFilesController: NMOutlineViewController, RefreshTimer {
                                                    name: .EnableTimers, object: nil)
             session.getSessionConfig(withPriority: .veryHigh, andCompletionHandler: { sessionConfig, error in
                 if error != nil {
-                    displayErrorMessage(error!.localizedDescription, using: self.view.window!.rootViewController)
+                    DispatchQueue.main.async {
+                        displayErrorMessage(error!.localizedDescription, using: self.view.window!.rootViewController)
+                    }
                 }
                 else {
                     self.sessionConfig = sessionConfig
@@ -76,6 +76,9 @@ class TorrentFilesController: NMOutlineViewController, RefreshTimer {
         }
         parent!.navigationItem.title = NSLocalizedString("Files", comment: "FileListController nav left button title")
         parent!.navigationItem.rightBarButtonItems = nil
+        let searchButton = UIBarButtonItem(image: UIImage(systemName: "doc.text.magnifyingglass"), style: .plain, target: self, action: #selector(searchFiles(_:)))
+        let sortButton = UIBarButtonItem(image: UIImage(systemName: "arrow.up.arrow.down.square"), style: .plain, target: self, action: #selector(sortFiles(_:)))
+        parent!.navigationItem.rightBarButtonItems = [searchButton,sortButton]
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -122,7 +125,12 @@ class TorrentFilesController: NMOutlineViewController, RefreshTimer {
                         DispatchQueue.main.async {
                             if error == nil {
                                 self.fsDir!.updateFSDir(usingStats: fileStats!)
-                                self.outlineView.reloadData()
+                                var indexPaths = [IndexPath]()
+                                for i in 0..<fileStats!.count {
+                                    guard let fsitem = self.fsDir?.item(at: i) else { continue }
+                                    indexPaths.append(fsitem.indexPath)
+                                }
+                                self.outlineView.reloadRows(at: indexPaths)
                             }
                             else {
                                 displayErrorMessage(error!.localizedDescription, using: self.view.window!.rootViewController)
@@ -173,24 +181,24 @@ class TorrentFilesController: NMOutlineViewController, RefreshTimer {
 
     
     @objc func renameFile(_ sender: UILongPressGestureRecognizer) {
-        let point = sender.location(in: outlineView)
-        guard let cell = outlineView.cellAtPoint(point) as? FileListFSCell,
-            let indexPath = outlineView.indexPath(for: cell),
-            let file = cell.value as? FSItem else { return}
-            let addAlert = UIAlertController(title: "Rename File", message: "Enter Filename: ", preferredStyle: .alert)
+        guard let file = sender.dataObject as? FSItem else { return }
+
+        let addAlert = UIAlertController(title: "Rename File", message: "Enter Filename: ", preferredStyle: .alert)
         addAlert.addTextField(configurationHandler: { textField in
                 textField.frame.size = CGSize(width: 300, height: 16)
-                textField.text = cell.nameLabel.text
+            textField.text = file.name
         })
         let actionAdd = UIAlertAction(title: "Rename", style: .default, handler: {_  in
             let name = addAlert.textFields!.first!.text!
-            self.fsDir!.item(atIndexPath: indexPath)!.name = name
+            file.name = name
             self.session.renameFile(file.fullName, forTorrent:self.torrent.trId, usingName: name, withPriority: .veryHigh, completionHandler: { (error) in
-                if error != nil {
-                    displayErrorMessage(error!.localizedDescription, using: self.view.window!.rootViewController)
-                } else {
-                        self.isFullyLoaded = false
-                        self.updateData()
+                DispatchQueue.main.async {
+                    if error != nil {
+                        displayErrorMessage(error!.localizedDescription, using: self.view.window!.rootViewController)
+                    } else {
+                            self.isFullyLoaded = false
+                            self.updateData()
+                    }
                 }
             })
         })
@@ -206,7 +214,7 @@ class TorrentFilesController: NMOutlineViewController, RefreshTimer {
     @IBAction @objc func playFile(_ sender: UITapGestureRecognizer) {
         let point = sender.location(in: outlineView)
         guard let cell = outlineView.cellAtPoint(point) as? FileListFSCell,
-            let item = cell.value as? FSItem,
+            let item = cell.objectValue as? FSItem,
             let webDAVServer = UserDefaults.standard.string(forKey: USERDEFAULTS_KEY_WEBDAV),
             let fileURL = item.fullName.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) else { return }
         
@@ -235,11 +243,13 @@ class TorrentFilesController: NMOutlineViewController, RefreshTimer {
         let item = sender?.dataObject as! FSItem
         let fileIndexes = item.rpcIndexes
         let wanted = !item.isWanted
+        var indexPaths: Array<IndexPath> = [item.indexPath]
         if addingTorrent {
             for i in fileIndexes {
                 fsDir!.item(at: i)!.isWanted = wanted
+                indexPaths.append(fsDir!.item(at: i)!.indexPath)
             }
-            self.outlineView.reloadData()
+            self.outlineView.reloadRows(at:indexPaths)
             return
         }
         let rpcMessage = wanted ? [JSONKeys.files_wanted:fileIndexes] : [JSONKeys.files_unwanted:fileIndexes]
@@ -297,159 +307,177 @@ class TorrentFilesController: NMOutlineViewController, RefreshTimer {
     }
     
     
-    //MARK: - Update Interface methods
-    
-    func updateFileCell(_ cell: FileListFSCell, with item: FSItem) {
-        cell.nameLabel.text = item.name
-        // remove all old targets
-        cell.checkBox.removeTarget(self, action: #selector(toggleDownloading(_:)), for: .valueChanged)
-        cell.fileTypeIcon.image = UIImage(systemName: "doc")
-        cell.value = item
-        if addingTorrent {
-            cell.progressBar.isHidden = true
-            cell.detailLabel.isHidden = true
-        } else {
-            cell.progressBar.progress = Float(item.downloadProgress)
-            cell.detailLabel.text = NSLocalizedString("\(item.bytesCompletedString) of \(item.sizeString), \(item.downloadProgressString) downloaded", comment: "FileList cell file info")
-        }
-        cell.prioritySegment.isHidden = false // by default folders don't have priority segment
-        cell.nameLabel.textColor = UIColor.label // by default file/folder names are black
-        if cell.longPressView.gestureRecognizers == nil {
-            cell.longPressView.addGestureRecognizer(UILongPressGestureRecognizer(target: self, action: #selector(renameFile(_:))))
-        } else {
-            for gesture in cell.longPressView.gestureRecognizers! {
-                cell.longPressView.removeGestureRecognizer(gesture)
+    @objc func searchFiles(_ sender: UIBarButtonItem) {
+        let alertController = UIAlertController(title: "Search Files", message: nil, preferredStyle: .alert)
+        alertController.addTextField(configurationHandler: { textField in
+            if UIDevice.current.userInterfaceIdiom == .pad {
+                textField.frame.size = CGSize(width: 700, height: 16)
+            } else {
+                textField.frame.size = CGSize(width: 400, height: 16)
             }
-            cell.longPressView.addGestureRecognizer(UILongPressGestureRecognizer(target: self, action: #selector(renameFile(_:))))
+        })
+        let action = UIAlertAction(title: "Search", style: .default) { _ in
+            var predicate: (FSItem)->Bool
+            guard let searchText = alertController.textFields?.first?.text else { return }
+            if searchText.count > 0 {
+                let andWords = searchText.split(whereSeparator: { $0 == "&" })
+                let orWords = searchText.split(whereSeparator: { $0 == "|" })
+                predicate = {fsItem in
+                    var result = true
+                    if !andWords.isEmpty {
+                        for word in andWords {
+                            result = result && fsItem.name.localizedCaseInsensitiveContains(word.trimmingCharacters(in: .whitespaces))
+                        }
+                    }
+                    if !orWords.isEmpty {
+                        for word in orWords {
+                            result = result || fsItem.name.localizedCaseInsensitiveContains(word.trimmingCharacters(in: .whitespaces))
+                        }
+                    }
+                    if orWords.isEmpty && andWords.isEmpty {
+                        result = result && fsItem.name.localizedCaseInsensitiveContains(searchText)
+                    }
+                    return result
+                }
+            } else {
+                predicate = {fsItem in return true }
+            }
+            self.fsDir?.rootItem?.filterPredicate = predicate
+            self.outlineView.reloadData()
         }
-        cell.longPressView.isUserInteractionEnabled = true
-        
-        let doubleTapRecognizer = UITapGestureRecognizer(target: self, action: #selector(playFile(_:)))
-        doubleTapRecognizer.numberOfTapsRequired = 2
-        cell.contentView.addGestureRecognizer(doubleTapRecognizer)
-        cell.contentView.isUserInteractionEnabled = true
-        
-        cell.prioritySegment.addTarget(self, action: #selector(prioritySegmentToggled(_:)), for: .valueChanged)
-        cell.prioritySegment.dataObject = item
-        cell.prioritySegment.selectedSegmentIndex = item.priority.rawValue
-        cell.checkBox.dataObject = item
-        
-        // configure left checkBox control
-        cell.checkBox.addTarget(self, action: #selector(toggleDownloading(_:)), for: .valueChanged)
-        
-        if item.isWanted {
-            cell.prioritySegment.isEnabled = true
-        }else {
-            cell.prioritySegment.isEnabled = false
-        }
-        
-        cell.checkBox.isSelected = item.isWanted
-        cell.checkBox.tintColor = item.isWanted ? cell.tintColor : UIColor.secondaryLabel
+        let cancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        alertController.addAction(action)
+        alertController.addAction(cancel)
+        self.present(alertController, animated: true, completion: nil)
     }
     
-    
-    func updateFolderCell(_ cell: FileListFSCell, with item: FSItem) {
-        // remove all old targets
-        cell.nameLabel.text = item.name
-        cell.checkBox.removeTarget(self, action: #selector(toggleDownloading(_:)), for: .valueChanged)
+    @objc func sortFiles(_ sender: UIBarButtonItem) {
+        let alertActionDescendent = UIAlertAction(title: "Descending", style: .default, handler: {_ in
+            let alertActionName = UIAlertAction(title: "Name", style: .default) { _ in
+                self.fsDir?.sortPredicate = { fileL, fileR in
+                    fileL.name > fileR.name
+                }
+                self.outlineView.reloadData()
+            }
+            
+            let alertActionSize = UIAlertAction(title: "Size", style: .default) { _ in
+                self.fsDir?.sortPredicate = { fileL, fileR in
+                    fileL.size > fileR.size
+                }
+                self.outlineView.reloadData()
+            }
+            
+            let alertActionProgress = UIAlertAction(title: "Percentage Progress", style: .default) { _ in
+                self.fsDir?.sortPredicate = { fileL, fileR in
+                    fileL.downloadProgress > fileR.downloadProgress
+                }
+                self.outlineView.reloadData()
+            }
+            
+            let alertActionWanted = UIAlertAction(title: "Selected for Download", style: .default) { _ in
+                self.fsDir?.sortPredicate = { fileL, fileR in
+                    (fileL.isWanted ? 1 : 0) > (fileR.isWanted ? 1 : 0)
+                }
+                self.outlineView.reloadData()
+            }
+            
+            let alertController = UIAlertController(title: "Sort Options", message: nil, preferredStyle: .actionSheet)
+            alertController.addAction(alertActionName)
+            alertController.addAction(alertActionSize)
+            alertController.addAction(alertActionProgress)
+            alertController.addAction(alertActionWanted)
+            if UIDevice.current.userInterfaceIdiom == .pad {
+                guard let popoverController = alertController.popoverPresentationController else {
+                    return
+                }
+                popoverController.barButtonItem = sender
+            }
+            self.present(alertController, animated: true, completion: nil)
+        })
         
-        cell.value = item
-        cell.fileTypeIcon.image = UIImage(systemName: "folder.fill")
-        if addingTorrent {
-            cell.progressBar.isHidden = true
-            cell.detailLabel.text = String(format: NSLocalizedString("%i files, %@", comment: ""), item.filesCount, item.sizeString)
+        let alertActionAscendent = UIAlertAction(title: "Ascending", style: .default, handler: {_ in
+            let alertActionName = UIAlertAction(title: "Name", style: .default) { _ in
+                self.fsDir?.sortPredicate = { fileL, fileR in
+                    fileL.name < fileR.name
+                }
+                self.outlineView.reloadData()
+            }
+            
+            let alertActionSize = UIAlertAction(title: "Size", style: .default) { _ in
+                self.fsDir?.sortPredicate = { fileL, fileR in
+                    fileL.size < fileR.size
+                }
+                self.outlineView.reloadData()
+            }
+            
+            let alertActionProgress = UIAlertAction(title: "Percentage Progress", style: .default) { _ in
+                self.fsDir?.sortPredicate = { fileL, fileR in
+                    fileL.downloadProgress < fileR.downloadProgress
+                }
+                self.outlineView.reloadData()
+            }
+            
+            let alertActionWanted = UIAlertAction(title: "Selected for Download", style: .default) { _ in
+                self.fsDir?.sortPredicate = { fileL, fileR in
+                    (fileL.isWanted ? 1 : 0) < (fileR.isWanted ? 1 : 0)
+                }
+                self.outlineView.reloadData()
+            }
+            
+            let alertController = UIAlertController(title: "Sort Options", message: nil, preferredStyle: .actionSheet)
+            alertController.addAction(alertActionName)
+            alertController.addAction(alertActionSize)
+            alertController.addAction(alertActionProgress)
+            alertController.addAction(alertActionWanted)
+            if UIDevice.current.userInterfaceIdiom == .pad {
+                guard let popoverController = alertController.popoverPresentationController else {
+                    return
+                }
+                popoverController.barButtonItem = sender
+            }
+            self.present(alertController, animated: true, completion: nil)
+        })
+        let alertController = UIAlertController(title: "Order Options", message: nil, preferredStyle: .actionSheet)
+        alertController.addAction(alertActionDescendent)
+        alertController.addAction(alertActionAscendent)
+        if UIDevice.current.userInterfaceIdiom == .pad {
+            guard let popoverController = alertController.popoverPresentationController else {
+                return
+            }
+            popoverController.barButtonItem = sender
         }
-        else {
-            cell.progressBar.progress = Float(item.downloadProgress)
-            cell.detailLabel.text = String(format: NSLocalizedString("%i files, %@ of %@, %@ downloaded", comment: ""), item.filesCount, item.bytesCompletedString, item.sizeString, item.downloadProgressString)
-        }
-        cell.prioritySegment.addTarget(self, action: #selector(prioritySegmentToggled(_:)), for: .valueChanged)
-        cell.prioritySegment.dataObject = item
-        cell.prioritySegment.isEnabled = true
-        cell.prioritySegment.selectedSegmentIndex = item.priority.rawValue
-        cell.nameLabel.textColor = UIColor.label // by default file/folder names are black
-        
-        if cell.longPressView.gestureRecognizers == nil {
+        self.present(alertController, animated: true, completion: nil)
+    }
 
-            cell.longPressView.addGestureRecognizer(UILongPressGestureRecognizer(target: self, action: #selector(renameFile(_:))))
-        } else {
-            for gesture in cell.longPressView.gestureRecognizers! {
-                cell.longPressView.removeGestureRecognizer(gesture)
-            }
-            cell.longPressView.addGestureRecognizer(UILongPressGestureRecognizer(target: self, action: #selector(renameFile(_:))))
-        }
-        cell.longPressView.isUserInteractionEnabled = true
-        
-        // get info for files within folder
-        
-        cell.checkBox.isSelected = item.isWanted
-        
-        cell.checkBox.tintColor = item.isWanted ? cell.tintColor : UIColor.secondaryLabel
-        
-        // add recognizer for unwanted files
-        cell.checkBox.dataObject = item
-        cell.checkBox.addTarget(self, action: #selector(toggleDownloading(_:)), for: .valueChanged)
-        cell.toggleButton.contentHorizontalAlignment = .right
-    }
 }
 
 
 //MARK: - NMOutlineViewDatasource extension
 extension TorrentFilesController {
     
-    override func outlineView(_ outlineView: NMOutlineView, numberOfChildrenOfCell parentCell: NMOutlineViewCell?) -> Int {
-        guard let datasource = fsDir?.rootItem!.items else {
-            return 0
-        }
-        if let parentNode = parentCell?.value as? FSItem {
-            return parentNode.items?.count ?? 0
-        } else {
-            // Top level items
-            return datasource.count
-        }
-        
+    override func outlineView(_ outlineView: NMOutlineView, numberOfChildrenOfItem item: Any?) -> Int {
+        guard let item = item as? FSItem else { return fsDir?.rootItem!.items?.count ?? 0}
+        return item.items?.count ?? 0
     }
     
-    override func outlineView(_ outlineView: NMOutlineView, isCellExpandable cell: NMOutlineViewCell) -> Bool {
-        guard let node = cell.value as? FSItem else {
-            return false
-        }
-        return node.isFolder
+    override func outlineView(_ outlineView: NMOutlineView, isItemExpandable item: Any) -> Bool {
+        guard let item = item as? FSItem else { return false }
+        return item.isFolder
     }
     
     
-    override func outlineView(_ outlineView: NMOutlineView, childCell index: Int, ofParentAtIndexPath parentIndexPath: IndexPath?) -> NMOutlineViewCell {
-        
-        if let parentIndexPath = parentIndexPath //, let rootIndex = parentIndexPath.first
-        {
-            let cell = outlineView.dequeReusableCell(withIdentifier: CELL_ID_FILELISTFSCELL, style: .default) as! FileListFSCell
-            let indexPath = parentIndexPath.appending(index)
-            if let item = fsDir!.item(atIndexPath: indexPath) {
-                if item.isFolder {
-                    updateFolderCell(cell, with: item)
-                } else {
-                    updateFileCell(cell, with: item)
-                }
-                
-            }
-            return cell
-        } else {
-            let cell = outlineView.dequeReusableCell(withIdentifier: CELL_ID_FILELISTFSCELL, style: .default) as! FileListFSCell
-            
-            if let item = fsDir?.rootItem?.items?[index] {
-                if item.isFolder {
-                    updateFolderCell(cell, with: item)
-                } else {
-                    updateFileCell(cell, with: item)
-                }
-            }
-            return cell
-        }
+    override func outlineView(_ outlineView: NMOutlineView, cellFor item: Any) -> NMOutlineViewCell  {
+        guard let item = item as? FSItem else { return NMOutlineViewCell() }
+        let cell = outlineView.dequeReusableCell(withIdentifier: CELL_ID_FILELISTFSCELL, style: .default) as! FileListFSCell
+        cell.torrentFilesController = self
+        cell.update(with: item)
+        return cell
     }
+
     
-    
-    override func outlineView(_ outlineView: NMOutlineView, didSelectCell cell: NMOutlineViewCell) {
-        
+    override func outlineView(_ outlineView: NMOutlineView, child index: Int, ofItem item: Any?) -> Any {
+        guard let item = item as? FSItem else { return fsDir?.rootItem!.items?[index] }
+        return item.items?[index]
     }
     
 }

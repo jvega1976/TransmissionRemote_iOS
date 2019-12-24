@@ -5,54 +5,54 @@
 //  Created by  on 7/14/19.
 //
 
-import UIKit
+import AppKit
 
-extension UIColor {
-    class var colorDownload: UIColor? {
-        //return UIColor(named: "DownloadColor")
-        return UIColor.systemGreen
+extension NSColor {
+    class var colorDownload: NSColor? {
+        //return NSColor(named: "DownloadColor")
+        return NSColor.systemGreen
     }
 
-    class var colorAll: UIColor? {
-        //return UIColor.lightGray
-        return UIColor(named: "AllColor")
+    class var colorAll: NSColor? {
+        //return NSColor.lightGray
+        return NSColor(named: "AllColor")
     }
 
-    class var colorError: UIColor? {
-        //return UIColor(named: "ErrorColor")
-        return UIColor.red
+    class var colorError: NSColor? {
+        //return NSColor(named: "ErrorColor")
+        return NSColor.red
     }
 
-    class var colorUpload: UIColor? {
-        return UIColor(named: "UploadColor")
-        //return UIColor.systemPurple
+    class var colorUpload: NSColor? {
+        return NSColor(named: "UploadColor")
+        //return NSColor.systemPurple
     }
 
-    class var colorActive: UIColor? {
-        return UIColor(named: "ActiveColor")
-        //return UIColor.orange
+    class var colorActive: NSColor? {
+        return NSColor(named: "ActiveColor")
+        //return NSColor.orange
     }
 
-    class var colorCompleted: UIColor? {
-        return UIColor.systemBlue
+    class var colorCompleted: NSColor? {
+        return NSColor.systemBlue
     }
 
-    class var colorWait: UIColor? {
-        return UIColor(named: "WaitColor1")
-        //return UIColor.systemTeal
+    class var colorWait: NSColor? {
+        return NSColor(named: "WaitColor1")
+        //return NSColor.systemTeal
     }
 
-    class var colorVerify: UIColor? {
-        //return UIColor(named: "VerifyColor")
-        return UIColor(named: "StopColor")
+    class var colorVerify: NSColor? {
+        //return NSColor(named: "VerifyColor")
+        return NSColor(named: "StopColor")
     }
 
-    class var colorPaused: UIColor? {
-        //return UIColor(named: "StopColor")
-        return UIColor.systemGray
+    class var colorPaused: NSColor? {
+        //return NSColor(named: "StopColor")
+        return NSColor.systemGray
     }
 
-    class var progressBarTrack: UIColor? {
-        return UIColor(named: "ProgressBarTrackColor")
+    class var progressBarTrack: NSColor? {
+        return NSColor(named: "ProgressBarTrackColor")
     }
 }

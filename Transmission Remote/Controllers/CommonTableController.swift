@@ -159,10 +159,10 @@ import TransmissionRPC
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        startRefresh()  //Method inherited from RefreshTimer Protocol
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(startTimer(_:)),
                                                name: .EnableTimers, object: nil)
+        startRefresh()  //Method inherited from RefreshTimer Protocol
     }
     
     @objc func startTimer(_ notification: Notification? = nil) {

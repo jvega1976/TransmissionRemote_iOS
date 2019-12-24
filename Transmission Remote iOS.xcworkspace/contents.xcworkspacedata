@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workspace
+   version = "1.0">
+   <FileRef
+      location = "group:NMOutlineView">
+   </FileRef>
+   <FileRef
+      location = "group:Categorization">
+   </FileRef>
+   <FileRef
+      location = "absolute:/Users/jvega/Dropbox/Transmission Remote/TransmissionRPC">
+   </FileRef>
+   <FileRef
+      location = "group:/Users/jvega/Dropbox/Transmission Remote/Transmission Remote/Transmission Remote iOS.xcodeproj">
+   </FileRef>
+</Workspace>

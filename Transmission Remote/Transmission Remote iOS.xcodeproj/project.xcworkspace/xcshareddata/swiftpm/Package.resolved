@@ -1,0 +1,34 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "Categorization",
+        "repositoryURL": "https://github.com/jvega1976/Categorization.git",
+        "state": {
+          "branch": "master",
+          "revision": "bf517e84b865b05f3ae89a3935a810e17d7360f8",
+          "version": null
+        }
+      },
+      {
+        "package": "NMOutlineView",
+        "repositoryURL": "https://github.com/jvega1976/nmoutlineview.git",
+        "state": {
+          "branch": "master",
+          "revision": "b8050759458d874bb017e5537d5ec40a153a64ed",
+          "version": null
+        }
+      },
+      {
+        "package": "TransmissionRPC",
+        "repositoryURL": "https://github.com/jvega1976/TransmissionRPC.git",
+        "state": {
+          "branch": "master",
+          "revision": "4988b33506c9a2c68717e685b49a8a4ed46d6b67",
+          "version": null
+        }
+      }
+    ]
+  },
+  "version": 1
+}

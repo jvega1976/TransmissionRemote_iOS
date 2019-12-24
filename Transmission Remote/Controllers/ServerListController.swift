@@ -44,7 +44,7 @@ class ServerListController: CommonTableController {
     
     @objc
     @IBAction func addNewConfig(_ sender: UIBarButtonItem) {
-        RPCServerConfig.config = RPCServerConfig()
+        RPCServerConfig.sharedConfig = RPCServerConfig()
         performSegue(withIdentifier: "EditServerConfig", sender: self)
 
     }
@@ -60,7 +60,7 @@ class ServerListController: CommonTableController {
         else if segue.identifier == "EditServerConfig" {
             let serverConfigController = segue.destination as! ServerConfigController
             serverConfigController.serverListController = self;
-            serverConfigController.config = RPCServerConfig.config
+            serverConfigController.config = RPCServerConfig.sharedConfig
         }
     }
     
@@ -72,10 +72,10 @@ class ServerListController: CommonTableController {
         else if identifier == "showTorrentList" {
             if !isEditing {
                 guard let indexPath = tableView.indexPathForSelectedRow else { return false }
-                RPCServerConfig.config = serverConfigs[indexPath.row]
+                RPCServerConfig.sharedConfig = serverConfigs[indexPath.row]
                 do {
-                    RPCServerConfig.config = serverConfigs[indexPath.row]
-                    RPCSession.shared = try RPCSession(withURL: RPCServerConfig.config.configURL!, andTimeout: RPCServerConfig.config.requestTimeout)
+                    RPCServerConfig.sharedConfig = serverConfigs[indexPath.row]
+                    RPCSession.shared = try RPCSession(withURL: RPCServerConfig.sharedConfig!.configURL!, andTimeout: RPCServerConfig.sharedConfig!.requestTimeout)
                 } catch {
                     displayErrorMessage(error.localizedDescription, using: self)
                     return false
@@ -123,7 +123,7 @@ class ServerListController: CommonTableController {
     }
    
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        RPCServerConfig.config = serverConfigs[indexPath.row]
+        RPCServerConfig.sharedConfig = serverConfigs[indexPath.row]
         if self.isEditing {
             performSegue(withIdentifier: "EditServerConfig", sender: self)
         }

@@ -1,0 +1,594 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 52;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		B807F10523B13FFF00022386 /* InfoMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B807F10423B13FFF00022386 /* InfoMessage.swift */; };
+		B807F10823B145B800022386 /* InfoMessageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B807F10623B145B800022386 /* InfoMessageController.swift */; };
+		B807F10923B145B800022386 /* InfoMessageController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B807F10723B145B800022386 /* InfoMessageController.xib */; };
+		B807F10E23B171D500022386 /* DockView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B807F10D23B171D500022386 /* DockView.xib */; };
+		B807F11823B175DE00022386 /* DockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B807F11723B175DE00022386 /* DockView.swift */; };
+		B809510823A0B8E2007CE2F1 /* FoundationExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B809510023A0B8E1007CE2F1 /* FoundationExtensions.swift */; };
+		B809510923A0B8E2007CE2F1 /* ServerConfigDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = B809510123A0B8E1007CE2F1 /* ServerConfigDB.swift */; };
+		B809510A23A0B8E2007CE2F1 /* TorrentCategorization.swift in Sources */ = {isa = PBXBuildFile; fileRef = B809510223A0B8E1007CE2F1 /* TorrentCategorization.swift */; };
+		B809510B23A0B8E2007CE2F1 /* GeoIpConnector.swift in Sources */ = {isa = PBXBuildFile; fileRef = B809510323A0B8E1007CE2F1 /* GeoIpConnector.swift */; };
+		B809510D23A0B8E2007CE2F1 /* RPCServerConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = B809510523A0B8E1007CE2F1 /* RPCServerConfig.swift */; };
+		B809510E23A0B8E2007CE2F1 /* ResfreshTimerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B809510623A0B8E1007CE2F1 /* ResfreshTimerProtocol.swift */; };
+		B809514723A0C0D8007CE2F1 /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B809514623A0C0D8007CE2F1 /* AppKit.framework */; };
+		B809514923A0C0DF007CE2F1 /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B809514823A0C0DF007CE2F1 /* UserNotifications.framework */; };
+		B809514F23A0E76E007CE2F1 /* CategoriesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B809514E23A0E76E007CE2F1 /* CategoriesController.swift */; };
+		B816CDB5239F72AE00700E7B /* ServerConfigController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B816CDB4239F72AE00700E7B /* ServerConfigController.swift */; };
+		B816CDC4239F72EA00700E7B /* Categorization in Frameworks */ = {isa = PBXBuildFile; productRef = B816CDC3239F72EA00700E7B /* Categorization */; };
+		B816CDC7239F72F300700E7B /* TransmissionRPC in Frameworks */ = {isa = PBXBuildFile; productRef = B816CDC6239F72F300700E7B /* TransmissionRPC */; };
+		B816CDCB239F733200700E7B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B816CDCA239F733200700E7B /* Images.xcassets */; };
+		B816CDCD239F734300700E7B /* CountryFlags in Resources */ = {isa = PBXBuildFile; fileRef = B816CDCC239F734300700E7B /* CountryFlags */; };
+		B816CDD3239F735F00700E7B /* DocumentTypeIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = B816CDCE239F735E00700E7B /* DocumentTypeIcon.png */; };
+		B816CDD4239F735F00700E7B /* DocumentTypeIcon512x512.png in Resources */ = {isa = PBXBuildFile; fileRef = B816CDCF239F735F00700E7B /* DocumentTypeIcon512x512.png */; };
+		B816CDD5239F735F00700E7B /* DocumentTypeIcon320x320.png in Resources */ = {isa = PBXBuildFile; fileRef = B816CDD0239F735F00700E7B /* DocumentTypeIcon320x320.png */; };
+		B816CDD6239F735F00700E7B /* DocumentTypeIcon.icns in Resources */ = {isa = PBXBuildFile; fileRef = B816CDD1239F735F00700E7B /* DocumentTypeIcon.icns */; };
+		B816CDD7239F735F00700E7B /* DocumentTypeIcon64x64.png in Resources */ = {isa = PBXBuildFile; fileRef = B816CDD2239F735F00700E7B /* DocumentTypeIcon64x64.png */; };
+		B81F398923ADAE0D00408EC2 /* Computer2@1x.pdf in Resources */ = {isa = PBXBuildFile; fileRef = B81F398823ADAE0D00408EC2 /* Computer2@1x.pdf */; };
+		B81F398B23ADAE7E00408EC2 /* Computer3@1x.pdf in Resources */ = {isa = PBXBuildFile; fileRef = B81F398A23ADAE7D00408EC2 /* Computer3@1x.pdf */; };
+		B83EFBDA23A42B970018C2F8 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B83EFBD923A42B970018C2F8 /* MainViewController.swift */; };
+		B83EFBDC23A48DA00018C2F8 /* TorrentDetailsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B83EFBDB23A48DA00018C2F8 /* TorrentDetailsController.swift */; };
+		B83EFBDE23A49BD00018C2F8 /* TorrentCommonController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B83EFBDD23A49BD00018C2F8 /* TorrentCommonController.swift */; };
+		B83EFBE023A49E230018C2F8 /* TorrentInfoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B83EFBDF23A49E230018C2F8 /* TorrentInfoController.swift */; };
+		B83EFBE223A4E0500018C2F8 /* TorrentCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B83EFBE123A4E0500018C2F8 /* TorrentCellView.swift */; };
+		B83EFBE323A4E1A70018C2F8 /* TransmissionRPC-Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B80950FF23A0B8E1007CE2F1 /* TransmissionRPC-Extensions.swift */; };
+		B84D16D923ADCFC400BCFF3D /* WindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84D16D823ADCFC400BCFF3D /* WindowController.swift */; };
+		B852510123B42529002EF377 /* TorrentSearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B852510023B42529002EF377 /* TorrentSearchController.swift */; };
+		B852510723B4AB61002EF377 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B852510623B4AB61002EF377 /* Main.storyboard */; };
+		B87080FF23B9C46600A0AB22 /* TorrentFilesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87080FE23B9C46600A0AB22 /* TorrentFilesController.swift */; };
+		B870810123BA0E9800A0AB22 /* TorrentFilesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B870810023BA0E9800A0AB22 /* TorrentFilesCell.swift */; };
+		B872E35323BEDCC400AD04B1 /* SessionConfigController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B872E35223BEDCC400AD04B1 /* SessionConfigController.swift */; };
+		B890B34C23C1D1550038B3ED /* FileSearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B890B34B23C1D1550038B3ED /* FileSearchController.swift */; };
+		B8A06E7023AE0E2C005A2C6D /* TorrentStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8A06E6F23AE0E2C005A2C6D /* TorrentStackView.swift */; };
+		B8A1656E23A1ED63009D68E9 /* AppKitExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8A1656D23A1ED63009D68E9 /* AppKitExtensions.swift */; };
+		B8A1657723A1EDB1009D68E9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8A1657623A1EDB1009D68E9 /* AppDelegate.swift */; };
+		B8A1657A23A1EE5C009D68E9 /* IconCloud.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8A1657823A1EE5C009D68E9 /* IconCloud.swift */; };
+		B8A1657B23A1EE5C009D68E9 /* IconFS.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8A1657923A1EE5C009D68E9 /* IconFS.swift */; };
+		B8A1657D23A213D6009D68E9 /* CategoryCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8A1657C23A213D6009D68E9 /* CategoryCellView.swift */; };
+		B8DE8AEF23AD422E000BDC63 /* IconHalfCloud.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8DE8AED23AD422E000BDC63 /* IconHalfCloud.swift */; };
+		B8DE8AF323AD4E09000BDC63 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = B8DE8AF123AD4E09000BDC63 /* Localizable.strings */; };
+		B8DE8AFC23AD520F000BDC63 /* ProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8DE8AF823AD4F94000BDC63 /* ProgressBar.swift */; };
+		B8DE8AFE23AD6DF1000BDC63 /* ServerConfigListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8DE8AFD23AD6DF1000BDC63 /* ServerConfigListController.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		B807F10423B13FFF00022386 /* InfoMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoMessage.swift; sourceTree = "<group>"; };
+		B807F10623B145B800022386 /* InfoMessageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoMessageController.swift; sourceTree = "<group>"; };
+		B807F10723B145B800022386 /* InfoMessageController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InfoMessageController.xib; sourceTree = "<group>"; };
+		B807F10D23B171D500022386 /* DockView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DockView.xib; sourceTree = "<group>"; };
+		B807F11723B175DE00022386 /* DockView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DockView.swift; sourceTree = "<group>"; };
+		B80950FF23A0B8E1007CE2F1 /* TransmissionRPC-Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TransmissionRPC-Extensions.swift"; sourceTree = "<group>"; };
+		B809510023A0B8E1007CE2F1 /* FoundationExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoundationExtensions.swift; sourceTree = "<group>"; };
+		B809510123A0B8E1007CE2F1 /* ServerConfigDB.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServerConfigDB.swift; sourceTree = "<group>"; };
+		B809510223A0B8E1007CE2F1 /* TorrentCategorization.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TorrentCategorization.swift; sourceTree = "<group>"; };
+		B809510323A0B8E1007CE2F1 /* GeoIpConnector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeoIpConnector.swift; sourceTree = "<group>"; };
+		B809510423A0B8E1007CE2F1 /* GlobalConsts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalConsts.swift; sourceTree = "<group>"; };
+		B809510523A0B8E1007CE2F1 /* RPCServerConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RPCServerConfig.swift; sourceTree = "<group>"; };
+		B809510623A0B8E1007CE2F1 /* ResfreshTimerProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResfreshTimerProtocol.swift; sourceTree = "<group>"; };
+		B809514623A0C0D8007CE2F1 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		B809514823A0C0DF007CE2F1 /* UserNotifications.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotifications.framework; path = System/Library/Frameworks/UserNotifications.framework; sourceTree = SDKROOT; };
+		B809514E23A0E76E007CE2F1 /* CategoriesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesController.swift; sourceTree = "<group>"; };
+		B816CDAF239F72AE00700E7B /* Transmission Remote.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Transmission Remote.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B816CDB4239F72AE00700E7B /* ServerConfigController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerConfigController.swift; sourceTree = "<group>"; };
+		B816CDCA239F733200700E7B /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = "../../Transmission Remote/Resources/Images.xcassets"; sourceTree = "<group>"; };
+		B816CDCC239F734300700E7B /* CountryFlags */ = {isa = PBXFileReference; lastKnownFileType = folder; name = CountryFlags; path = "../../Transmission Remote/Resources/CountryFlags"; sourceTree = "<group>"; };
+		B816CDCE239F735E00700E7B /* DocumentTypeIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = DocumentTypeIcon.png; path = "../../Transmission Remote/Resources/DocumentTypeIcon.png"; sourceTree = "<group>"; };
+		B816CDCF239F735F00700E7B /* DocumentTypeIcon512x512.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = DocumentTypeIcon512x512.png; path = "../../Transmission Remote/Resources/DocumentTypeIcon512x512.png"; sourceTree = "<group>"; };
+		B816CDD0239F735F00700E7B /* DocumentTypeIcon320x320.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = DocumentTypeIcon320x320.png; path = "../../Transmission Remote/Resources/DocumentTypeIcon320x320.png"; sourceTree = "<group>"; };
+		B816CDD1239F735F00700E7B /* DocumentTypeIcon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = DocumentTypeIcon.icns; path = "../../Transmission Remote/Resources/DocumentTypeIcon.icns"; sourceTree = "<group>"; };
+		B816CDD2239F735F00700E7B /* DocumentTypeIcon64x64.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = DocumentTypeIcon64x64.png; path = "../../Transmission Remote/Resources/DocumentTypeIcon64x64.png"; sourceTree = "<group>"; };
+		B81F398823ADAE0D00408EC2 /* Computer2@1x.pdf */ = {isa = PBXFileReference; explicitFileType = image.pdf; path = "Computer2@1x.pdf"; sourceTree = "<group>"; };
+		B81F398A23ADAE7D00408EC2 /* Computer3@1x.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "Computer3@1x.pdf"; sourceTree = "<group>"; };
+		B83EFBD923A42B970018C2F8 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		B83EFBDB23A48DA00018C2F8 /* TorrentDetailsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TorrentDetailsController.swift; sourceTree = "<group>"; };
+		B83EFBDD23A49BD00018C2F8 /* TorrentCommonController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TorrentCommonController.swift; sourceTree = "<group>"; };
+		B83EFBDF23A49E230018C2F8 /* TorrentInfoController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TorrentInfoController.swift; sourceTree = "<group>"; };
+		B83EFBE123A4E0500018C2F8 /* TorrentCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TorrentCellView.swift; sourceTree = "<group>"; };
+		B84D16D823ADCFC400BCFF3D /* WindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowController.swift; sourceTree = "<group>"; };
+		B852510023B42529002EF377 /* TorrentSearchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TorrentSearchController.swift; sourceTree = "<group>"; };
+		B852510623B4AB61002EF377 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		B87080FE23B9C46600A0AB22 /* TorrentFilesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TorrentFilesController.swift; sourceTree = "<group>"; };
+		B870810023BA0E9800A0AB22 /* TorrentFilesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TorrentFilesCell.swift; sourceTree = "<group>"; };
+		B872E35223BEDCC400AD04B1 /* SessionConfigController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionConfigController.swift; sourceTree = "<group>"; };
+		B890B34B23C1D1550038B3ED /* FileSearchController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileSearchController.swift; sourceTree = "<group>"; };
+		B8A06E6F23AE0E2C005A2C6D /* TorrentStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TorrentStackView.swift; sourceTree = "<group>"; };
+		B8A1656D23A1ED63009D68E9 /* AppKitExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppKitExtensions.swift; path = "/Users/jvega/Dropbox/Transmission Remote/Transmission Remote macOS/UI Classes/AppKitExtensions.swift"; sourceTree = "<absolute>"; };
+		B8A1656F23A1EDA5009D68E9 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B8A1657323A1EDA5009D68E9 /* Transmission_Remote_macOS.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = Transmission_Remote_macOS.entitlements; sourceTree = "<group>"; };
+		B8A1657623A1EDB1009D68E9 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		B8A1657823A1EE5C009D68E9 /* IconCloud.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IconCloud.swift; path = "/Users/jvega/Dropbox/Transmission Remote/Transmission Remote/UI Classes/IconCloud.swift"; sourceTree = "<absolute>"; };
+		B8A1657923A1EE5C009D68E9 /* IconFS.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IconFS.swift; sourceTree = "<group>"; };
+		B8A1657C23A213D6009D68E9 /* CategoryCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCellView.swift; sourceTree = "<group>"; };
+		B8DE8AED23AD422E000BDC63 /* IconHalfCloud.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IconHalfCloud.swift; path = "/Users/jvega/Dropbox/Transmission Remote/Transmission Remote/UI Classes/IconHalfCloud.swift"; sourceTree = "<absolute>"; };
+		B8DE8AF223AD4E09000BDC63 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = "../../Transmission Remote/en.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		B8DE8AF823AD4F94000BDC63 /* ProgressBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProgressBar.swift; path = "../../Transmission Remote/UI Classes/ProgressBar.swift"; sourceTree = "<group>"; };
+		B8DE8AFD23AD6DF1000BDC63 /* ServerConfigListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ServerConfigListController.swift; path = Controllers/ServerConfigListController.swift; sourceTree = SOURCE_ROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		B816CDAC239F72AE00700E7B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B809514923A0C0DF007CE2F1 /* UserNotifications.framework in Frameworks */,
+				B809514723A0C0D8007CE2F1 /* AppKit.framework in Frameworks */,
+				B816CDC7239F72F300700E7B /* TransmissionRPC in Frameworks */,
+				B816CDC4239F72EA00700E7B /* Categorization in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		B80950FE23A0B8E1007CE2F1 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				B80950FF23A0B8E1007CE2F1 /* TransmissionRPC-Extensions.swift */,
+				B809510023A0B8E1007CE2F1 /* FoundationExtensions.swift */,
+				B809510123A0B8E1007CE2F1 /* ServerConfigDB.swift */,
+				B809510223A0B8E1007CE2F1 /* TorrentCategorization.swift */,
+				B809510323A0B8E1007CE2F1 /* GeoIpConnector.swift */,
+				B809510423A0B8E1007CE2F1 /* GlobalConsts.swift */,
+				B809510523A0B8E1007CE2F1 /* RPCServerConfig.swift */,
+				B809510623A0B8E1007CE2F1 /* ResfreshTimerProtocol.swift */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		B809514423A0BDAF007CE2F1 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				B83EFBD923A42B970018C2F8 /* MainViewController.swift */,
+				B83EFBDF23A49E230018C2F8 /* TorrentInfoController.swift */,
+				B87080FE23B9C46600A0AB22 /* TorrentFilesController.swift */,
+				B83EFBDD23A49BD00018C2F8 /* TorrentCommonController.swift */,
+				B83EFBDB23A48DA00018C2F8 /* TorrentDetailsController.swift */,
+				B852510023B42529002EF377 /* TorrentSearchController.swift */,
+				B890B34B23C1D1550038B3ED /* FileSearchController.swift */,
+				B809514E23A0E76E007CE2F1 /* CategoriesController.swift */,
+				B8DE8AFD23AD6DF1000BDC63 /* ServerConfigListController.swift */,
+				B872E35223BEDCC400AD04B1 /* SessionConfigController.swift */,
+				B816CDB4239F72AE00700E7B /* ServerConfigController.swift */,
+				B84D16D823ADCFC400BCFF3D /* WindowController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		B809514523A0C0D7007CE2F1 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B809514823A0C0DF007CE2F1 /* UserNotifications.framework */,
+				B809514623A0C0D8007CE2F1 /* AppKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B816CDA6239F72AE00700E7B = {
+			isa = PBXGroup;
+			children = (
+				B8A1657623A1EDB1009D68E9 /* AppDelegate.swift */,
+				B80950FE23A0B8E1007CE2F1 /* Classes */,
+				B8A1656C23A1ED4F009D68E9 /* UI Classes */,
+				B809514423A0BDAF007CE2F1 /* Controllers */,
+				B816CDC9239F731100700E7B /* Resources */,
+				B816CDB0239F72AE00700E7B /* Products */,
+				B809514523A0C0D7007CE2F1 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		B816CDB0239F72AE00700E7B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				B816CDAF239F72AE00700E7B /* Transmission Remote.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		B816CDC9239F731100700E7B /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				B852510623B4AB61002EF377 /* Main.storyboard */,
+				B807F10623B145B800022386 /* InfoMessageController.swift */,
+				B807F10723B145B800022386 /* InfoMessageController.xib */,
+				B8DE8AF123AD4E09000BDC63 /* Localizable.strings */,
+				B8A1656F23A1EDA5009D68E9 /* Info.plist */,
+				B8A1657323A1EDA5009D68E9 /* Transmission_Remote_macOS.entitlements */,
+				B816CDD1239F735F00700E7B /* DocumentTypeIcon.icns */,
+				B81F398823ADAE0D00408EC2 /* Computer2@1x.pdf */,
+				B81F398A23ADAE7D00408EC2 /* Computer3@1x.pdf */,
+				B816CDCE239F735E00700E7B /* DocumentTypeIcon.png */,
+				B816CDD2239F735F00700E7B /* DocumentTypeIcon64x64.png */,
+				B816CDD0239F735F00700E7B /* DocumentTypeIcon320x320.png */,
+				B816CDCF239F735F00700E7B /* DocumentTypeIcon512x512.png */,
+				B816CDCC239F734300700E7B /* CountryFlags */,
+				B816CDCA239F733200700E7B /* Images.xcassets */,
+				B807F10D23B171D500022386 /* DockView.xib */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		B8A1656C23A1ED4F009D68E9 /* UI Classes */ = {
+			isa = PBXGroup;
+			children = (
+				B870810023BA0E9800A0AB22 /* TorrentFilesCell.swift */,
+				B807F11723B175DE00022386 /* DockView.swift */,
+				B807F10423B13FFF00022386 /* InfoMessage.swift */,
+				B8A06E6F23AE0E2C005A2C6D /* TorrentStackView.swift */,
+				B8DE8AF823AD4F94000BDC63 /* ProgressBar.swift */,
+				B8DE8AED23AD422E000BDC63 /* IconHalfCloud.swift */,
+				B83EFBE123A4E0500018C2F8 /* TorrentCellView.swift */,
+				B8A1657C23A213D6009D68E9 /* CategoryCellView.swift */,
+				B8A1657823A1EE5C009D68E9 /* IconCloud.swift */,
+				B8A1657923A1EE5C009D68E9 /* IconFS.swift */,
+				B8A1656D23A1ED63009D68E9 /* AppKitExtensions.swift */,
+			);
+			path = "UI Classes";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		B816CDAE239F72AE00700E7B /* Transmission Remote */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B816CDBF239F72AF00700E7B /* Build configuration list for PBXNativeTarget "Transmission Remote" */;
+			buildPhases = (
+				B816CDAB239F72AE00700E7B /* Sources */,
+				B816CDAC239F72AE00700E7B /* Frameworks */,
+				B816CDAD239F72AE00700E7B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Transmission Remote";
+			packageProductDependencies = (
+				B816CDC3239F72EA00700E7B /* Categorization */,
+				B816CDC6239F72F300700E7B /* TransmissionRPC */,
+			);
+			productName = "Transmission Remote macOS";
+			productReference = B816CDAF239F72AE00700E7B /* Transmission Remote.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		B816CDA7239F72AE00700E7B /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1120;
+				LastUpgradeCheck = 1130;
+				TargetAttributes = {
+					B816CDAE239F72AE00700E7B = {
+						CreatedOnToolsVersion = 11.2.1;
+					};
+				};
+			};
+			buildConfigurationList = B816CDAA239F72AE00700E7B /* Build configuration list for PBXProject "Transmission Remote macOS" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = B816CDA6239F72AE00700E7B;
+			packageReferences = (
+				B816CDC2239F72EA00700E7B /* XCRemoteSwiftPackageReference "Categorization" */,
+				B816CDC5239F72F300700E7B /* XCRemoteSwiftPackageReference "TransmissionRPC" */,
+			);
+			productRefGroup = B816CDB0239F72AE00700E7B /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				B816CDAE239F72AE00700E7B /* Transmission Remote */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		B816CDAD239F72AE00700E7B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B816CDCB239F733200700E7B /* Images.xcassets in Resources */,
+				B81F398B23ADAE7E00408EC2 /* Computer3@1x.pdf in Resources */,
+				B816CDD7239F735F00700E7B /* DocumentTypeIcon64x64.png in Resources */,
+				B816CDD5239F735F00700E7B /* DocumentTypeIcon320x320.png in Resources */,
+				B816CDD6239F735F00700E7B /* DocumentTypeIcon.icns in Resources */,
+				B807F10923B145B800022386 /* InfoMessageController.xib in Resources */,
+				B8DE8AF323AD4E09000BDC63 /* Localizable.strings in Resources */,
+				B852510723B4AB61002EF377 /* Main.storyboard in Resources */,
+				B816CDCD239F734300700E7B /* CountryFlags in Resources */,
+				B807F10E23B171D500022386 /* DockView.xib in Resources */,
+				B816CDD3239F735F00700E7B /* DocumentTypeIcon.png in Resources */,
+				B81F398923ADAE0D00408EC2 /* Computer2@1x.pdf in Resources */,
+				B816CDD4239F735F00700E7B /* DocumentTypeIcon512x512.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		B816CDAB239F72AE00700E7B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B807F10523B13FFF00022386 /* InfoMessage.swift in Sources */,
+				B872E35323BEDCC400AD04B1 /* SessionConfigController.swift in Sources */,
+				B8A06E7023AE0E2C005A2C6D /* TorrentStackView.swift in Sources */,
+				B87080FF23B9C46600A0AB22 /* TorrentFilesController.swift in Sources */,
+				B83EFBDC23A48DA00018C2F8 /* TorrentDetailsController.swift in Sources */,
+				B8A1657A23A1EE5C009D68E9 /* IconCloud.swift in Sources */,
+				B809510E23A0B8E2007CE2F1 /* ResfreshTimerProtocol.swift in Sources */,
+				B8A1657D23A213D6009D68E9 /* CategoryCellView.swift in Sources */,
+				B83EFBE323A4E1A70018C2F8 /* TransmissionRPC-Extensions.swift in Sources */,
+				B83EFBDE23A49BD00018C2F8 /* TorrentCommonController.swift in Sources */,
+				B816CDB5239F72AE00700E7B /* ServerConfigController.swift in Sources */,
+				B8DE8AEF23AD422E000BDC63 /* IconHalfCloud.swift in Sources */,
+				B8DE8AFE23AD6DF1000BDC63 /* ServerConfigListController.swift in Sources */,
+				B809514F23A0E76E007CE2F1 /* CategoriesController.swift in Sources */,
+				B809510823A0B8E2007CE2F1 /* FoundationExtensions.swift in Sources */,
+				B890B34C23C1D1550038B3ED /* FileSearchController.swift in Sources */,
+				B809510923A0B8E2007CE2F1 /* ServerConfigDB.swift in Sources */,
+				B83EFBE223A4E0500018C2F8 /* TorrentCellView.swift in Sources */,
+				B83EFBDA23A42B970018C2F8 /* MainViewController.swift in Sources */,
+				B8DE8AFC23AD520F000BDC63 /* ProgressBar.swift in Sources */,
+				B809510B23A0B8E2007CE2F1 /* GeoIpConnector.swift in Sources */,
+				B809510D23A0B8E2007CE2F1 /* RPCServerConfig.swift in Sources */,
+				B8A1656E23A1ED63009D68E9 /* AppKitExtensions.swift in Sources */,
+				B8A1657B23A1EE5C009D68E9 /* IconFS.swift in Sources */,
+				B807F10823B145B800022386 /* InfoMessageController.swift in Sources */,
+				B807F11823B175DE00022386 /* DockView.swift in Sources */,
+				B84D16D923ADCFC400BCFF3D /* WindowController.swift in Sources */,
+				B852510123B42529002EF377 /* TorrentSearchController.swift in Sources */,
+				B8A1657723A1EDB1009D68E9 /* AppDelegate.swift in Sources */,
+				B83EFBE023A49E230018C2F8 /* TorrentInfoController.swift in Sources */,
+				B870810123BA0E9800A0AB22 /* TorrentFilesCell.swift in Sources */,
+				B809510A23A0B8E2007CE2F1 /* TorrentCategorization.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		B8DE8AF123AD4E09000BDC63 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B8DE8AF223AD4E09000BDC63 /* en */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		B816CDBD239F72AF00700E7B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "$(SRCROOT)/**";
+				LIBRARY_SEARCH_PATHS = "$(SRCROOT)/**";
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		B816CDBE239F72AF00700E7B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "$(SRCROOT)/**";
+				LIBRARY_SEARCH_PATHS = "$(SRCROOT)/**";
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+			};
+			name = Release;
+		};
+		B816CDC0239F72AF00700E7B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-macOS";
+				CODE_SIGN_ENTITLEMENTS = Resources/Transmission_Remote_macOS.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = 6ZSHLT264F;
+				ENABLE_HARDENED_RUNTIME = YES;
+				HEADER_SEARCH_PATHS = "$(SRCROOT)/**";
+				INFOPLIST_FILE = Resources/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = johnnyvega.TransmissionRemote;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				VALID_ARCHS = x86_64;
+			};
+			name = Debug;
+		};
+		B816CDC1239F72AF00700E7B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-macOS";
+				CODE_SIGN_ENTITLEMENTS = Resources/Transmission_Remote_macOS.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = 6ZSHLT264F;
+				ENABLE_HARDENED_RUNTIME = YES;
+				HEADER_SEARCH_PATHS = "$(SRCROOT)/**";
+				INFOPLIST_FILE = Resources/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = johnnyvega.TransmissionRemote;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				VALID_ARCHS = x86_64;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		B816CDAA239F72AE00700E7B /* Build configuration list for PBXProject "Transmission Remote macOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B816CDBD239F72AF00700E7B /* Debug */,
+				B816CDBE239F72AF00700E7B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B816CDBF239F72AF00700E7B /* Build configuration list for PBXNativeTarget "Transmission Remote" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B816CDC0239F72AF00700E7B /* Debug */,
+				B816CDC1239F72AF00700E7B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		B816CDC2239F72EA00700E7B /* XCRemoteSwiftPackageReference "Categorization" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/jvega1976/Categorization.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+		B816CDC5239F72F300700E7B /* XCRemoteSwiftPackageReference "TransmissionRPC" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/jvega1976/TransmissionRPC.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		B816CDC3239F72EA00700E7B /* Categorization */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B816CDC2239F72EA00700E7B /* XCRemoteSwiftPackageReference "Categorization" */;
+			productName = Categorization;
+		};
+		B816CDC6239F72F300700E7B /* TransmissionRPC */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B816CDC5239F72F300700E7B /* XCRemoteSwiftPackageReference "TransmissionRPC" */;
+			productName = TransmissionRPC;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = B816CDA7239F72AE00700E7B /* Project object */;
+}

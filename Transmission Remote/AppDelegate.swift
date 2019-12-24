@@ -24,7 +24,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     var isDownloading: Bool! = true
     var lastTimeChecked: TimeInterval!
     var session: RPCSession?
-    
     let center = UNUserNotificationCenter.current()
     
     
@@ -126,13 +125,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
             let lastTimeChecked = self.lastTimeChecked!
             self.lastTimeChecked = Date().timeIntervalSince1970
             self.isDownloading = torrents.contains(where:{ jsonObject in [TorrentStatus.download.rawValue, TorrentStatus.downloadWait.rawValue].contains(jsonObject[JSONKeys.status] as? Int) && jsonObject[JSONKeys.activityDate] as? TimeInterval ?? 0 >= lastTimeChecked })
-            let torrentArray = torrents.filter({ jsonObject in jsonObject[JSONKeys.doneDate] as? TimeInterval ?? 0 >=  lastTimeChecked})
+            let torrentArray = torrents.filter({ jsonObject in jsonObject[JSONKeys.doneDate] as? TimeInterval ?? 0 >=  lastTimeChecked - 30 })
             var bagnumber = 0
             DispatchQueue.main.async {
                 bagnumber = UIApplication.shared.applicationIconBadgeNumber
             }
             for trInfo in torrentArray {
-                DispatchQueue.global(qos: .userInitiated).async {
+                DispatchQueue.global(qos: .userInteractive).async {
                     let content = UNMutableNotificationContent()
                     content.title = String.localizedStringWithFormat("Torrent Finished")
                     content.body = String.localizedStringWithFormat("\"%@\" have been downloaded.", trInfo[JSONKeys.name] as! String)
@@ -142,15 +141,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
                     bagnumber += 1
                     content.badge = NSNumber(value: bagnumber)
                     let request = UNNotificationRequest(identifier: trInfo[JSONKeys.name] as! String, content: content, trigger: trigger)
-                    self.center.add(request, withCompletionHandler: { error in
+                    UNUserNotificationCenter.current().add(request, withCompletionHandler: { error in
                         if error != nil {
                             os_log("Transmission Remote: Notification for torrent: %@  failed with Error: %@",trInfo[JSONKeys.name] as! String, error!.localizedDescription)
                         }
                     })
                 }
             }
-            self.defaults.set(self.lastTimeChecked, forKey: USERDEFAULTS_BGFETCH_KEY_LAST_TIME)
-            self.defaults.synchronize()
+            TorrentTableController.saveLastTimeChecked(self.lastTimeChecked)
             os_log("Transmission Remote: Finished Processing of Backgroud Task")
         })
         
@@ -219,10 +217,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         else {
             self.session = RPCSession.shared
         }
-        self.lastTimeChecked = defaults.double(forKey: USERDEFAULTS_BGFETCH_KEY_LAST_TIME)
-        if self.lastTimeChecked == 0 {
-            self.lastTimeChecked = Date().timeIntervalSince1970
-        }
+        let encoder = JSONEncoder()
+        let items = TorrentCategorization.shared.itemsForSelectedCategory
+        let highRange = items.count < 1000 ? items.count : 1000
+        let torrents = Array(items[0..<highRange]) as? Array<Torrent>
+        let data = try? encoder.encode(torrents)
+        defaults.set(data, forKey: TORRENT_LIST)
+        defaults.synchronize()
     }
 
     
@@ -245,12 +246,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         do {
             try RPCSession.shared?.restart()
             DispatchQueue.main.async {
-                NotificationCenter.default.post(name: .EnableTimers, object: nil, userInfo: nil)
                 self.center.removeAllDeliveredNotifications()
                 UIApplication.shared.applicationIconBadgeNumber = 0
+                NotificationCenter.default.post(name: .EnableTimers, object: nil, userInfo: nil)
             }
        } catch {
-        displayErrorMessage(error.localizedDescription, using: (self.window?.rootViewController as? UINavigationController)?.topViewController)
+            if error.localizedDescription != "The network connection was lost." {
+                displayErrorMessage(error.localizedDescription, using: (self.window?.rootViewController as? UINavigationController)?.topViewController)
+            }
+            self.applicationDidBecomeActive(UIApplication.shared)
         }
     }
     
@@ -258,11 +262,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         if globalRefreshTimer.isValid {
             globalRefreshTimer.invalidate()
         }
-        RPCSession.shared!.stopRequests()
-        RPCSession.shared!.shutdownSession { (error) in
-            guard let errorMessage = error?.localizedDescription else {return}
-            os_log("%@",errorMessage)
-        }
+        RPCSession.shared?.stopRequests()
     }
 }
 
@@ -344,12 +344,21 @@ extension AppDelegate {
         }
         
         if torrentFile != nil {
-            session.addTorrent(usingFile: torrentFile, addPaused: false, withPriority: .veryHigh) { error in
+            session.addTorrent(usingFile: torrentFile, addPaused: false, withPriority: .veryHigh) { trId, error in
                 DispatchQueue.main.async {
-                if error != nil {
-                    displayErrorMessage(error!.localizedDescription, using: (self.window?.rootViewController as? UINavigationController)?.topViewController)
+                    if error != nil {
+                        displayErrorMessage(error!.localizedDescription, using: (self.window?.rootViewController as? UINavigationController)?.topViewController)
                     } else {
-                    displayInfoMessage(NSLocalizedString("New torrent has been added", comment: ""), using: (self.window?.rootViewController as? UINavigationController)?.topViewController)
+                        displayInfoMessage(NSLocalizedString("New torrent has been added", comment: ""), using: (self.window?.rootViewController as? UINavigationController)?.topViewController)
+                        session.getInfo(forTorrents: [trId!], withPriority: .veryHigh, andCompletionHandler: { torrents, removed, error in
+                            DispatchQueue.main.async {
+                                if error != nil {
+                                    displayErrorMessage(error!.localizedDescription, using: (self.window?.rootViewController as? UINavigationController)?.topViewController)
+                                } else {
+                                    TorrentCategorization.shared.updateItems(with: torrents!)
+                                }
+                            }
+                        })
                     }
                 }
             }
