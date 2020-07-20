@@ -1,5 +1,7 @@
 # Transmission Remote for iOS
 
+**This repository have been archive.  Please check the new repository TransmissionRemoteSwiftUI**
+
 Transmission Remote is an iOS app to manage Transmission Remote sessions using the RPC protocol.
 
 The app require a device with iOS 13.0 installed.
